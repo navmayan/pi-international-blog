@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>age-iat on Project Implicit&#39;s International Sites</title>
+    <link>/tags/age-iat/</link>
+    <description>Recent content in age-iat on Project Implicit&#39;s International Sites</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>youremail@domain.com (Project Implicit)</managingEditor>
+    <webMaster>youremail@domain.com (Project Implicit)</webMaster>
+    
+	<atom:link href="/tags/age-iat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test Figures Post</title>
+      <link>/post/2020-04-20-test-figures-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Project Implicit)</author>
+      <guid>/post/2020-04-20-test-figures-post/</guid>
+      <description>Total N = 3203
+Participation per year (N):
+Evaluation measures Note: Higher values indicate stronger bias in favor of the dominant category (young people).
+ IAT: There is a strong bias in favor of Young people   Self-reported preference between the categories: There is a strong bias in favor of Young people   Self-reported feeling thermometer (difference score): There is a small bias in favor of Young people. The difference between the current and previous measure might result from the nature of each measure: while the Self-reported preference measure directly compares Young and Old people (as does the IAT), the thermometer does not compare the two categories directly.</description>
+    </item>
+    
+  </channel>
+</rss>
