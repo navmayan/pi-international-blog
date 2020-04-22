@@ -10,6 +10,8 @@ categories:
 tags: []
 always_allow_html: true
 self.contained: true
+blogdown::html_page:
+  toc: true
 ---
 
 

@@ -5,7 +5,18 @@
       <article role="main" class="blog-post">
         {{ .Content }}
 
-        {{ if .Params.tags }}
+        <p class="terms">
+		  {{ range $i := (slice "categories" "tags") }}
+		  {{ with ($.Param $i) }}
+		  {{ $i | title }}:
+		  {{ range $k := . }}
+		  <a href='{{ relURL (print "/" $i "/" $k | urlize) }}'>{{$k}}</a>
+		  {{ end }}
+		  {{ end }}
+		  {{ end }}
+		</p>
+		
+		{{ if .Params.tags }}
           <div class="blog-tags">
             {{ range .Params.tags }}
               <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
