@@ -21,7 +21,7 @@ disqusShortname = "project-implicits-international-sites-blog"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
-  rss = true
+  rss = false
   comments = true
   readingTime = true
   wordCount = true
@@ -108,10 +108,10 @@ disqusShortname = "project-implicits-international-sites-blog"
 #    url = "post/2016-03-08-code-sample"
 #    weight = 3
 
-[[menu.main]]
-    name = "Tags"
-    url = "tags"
-    weight = 3
+#[[menu.main]]
+#    name = "Tags"
+#    url = "tags"
+#    weight = 3
 [[menu.main]]
     name = "Categories"
     url = "categories"
