@@ -82,7 +82,7 @@ disqusShortname = "project-implicits-international-sites-blog"
 
 [[menu.main]]
     name = "About"
-    url = "page/about/"
+    url = "about/" #"page/about/"
     weight = 3
 
 #[[menu.main]]
