@@ -46,8 +46,8 @@ disqusShortname = "project-implicits-international-sites-blog"
 
 [Author]
   name = "Project Implicit"
-  website = "yourwebsite.com"
-  email = "youremail@domain.com"
+  website = "https://implicit.harvard.edu/implicit/"
+  email = "mayanna@post.bgu.ac.il"
 #  facebook = "username"
   github = "navmayan/pi-international-blog"
 #  gitlab = "username"
