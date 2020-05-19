@@ -19,7 +19,7 @@ always_allow_html: true
 self.contained: true
 output:
   blogdown::html_page:
-      toc: false
+      toc: true
       fig_height: 7
       fig_width: 10   
 type: ''
