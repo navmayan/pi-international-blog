@@ -1,6 +1,6 @@
 ---
-title: Analysis of Israel's data
-author: Mayan
+title: "Analysis of Israel's data"
+author: 'Mayan Navon'
 date: '2020-05-19'
 slug: analysis-of-israel-s-data
 categories:
