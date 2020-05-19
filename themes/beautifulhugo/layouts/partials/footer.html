@@ -154,4 +154,10 @@ $(function(){
 <!-- End Delayed Disqus -->
 {{ end }}
 
+{{ if not .Site.Params.disable_codefolding }}
+  <script src="{{ "js/collapse.js" | relURL }}"></script>
+  <script src="{{ "js/dropdown.js" | relURL }}"></script>
+  <script src="{{ "js/transition.js" | relURL }}"></script>
+{{ end }}
+
 {{- partial "footer_custom.html" . }}

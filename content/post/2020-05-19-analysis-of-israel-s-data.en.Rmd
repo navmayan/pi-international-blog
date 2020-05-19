@@ -17,15 +17,15 @@ categories:
 tags: []
 always_allow_html: true
 self.contained: true
-blogdown::html_page:
-    code_folding: hide
-    fig_height: 5
-    fig_width: 10   
-    toc: true
-    toc_float: true
+output:
+  blogdown::html_page:
+      toc: true
+      fig_height: 5
+      fig_width: 10   
 type: ''
-subtitle: ''
-image: ''
+subtitle: 'Here we present the results of 8 IATs that were ran in Israel.'
+description: 'Here we present the results of 8 IATs that were ran in Israel.'
+image: '' #/public/israel_flag.png
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
 classoption: landscape
 ---

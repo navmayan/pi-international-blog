@@ -17,15 +17,15 @@ categories:
 tags: []
 always_allow_html: true
 self.contained: true
-blogdown::html_page:
-    code_folding: hide
-    fig_height: 5
-    fig_width: 10   
-    toc: true
-    toc_float: true
+output:
+  blogdown::html_page:
+      toc: true
+      fig_height: 5
+      fig_width: 10   
 type: ''
-subtitle: ''
-image: ''
+subtitle: 'Here we present the results of 8 IATs that were ran in Israel.'
+description: 'Here we present the results of 8 IATs that were ran in Israel.'
+image: '' #/public/israel_flag.png
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
 classoption: landscape
 ---
@@ -480,7 +480,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(age, vars = vars(IAT), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -510,7 +510,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(age, vars = vars(att), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -543,7 +543,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(age, vars = vars(diff_thermo), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -605,7 +605,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
 </div>
 <div id="internalexternal-motivation-to-avoid-prejudice-1" class="section level3">
 <h3><em>Internal/External motivation to avoid prejudice</em></h3>
@@ -625,7 +625,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
 <p>Both motivations were related to participants’ self-reported evaluations (thermometer): external motivation was related to <em>more positive</em> evaluation, while higher internal motivation was related to <em>less positive</em> evaluation.
 Note that no participant performed both IMS/EMS and IAT and self-reported preference measures.</p>
 <pre class="r"><code>ggscatter(age, x = &quot;diff_thermo&quot;, y = &quot;ims_mean&quot;,
@@ -635,7 +635,7 @@ Note that no participant performed both IMS/EMS and IAT and self-reported prefer
                             fill = &quot;lightgray&quot;)
           )+
   stat_cor(method = &quot;pearson&quot;, label.x = 3, label.y = 30)  # Add correlation coefficient</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
 <pre class="r"><code>ggscatter(age, x = &quot;diff_thermo&quot;, y = &quot;ems_mean&quot;,
           add = &quot;reg.line&quot;,                                 # Add regression line
           conf.int = TRUE,                                  # Add confidence interval
@@ -643,7 +643,7 @@ Note that no participant performed both IMS/EMS and IAT and self-reported prefer
                             fill = &quot;lightgray&quot;)
           )+
   stat_cor(method = &quot;pearson&quot;, label.x = 3, label.y = 30) </code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-11-2.png" width="960" /></p>
 </div>
 <div id="perceptions-regarding-age" class="section level3">
 <h3><strong>Perceptions regarding age</strong></h3>
@@ -952,7 +952,7 @@ age %&gt;% corrMatrix(vars = vars(IAT, att, diff_thermo, age))</code></pre>
 age1$iat_n = factor(age1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(age1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-16-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -1002,10 +1002,10 @@ p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
 ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
 <pre><code>$`1`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-1.png" width="960" /></p>
 <pre><code>
 $`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-2.png" width="960" /></p>
 <pre><code>
 attr(,&quot;class&quot;)
 [1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
@@ -1124,7 +1124,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-19-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(ethnic, vars = vars(IAT), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -1154,7 +1154,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-21-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(ethnic, vars = vars(att), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -1185,7 +1185,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-23-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(ethnic, vars = vars(diff_pref), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -1247,7 +1247,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-26-1.png" width="960" /></p>
 </div>
 <div id="perceived-preference-in-society" class="section level3">
 <h3><strong>Perceived preference in society</strong></h3>
@@ -1267,7 +1267,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-27-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(ethnic, vars = vars(isr), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -1375,7 +1375,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-30-1.png" width="960" /></p>
 <p>Looking at the perceptions <em>per ethnicity</em>, we get a somewhat different picture:
 - A larger part of the distribution of Ashkenazi and Mixed-ethnicity participants thought that Mizrahi Israelis are scarier, compared with Mizrahi, Zabar, and Other participants.
 - The pro-Mizrahi bias in Smart was smaller for Ashkenazi and Zabar participants.
@@ -1433,7 +1433,7 @@ p4 &lt;- p4 + theme(legend.position = &quot;none&quot;)
 
 
 ggarrange(p1, p2, p3, p4, ncol = 1, nrow = 4)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-31-1.png" width="960" /></p>
 <p>There was a positive relation between all evaluation measures and all perception measures, but Smart and Scare were most strongly related to evaluation.</p>
 <pre class="r"><code>ethnic %&gt;% corrMatrix(vars = vars(IAT, att, diff_pref, scare, 
     hot_rs, smart, nice_rs))</code></pre>
@@ -2157,7 +2157,7 @@ ethnic1$iat_n = factor(ethnic1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&qu
     &quot;6+&quot;))
 
 ggline(ethnic1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-34-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-1" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -2207,10 +2207,10 @@ p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
 ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
 <pre><code>$`1`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-1.png" width="960" /></p>
 <pre><code>
 $`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-2.png" width="960" /></p>
 <pre><code>
 attr(,&quot;class&quot;)
 [1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
@@ -2329,7 +2329,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-37-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(race, vars = vars(IAT), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -2359,7 +2359,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-39-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(race, vars = vars(att), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -2390,7 +2390,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-41-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(race, vars = vars(diff_thermo), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -2452,7 +2452,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-44-1.png" width="960" /></p>
 </div>
 <div id="right-wing-authoritarianism-1" class="section level3">
 <h3><strong>Right wing authoritarianism</strong></h3>
@@ -2474,7 +2474,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-45-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(race, vars = vars(rwa_mean), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -2508,7 +2508,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-47-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(race, vars = vars(sdo_mean), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -3184,7 +3184,7 @@ race %&gt;% corrMatrix(vars = vars(IAT, att, diff_thermo, age, religionid))</cod
 race1$iat_n = factor(race1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(race1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-51-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-2" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -3234,10 +3234,10 @@ p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
 ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
 <pre><code>$`1`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-1.png" width="960" /></p>
 <pre><code>
 $`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-2.png" width="960" /></p>
 <pre><code>
 attr(,&quot;class&quot;)
 [1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
@@ -3356,7 +3356,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-54-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(skin, vars = vars(IAT), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -3386,7 +3386,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-56-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(skin, vars = vars(diff_thermo), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -3445,7 +3445,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-59-1.png" width="960" /></p>
 </div>
 <div id="perceptions-regarding-skin-tone" class="section level3">
 <h3><strong>Perceptions regarding skin tone</strong></h3>
@@ -3484,7 +3484,7 @@ p2 &lt;- p2 + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
 p2 &lt;- p2 + theme(legend.position = &quot;none&quot;)
 
 cowplot::plot_grid(p1, p2, ncol = 2, nrow = 1)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-60-1.png" width="960" /></p>
 <pre class="r"><code>skin$`Perceived Skin` &lt;- as.numeric(skin$myskin)
 skin$`Preferred Skin` &lt;- as.numeric(skin$preferskin)
 
@@ -3533,7 +3533,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-62-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(skin, vars = vars(&quot;rwa_mean&quot;), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -3567,7 +3567,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-64-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(skin, vars = vars(&quot;sdo_mean&quot;), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -3930,7 +3930,7 @@ pp</code></pre>
 skin1$iat_n = factor(skin1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(skin1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-68-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-3" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -3967,7 +3967,7 @@ p2 &lt;- p2 + theme(legend.position = &quot;none&quot;)
 
 
 cowplot::plot_grid(p1, p2, ncol = 2, align = &quot;h&quot;, axis = &quot;bt&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-69-1.png" width="960" /></p>
 </div>
 </div>
 <div id="weight-iat" class="section level2">
@@ -4083,7 +4083,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-71-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(weight, vars = vars(&quot;IAT&quot;), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -4113,7 +4113,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-73-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(weight, vars = vars(&quot;att&quot;), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -4145,7 +4145,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-75-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(weight, vars = vars(&quot;diff_thermo&quot;), testValue = 0, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -4207,7 +4207,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-78-1.png" width="960" /></p>
 </div>
 <div id="internalexternal-motivation-to-avoid-prejudice-2" class="section level3">
 <h3><strong>Internal/External motivation to avoid prejudice</strong></h3>
@@ -4227,7 +4227,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-79-1.png" width="960" /></p>
 <p>Higher internal motivation was related to <em>less positive</em> feelings toward <em>fat people</em>.
 Note that no participant performed both IMS/EMS and the self-reported preference measure.</p>
 <pre class="r"><code>weight %&gt;% corrMatrix(vars = vars(IAT,att,diff_thermo, ims_mean, ems_mean))</code></pre>
@@ -4268,7 +4268,7 @@ Error in cor.test.default(var1, var2, alternative = hyp, method = &quot;spearman
                             fill = &quot;lightgray&quot;)
           )+
   stat_cor(method = &quot;pearson&quot;, label.x = 3, label.y = 30)  # Add correlation coefficient</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-80-1.png" width="960" /></p>
 </div>
 <div id="perceptions-regarding-weight" class="section level3">
 <h3><strong>Perceptions regarding weight</strong></h3>
@@ -4288,7 +4288,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-81-1.png" width="960" /></p>
 <pre class="r"><code>weight_mean &lt;- mean(weight1$weightkg, na.rm = T)</code></pre>
 <p>The mean weight in the sample was 65.29 (excluding values below 30 and above 300).</p>
 <p>Participants tought that it is somewhat difficult to lose weight, that people have some control over their weight, that there is a slight bias against fat people, and that they are neither underweight nor overweight.</p>
@@ -4602,7 +4602,7 @@ weight1$iat_n = factor(weight1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&qu
     &quot;6+&quot;))
 
 ggline(weight1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-85-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-4" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -4651,7 +4651,7 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
 cowplot::plot_grid(p1, p3, p2, ncol = 2, align = &quot;v&quot;, axis = &quot;bt&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-86-1.png" width="960" /></p>
 </div>
 </div>
 <div id="sexuality-iat" class="section level2">
@@ -4767,7 +4767,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-88-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(sexuality, vars = vars(&quot;IAT&quot;), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -4797,7 +4797,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-90-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(sexuality, vars = vars(&quot;att&quot;), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -4829,7 +4829,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-92-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(sexuality, vars = vars(&quot;diff_thermo_male&quot;), testValue = 0, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -4860,7 +4860,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-94-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(sexuality, vars = vars(&quot;diff_thermo_female&quot;), testValue = 0, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -4926,7 +4926,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-97-1.png" width="960" /></p>
 </div>
 <div id="perceptions-regarding-sexuality" class="section level3">
 <h3><strong>Perceptions regarding sexuality</strong></h3>
@@ -5610,7 +5610,7 @@ sexuality1$iat_n = factor(sexuality1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quo
     &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(sexuality1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-100-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-5" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -5678,7 +5678,7 @@ p4 &lt;- p4 + theme(legend.position = &quot;none&quot;)
 
 
 cowplot::plot_grid(p1, p3, p2, p4, ncol = 2, align = &quot;h&quot;, axis = &quot;bt&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-101-1.png" width="960" /></p>
 </div>
 </div>
 <div id="gender-science-iat" class="section level2">
@@ -5801,7 +5801,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-103-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(gender_science, vars = vars(&quot;IAT&quot;), testValue = 0, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -5834,7 +5834,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-1.png" width="960" /></p>
 <pre class="r"><code># arts
 
 pp &lt;- ggdensity(gender_science, x = &quot;arts&quot;, y = &quot;..density..&quot;, 
@@ -5851,7 +5851,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-2.png" width="960" /></p>
 <pre class="r"><code># score
 
 pp &lt;- ggdensity(gender_science, x = &quot;diff_attitudes&quot;, y = &quot;..density..&quot;, 
@@ -5868,7 +5868,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-3.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-105-3.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(gender_science, vars = vars(&quot;diff_attitudes&quot;), testValue = 0, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -5901,7 +5901,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-1.png" width="960" /></p>
 <pre class="r"><code># arts
 
 pp &lt;- ggdensity(gender_science, x = &quot;Larts&quot;, y = &quot;..density..&quot;, 
@@ -5918,7 +5918,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-2.png" width="960" /></p>
 <pre class="r"><code># score
 
 pp &lt;- ggdensity(gender_science, x = &quot;diff_lsciarts&quot;, y = &quot;..density..&quot;, 
@@ -5935,7 +5935,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-3.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-107-3.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(gender_science, vars = vars(&quot;Lscience&quot;, &quot;Larts&quot;), testValue = 4, 
     effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -5981,7 +5981,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-1.png" width="960" /></p>
 <pre class="r"><code># arts
 
 pp &lt;- ggdensity(gender_science, x = &quot;likeart&quot;, y = &quot;..density..&quot;, 
@@ -5998,7 +5998,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-2.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-2.png" width="960" /></p>
 <pre class="r"><code># score
 
 pp &lt;- ggdensity(gender_science, x = &quot;diff_learned&quot;, y = &quot;..density..&quot;, 
@@ -6015,7 +6015,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-3.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-109-3.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(gender_science, vars = vars(&quot;likesci&quot;, &quot;likeart&quot;), 
     testValue = 3, effectSize = T, ci = T)</code></pre>
 <pre><code>
@@ -6094,7 +6094,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-112-1.png" width="960" /></p>
 </div>
 <div id="perceptions-regarding-gender-and-science" class="section level3">
 <h3><strong>Perceptions regarding gender and science</strong></h3>
@@ -7173,7 +7173,7 @@ gender_science1$iat_n = factor(gender_science1$num.x, c(&quot;0&quot;,
     &quot;1&quot;, &quot;2&quot;, &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(gender_science1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-116-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-6" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -7242,7 +7242,7 @@ p4 &lt;- p4 + theme(legend.position = &quot;none&quot;)
 
 
 cowplot::plot_grid(p1, p3, p2, p4, ncol = 2, align = &quot;h&quot;, axis = &quot;bt&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-117-1.png" width="960" /></p>
 </div>
 </div>
 <div id="nationalism-iat" class="section level2">
@@ -7358,7 +7358,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-119-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(usa, vars = vars(&quot;IAT&quot;), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -7388,7 +7388,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-121-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(usa, vars = vars(&quot;att&quot;), testValue = 4, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -7420,7 +7420,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-123-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(usa, vars = vars(&quot;diff_thermo&quot;), testValue = 0, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -7482,7 +7482,7 @@ font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&q
 font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-126-1.png" width="960" /></p>
 </div>
 <div id="right-wing-authoritarianism-3" class="section level3">
 <h3><strong>Right wing authoritarianism</strong></h3>
@@ -7504,7 +7504,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-127-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(usa, vars = vars(&quot;rwa_mean&quot;), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -7538,7 +7538,7 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-129-1.png" width="960" /></p>
 <pre class="r"><code>ttestOneS(usa, vars = vars(&quot;sdo_mean&quot;), testValue = 3.5, effectSize = T, 
     ci = T)</code></pre>
 <pre><code>
@@ -8200,7 +8200,7 @@ usa %&gt;% corrMatrix(vars = vars(IAT, att, diff_thermo, age, religionid))</code
 usa1$iat_n = factor(usa1$num.x, c(&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3-5&quot;, &quot;6+&quot;))
 
 ggline(usa1, x = &quot;iat_n&quot;, y = &quot;IAT&quot;, add = &quot;mean_ci&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-133-1.png" width="960" /></p>
 </div>
 <div id="evaluation-measures-by-year-7" class="section level3">
 <h3><strong>Evaluation measures by year</strong></h3>
@@ -8252,7 +8252,7 @@ p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
 
 cowplot::plot_grid(p1, p3, p2, ncol = 2, align = &quot;h&quot;, axis = &quot;bt&quot;)</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-134-1.png" width="960" /></p>
 </div>
 </div>
 </div>
@@ -8295,5 +8295,5 @@ font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-136-1.png" width="960" /></p>
 </div>
