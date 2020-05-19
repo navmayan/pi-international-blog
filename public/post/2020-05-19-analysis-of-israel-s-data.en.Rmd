@@ -20,7 +20,7 @@ self.contained: true
 output:
   blogdown::html_page:
       toc: false
-      fig_height: 5
+      fig_height: 7
       fig_width: 10   
 type: ''
 subtitle: ''
@@ -32,7 +32,7 @@ classoption: landscape
 
 <style type="text/css"> body, td { font-size: 16px; } code.r{ font-size: 12px; } pre { font-size: 12px } </style>
 
-```{r setup, warning=FALSE}
+```{r setup, warning=FALSE, include=FALSE}
 
 knitr::opts_chunk$set(
 	echo = TRUE,
@@ -43,7 +43,6 @@ knitr::opts_chunk$set(
 	prompt = FALSE,
 	tidy = TRUE
 )
-
 library(knitr)
 
 options(max.print="275")
@@ -67,7 +66,7 @@ pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExt
 
 ```
 
-```{r load data}
+```{r load data, include=FALSE}
 
 age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
 ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
@@ -608,7 +607,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                       
+ggarrange(p1, p2, p3, ncol = 1,nrow = 3)                                       
 
 ```
 
@@ -1114,7 +1113,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                        
+ggarrange(p1, p2, p3, ncol = 1,nrow = 3)                                        
 
 ```
 
@@ -1499,7 +1498,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                        
+ggarrange(p1, p2, p3, ncol = 1,nrow = 3)                                        
 
 ```
 

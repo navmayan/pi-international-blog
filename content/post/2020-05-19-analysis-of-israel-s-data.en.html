@@ -20,7 +20,7 @@ self.contained: true
 output:
   blogdown::html_page:
       toc: false
-      fig_height: 5
+      fig_height: 7
       fig_width: 10   
 type: ''
 subtitle: ''
@@ -35,21 +35,6 @@ classoption: landscape
 
 
 <style type="text/css"> body, td { font-size: 16px; } code.r{ font-size: 12px; } pre { font-size: 12px } </style>
-<pre class="r"><code>knitr::opts_chunk$set(
-    echo = TRUE,
-    message = FALSE,
-    warning = FALSE,
-    cache = FALSE,
-    comment = NA,
-    prompt = FALSE,
-    tidy = TRUE
-)
-
-library(knitr)
-
-options(max.print=&quot;275&quot;)
-options(width = 1330)
-opts_knit$set(width=175) </code></pre>
 <style type="text/css">
 .main-container {
   max-width: 1750px;
@@ -57,21 +42,6 @@ opts_knit$set(width=175) </code></pre>
   margin-right: auto;
 }
 </style>
-<pre class="r"><code>age &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-ethnic &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-gender_science &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv&quot;)  #%&gt;% filter(year &gt;= 2009)
-race &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\race\\race_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-sexuality &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\sexuality\\sexuality_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-weight &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\weight\\weight_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-skin &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\skin\\skin_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)
-usa &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\usa\\usa_iat_wide.csv&quot;) %&gt;% 
-    filter(year &gt;= 2009)</code></pre>
 <div id="summary" class="section level1">
 <h1>Summary</h1>
 <ul>
@@ -896,15 +866,8 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
-<pre><code>$`1`</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 3)</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-1.png" width="960" /></p>
-<pre><code>
-$`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-2.png" width="960" /></p>
-<pre><code>
-attr(,&quot;class&quot;)
-[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="ethnicity-iat-1" class="section level2">
@@ -2101,15 +2064,8 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
-<pre><code>$`1`</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 3)</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-1.png" width="960" /></p>
-<pre><code>
-$`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-2.png" width="960" /></p>
-<pre><code>
-attr(,&quot;class&quot;)
-[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="race-iat" class="section level2">
@@ -3128,15 +3084,8 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
-<pre><code>$`1`</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 3)</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-1.png" width="960" /></p>
-<pre><code>
-$`2`</code></pre>
-<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-2.png" width="960" /></p>
-<pre><code>
-attr(,&quot;class&quot;)
-[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="skin-iat" class="section level2">
