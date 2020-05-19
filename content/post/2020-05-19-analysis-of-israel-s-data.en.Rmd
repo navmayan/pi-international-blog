@@ -22,7 +22,7 @@ blogdown::html_page:
     fig_height: 5
     fig_width: 10   
     toc: true
-    toc_float: yes
+    toc_float: true
 type: ''
 subtitle: ''
 image: ''
@@ -608,9 +608,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1,                                                 
-          ggarrange(p2, p3, ncol = 2), 
-          nrow = 2)                                       
+ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                       
 
 ```
 
@@ -992,7 +990,7 @@ font("xy.text", size = 10, color = "black")
 p4 <- p4 +theme(legend.position="none")
 
 
-ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2)             
+ggarrange(p1, p2, p3, p4, ncol = 1, nrow = 4)             
 
 ```
 
@@ -1116,9 +1114,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1,                                                 
-          ggarrange(p2, p3, ncol = 2), 
-          nrow = 2)                                       
+ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                        
 
 ```
 
@@ -1503,9 +1499,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-ggarrange(p1,                                                 
-          ggarrange(p2, p3, ncol = 2), 
-          nrow = 2)                                       
+ggarrange(p1, p2, p3, ncol = 1,nrow = 2)                                        
 
 ```
 
@@ -2276,7 +2270,7 @@ font("ylab", size = 14, color = "black", face = "bold")+
 font("xy.text", size = 10, color = "black")
 p3 <- p3 +theme(legend.position="none")
 
-cowplot::plot_grid(p1,p3, p2, ncol = 2, align = 'h', axis = "bt")
+cowplot::plot_grid(p1,p3, p2, ncol = 2, align = 'v', axis = "bt")
 
 
 ```

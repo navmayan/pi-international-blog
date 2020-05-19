@@ -22,7 +22,7 @@ blogdown::html_page:
     fig_height: 5
     fig_width: 10   
     toc: true
-    toc_float: yes
+    toc_float: true
 type: ''
 subtitle: ''
 image: ''
@@ -1000,8 +1000,15 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, ggarrange(p2, p3, ncol = 2), nrow = 2)</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
+<pre><code>$`1`</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre><code>
+$`2`</code></pre>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<pre><code>
+attr(,&quot;class&quot;)
+[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="ethnicity-iat-1" class="section level2">
@@ -1425,7 +1432,7 @@ p4 &lt;- p4 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
 p4 &lt;- p4 + theme(legend.position = &quot;none&quot;)
 
 
-ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2)</code></pre>
+ggarrange(p1, p2, p3, p4, ncol = 1, nrow = 4)</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>There was a positive relation between all evaluation measures and all perception measures, but Smart and Scare were most strongly related to evaluation.</p>
 <pre class="r"><code>ethnic %&gt;% corrMatrix(vars = vars(IAT, att, diff_pref, scare, 
@@ -2198,8 +2205,15 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, ggarrange(p2, p3, ncol = 2), nrow = 2)</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
+<pre><code>$`1`</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<pre><code>
+$`2`</code></pre>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
+<pre><code>
+attr(,&quot;class&quot;)
+[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="race-iat" class="section level2">
@@ -3218,8 +3232,15 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-ggarrange(p1, ggarrange(p2, p3, ncol = 2), nrow = 2)</code></pre>
+ggarrange(p1, p2, p3, ncol = 1, nrow = 2)</code></pre>
+<pre><code>$`1`</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<pre><code>
+$`2`</code></pre>
+<p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<pre><code>
+attr(,&quot;class&quot;)
+[1] &quot;list&quot;      &quot;ggarrange&quot;</code></pre>
 </div>
 </div>
 <div id="skin-iat" class="section level2">
@@ -4629,7 +4650,7 @@ p3 &lt;- p3 + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
 p3 &lt;- p3 + theme(legend.position = &quot;none&quot;)
 
-cowplot::plot_grid(p1, p3, p2, ncol = 2, align = &quot;h&quot;, axis = &quot;bt&quot;)</code></pre>
+cowplot::plot_grid(p1, p3, p2, ncol = 2, align = &quot;v&quot;, axis = &quot;bt&quot;)</code></pre>
 <p><img src="/post/2020-05-19-analysis-of-israel-s-data.en_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 </div>
 </div>
