@@ -89,9 +89,3 @@
 
 {{- partial "head_custom.html" . }}
 {{ template "_internal/google_analytics_async.html" . }}
-
-{{ if not .Site.Params.disable_codefolding }}
-  <script src="{{ "js/collapse.js" | relURL }}"></script>
-  <script src="{{ "js/dropdown.js" | relURL }}"></script>
-  <script src="{{ "js/transition.js" | relURL }}"></script>
-{{ end }}

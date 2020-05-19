@@ -19,11 +19,11 @@ always_allow_html: true
 self.contained: true
 output:
   blogdown::html_page:
-      toc: true
+      toc: false
       fig_height: 5
       fig_width: 10   
 type: ''
-subtitle: 'Here we present the results of 8 IATs that were ran in Israel.'
+subtitle: ''
 description: 'Here we present the results of 8 IATs that were ran in Israel.'
 image: '' #/public/israel_flag.png
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
