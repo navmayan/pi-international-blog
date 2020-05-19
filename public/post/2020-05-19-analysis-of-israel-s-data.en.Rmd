@@ -43,14 +43,14 @@ knitr::opts_chunk$set(
 library(knitr)
 
 options(max.print="275")
-options(width = 1230)
-opts_knit$set(width=75) 
+options(width = 1330)
+opts_knit$set(width=175) 
 
 ```
 
 <style type="text/css">
 .main-container {
-  max-width: 1650px;
+  max-width: 1750px;
   margin-left: auto;
   margin-right: auto;
 }
