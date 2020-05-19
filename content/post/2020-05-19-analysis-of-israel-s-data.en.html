@@ -18,7 +18,11 @@ tags: []
 always_allow_html: true
 self.contained: true
 blogdown::html_page:
-  toc: true
+    code_folding: hide
+    fig_height: 5
+    fig_width: 10   
+    toc: true
+    toc_float: yes
 type: ''
 subtitle: ''
 image: ''
@@ -31,6 +35,7 @@ classoption: landscape
 
 <div id="TOC">
 <ul>
+<li><a href="#summary">Summary</a></li>
 <li><a href="#tasks-overview">Tasks Overview</a><ul>
 <li><a href="#the-iats">The IATs</a></li>
 <li><a href="#the-self-reports">The Self-Reports</a><ul>
@@ -171,6 +176,15 @@ skin &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab project
     filter(year &gt;= 2009)
 usa &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\usa\\usa_iat_wide.csv&quot;) %&gt;% 
     filter(year &gt;= 2009)</code></pre>
+<div id="summary" class="section level1">
+<h1>Summary</h1>
+<ul>
+<li>Across all IAT tasks, both deliberate and automatic evaluation measures point to a preference of the dominant category over the non-dominant category.</li>
+<li>Across all tasks, the bias (preference) was much larger for the automatic than the deliberate evaluation.</li>
+<li>Across most of the tasks, the bias stays the same across the 12 years of data collection.</li>
+<li>IAT scores: The strongest bias among Israeli participants was regarding <strong>Age</strong> (Young &gt; Old people) and the smallest bias was regarding <strong>Sexuality</strong> (Straight &gt; Gay people).</li>
+</ul>
+</div>
 <div id="tasks-overview" class="section level1">
 <h1>Tasks Overview</h1>
 <div id="the-iats" class="section level2">
@@ -353,13 +367,6 @@ Score: difference score of DOMINANT CATEGORY - NON-DOMINANT CATEGORY.</p></li>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<p><strong>Summary</strong></p>
-<ul>
-<li>Across all IAT tasks, both deliberate and automatic evaluation measures point to a preference of the dominant category over the non-dominant category.</li>
-<li>Across all tasks, the bias (preference) was much larger for the automatic than the deliberate evaluation.</li>
-<li>Across most of the tasks, the bias stays the same across the 12 years of data collection.</li>
-<li>IAT scores: The strongest bias among Israeli participants was regarding <strong>Age</strong> (Young &gt; Old people) and the smallest bias was regarding <strong>Sexuality</strong> (Straight &gt; Gay people).</li>
-</ul>
 <div id="age-iat" class="section level2">
 <h2>Age IAT</h2>
 <p><mark>Total N = 3203</p>

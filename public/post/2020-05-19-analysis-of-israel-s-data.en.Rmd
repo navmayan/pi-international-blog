@@ -18,7 +18,11 @@ tags: []
 always_allow_html: true
 self.contained: true
 blogdown::html_page:
-  toc: true
+    code_folding: hide
+    fig_height: 5
+    fig_width: 10   
+    toc: true
+    toc_float: yes
 type: ''
 subtitle: ''
 image: ''
@@ -75,6 +79,13 @@ skin <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat i
 usa <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\usa\\usa_iat_wide.csv") %>% filter(year >= 2009)
 
 ```
+
+# Summary
+
+* Across all IAT tasks, both deliberate and automatic evaluation measures point to a preference of the dominant category over the non-dominant category.
+* Across all tasks, the bias (preference) was much larger for the automatic than the deliberate evaluation.
+* Across most of the tasks, the bias stays the same across the 12 years of data collection.
+* IAT scores: The strongest bias among Israeli participants was regarding **Age** (Young > Old people) and the smallest bias was regarding **Sexuality** (Straight > Gay people).
 
 # Tasks Overview
 
@@ -231,13 +242,6 @@ The items were averaged to to scores (one for EMS, one for IMS).
 
 
 # Results
-
-**Summary**
-
-* Across all IAT tasks, both deliberate and automatic evaluation measures point to a preference of the dominant category over the non-dominant category.
-* Across all tasks, the bias (preference) was much larger for the automatic than the deliberate evaluation.
-* Across most of the tasks, the bias stays the same across the 12 years of data collection.
-* IAT scores: The strongest bias among Israeli participants was regarding **Age** (Young > Old people) and the smallest bias was regarding **Sexuality** (Straight > Gay people).
 
 ## Age IAT
 
