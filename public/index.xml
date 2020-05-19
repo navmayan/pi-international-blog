@@ -18,7 +18,7 @@
       <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
       <author>mayanna@post.bgu.ac.il (Project Implicit)</author>
       <guid>/post/analysis-of-israel-s-data/</guid>
-      <description>body, td { font-size: 16px; } code.r{ font-size: 12px; } pre { font-size: 12px } knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,cache = FALSE,comment = NA,prompt = FALSE,tidy = TRUE)library(knitr)options(max.print=&amp;quot;275&amp;quot;)options(width = 1330)opts_knit$set(width=175) .main-container {max-width: 1750px;margin-left: auto;margin-right: auto;}age &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)ethnic &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.</description>
+      <description>body, td { font-size: 16px; } code.r{ font-size: 12px; } pre { font-size: 12px } .main-container {max-width: 1750px;margin-left: auto;margin-right: auto;}SummaryAcross all IAT tasks, both deliberate and automatic evaluation measures point to a preference of the dominant category over the non-dominant category.Across all tasks, the bias (preference) was much larger for the automatic than the deliberate evaluation.Across most of the tasks, the bias stays the same across the 12 years of data collection.</description>
     </item>
     
     <item>
