@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Biases in Israel</title>
+      <link>/post/biases-in-israel/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <author>mayanna@post.bgu.ac.il (Project Implicit)</author>
+      <guid>/post/biases-in-israel/</guid>
+      <description>Mean IAT Score per TaskYearly patternsIATSelf-Reported Direct PreferenceSelf-Report: Feeling Thermometer Difference.main-container {max-width: 1750px;margin-left: auto;margin-right: auto;}nall &amp;lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)The Israeli site offers eight IAT topics for the participants to complete:* Race (‘Black - White’ IAT)* Ethnicity (‘Ashkenazi - Mizrahi’ IAT)* Skin-tone (‘Light Skin - Dark Skin’ IAT)* Age (‘Young - Old’ IAT)* Sexuality (‘Gay - Straight’ IAT)* Weight (‘Fat - Thin’ IAT)* Nationalism (USA - Own Country IAT)* Gender - Science (Male+Science - Female+Liberal arts IAT)</description>
+    </item>
+    
+    <item>
       <title>Analysis of Israel&#39;s data</title>
       <link>/post/analysis-of-israel-s-data/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
