@@ -1,6 +1,6 @@
 ---
-title: Biases in Israel
-author: Mayan Navon
+title: 'Biases in Israel'
+author: 'Mayan Navon'
 date: '2020-05-20'
 slug: biases-in-israel
 categories:
@@ -19,9 +19,9 @@ always_allow_html: true
 self.contained: true
 output:
   blogdown::html_page:
-      toc: true
+      toc: false
       fig_height: 7
-      fig_width: 10   
+      fig_width: 20   
 type: ''
 subtitle: ''
 description: 'Read about the implict and explicit biases in Israel'
@@ -29,7 +29,6 @@ image: '' #/public/israel_flag.png
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
 classoption: landscape
 ---
-
 
 ```{r setup, warning=FALSE, include=FALSE}
 
@@ -49,14 +48,6 @@ options(width = 1330)
 opts_knit$set(width=175) 
 
 ```
-
-<style type="text/css">
-.main-container {
-  max-width: 1750px;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
 
 ```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -86,20 +77,31 @@ nall <- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow
 
 
 The [Israeli site](https://implicit.harvard.edu/implicit/israel/demo.jsp) offers eight IAT topics for the participants to complete: 
-* Race (‘Black - White’ IAT)
-* Ethnicity (‘Ashkenazi - Mizrahi’ IAT)
-* Skin-tone (‘Light Skin - Dark Skin’ IAT)
-* Age (‘Young - Old’ IAT)
-* Sexuality (‘Gay - Straight’ IAT)
-* Weight (‘Fat - Thin’ IAT)
-* Nationalism (USA - Own Country IAT)
-* Gender - Science (Male+Science - Female+Liberal arts IAT)
 
-Results from 12 years of data collection and `r nall` participants suggest that bias is robust and persistent.
+* Race: ‘Black - White’ IAT (N = `r nrow(race)`)
+* Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = `r nrow(ethnic)`)
+* Skin-tone: ‘Light Skin - Dark Skin’ IAT (N = `r nrow(skin)`)
+* Age: ‘Young - Old’ IAT (N = `r nrow(age)`)
+* Sexuality: ‘Gay - Straight’ IAT (N = `r nrow(sexuality)`)
+* Weight: ‘Fat - Thin’ IAT (N = `r nrow(weight)`)
+* Nationalism: ‘USA - Own Country’ IAT (N = `r nrow(usa)`) 
+* Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = `r nrow(gender_science)`)
 
-## Mean IAT Score per Task  
+Each tasks also included 1-2 self-reported evaluation measures:
 
-The strongest bias among Israeli participants is regarding **Age (Young > Old people)** and the smallest bias is regarding **Sexuality (Straight > Gay people)**:
+* Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1-7)
+* Feeling Thermometer: Cold to warm feelings toward category (scale: 0-10) 
+
+The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!
+
+
+We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of `r nall` participants. 
+We found that *implicit bias* is robust and persistent: The IAT scores from all tasks revealed that Israelis **strongly** prefer  the dominant social groups (e.g., White people, Ashkenazi people, Young people) and not the non-dominant social groups (Black people, Mizrahi people, Old people).
+
+
+## IAT Scores per Task  
+
+All tasks point to a dominant > non-dominant bias. The strongest bias among Israeli participants is regarding **Age (Young > Old people)** and the smallest bias is regarding **Sexuality (Straight > Gay people)**:
 
 ```{r}
 
@@ -134,6 +136,10 @@ pp <- ggdotchart(meanIAT, x = "Task", y = "mean",
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
+
+pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
+    size = 1.2)
+
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
 font("legend.text", size = 16, color = "black", face = "bold")+
 font("xlab", size = 18, color = "black", face = "bold")+
@@ -145,9 +151,120 @@ pp
 
 ```
 
+Israelis were often biased *explicitly*, and not just implicitly... but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias. 
+
+## Self-Report Scores per Task
+
+### Self-Reported Direct Preference
+
+*Note*: Not all tasks included the direct self-reported preference measure.
+
+```{r}
+
+age1 <- age %>% select(session_id,att) %>% mutate(Task = "Age")
+ethnic1 <- ethnic %>% select(session_id,att) %>% mutate(Task = "Ethnicity")
+race1 <- race %>% select(session_id,att) %>% mutate(Task = "Race")
+#skin1 <- skin %>% select(session_id,att) %>% mutate(Task = "Skin")
+weight1 <- weight %>% select(session_id,att) %>% mutate(Task = "Weight")
+sexuality1 <- sexuality %>% select(session_id,att) %>% mutate(Task = "Sexuality")
+#gender_science1 <- gender_science %>% select(session_id,att) %>% mutate(Task = "Gender-Science")
+usa1 <- usa %>% select(session_id,att) %>% mutate(Task = "Nationalism")
+
+combined_df <- bind_rows(age1,ethnic1,race1,weight1,sexuality1,usa1)
+
+```
+
+```{r}
+
+meanAtt <- combined_df %>% group_by(Task) %>% dplyr::summarise(mean = mean(att, na.rm=TRUE))
+
+pp <- ggdotchart(meanAtt, x = "Task", y = "mean",
+           color = "Task",                                # Color by groups
+           ylab = "Direct Reported Preference",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
+           sorting = "descending",                       # Sort value in descending order
+           add = "segments",                             # Add segments from y = 0 to dots
+           rotate = TRUE,                                # Rotate vertically
+           #group = "cyl",                                # Order by groups
+           dot.size = 20,                                 # Large dot size
+           label = round(meanAtt$mean,3),                        # Add mpg values as dot labels
+           font.label = list(color = "white", size = 15, 
+                             vjust = 0.5),               # Adjust label parameters
+           ggtheme = theme_pubr()                        # ggplot2 theme
+           )
+pp <- pp + geom_hline(yintercept = 4, linetype = "dashed", color = "darkblue", 
+    size = 1.2)
+
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+
+pp
+
+```
+
+### Feeling thermometer (Difference score)
+
+*Note*: Not all tasks included the feeling thermometer measure.
+
+```{r}
+
+age1 <- age %>% select(session_id,diff_thermo) %>% mutate(Task = "Age")
+#ethnic1 <- ethnic %>% select(session_id,diff_thermo) %>% mutate(Task = "Ethnicity")
+race1 <- race %>% select(session_id,diff_thermo) %>% mutate(Task = "Race")
+skin1 <- skin %>% select(session_id,diff_thermo) %>% mutate(Task = "Skin")
+weight1 <- weight %>% select(session_id,diff_thermo) %>% mutate(Task = "Weight")
+#sexuality1 <- sexuality %>% select(session_id,diff_thermo) %>% mutate(Task = "Sexuality")
+#gender_science1 <- gender_science %>% select(session_id,diff_thermo) %>% mutate(Task = "Gender-Science")
+usa1 <- usa %>% select(session_id,diff_thermo) %>% mutate(Task = "Nationalism")
+
+combined_df <- bind_rows(age1,race1,skin1,weight1,usa1)
+
+```
+
+```{r}
+
+meanThermo <- combined_df %>% group_by(Task) %>% dplyr::summarise(mean = mean(diff_thermo, na.rm=TRUE))
+
+pp <- ggdotchart(meanThermo, x = "Task", y = "mean",
+           color = "Task",                                # Color by groups
+           ylab = "Thermometer Difference",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
+           sorting = "descending",                       # Sort value in descending order
+           add = "segments",                             # Add segments from y = 0 to dots
+           rotate = TRUE,                                # Rotate vertically
+           #group = "cyl",                                # Order by groups
+           dot.size = 20,                                 # Large dot size
+           label = round(meanThermo$mean,3),                        # Add mpg values as dot labels
+           font.label = list(color = "white", size = 15, 
+                             vjust = 0.5),               # Adjust label parameters
+           ggtheme = theme_pubr()                        # ggplot2 theme
+           )
+
+pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
+    size = 1.2)
+
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+
+pp
+
+```
+
+
+**Do we get better?**
+- We next looked at the scores per year, to see if bias decreases troughout the years.
+
 ## Yearly patterns
 
-Bias, both implicit and explicit stays the same troughout thr 12 years:
+What we found, is that bias, both implicit and explicit stays the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.
 
 ```{r}
 
@@ -216,7 +333,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ```
 
-*Note*: The dashed line marks the point of no preference between the two categories (Old people and Young people).
+*Note*: The dashed line marks the point of no preference between the two groups.
 
 ### IAT
 
@@ -301,4 +418,71 @@ pp <- pp +theme(legend.position="none")
 pp
 
 ```
+
+
+## The Ethnicity IAT
+
+This IAT uses categories unique to Israel. Let's inspect it further. 
+Do people from different ethnicities have different levels of implicit ethnicity-related bias?
+
+We'll start by examining the participation per ethnicity group:
+
+```{r}
+
+yy <- ethnic %>% drop_na (ethnic.c) %>% group_by(ethnic.c) %>% tally()
+yyt <- as.data.frame(t(yy$n))
+colnames(yyt) <- c("5+ Zabar", "Arab countries", "East Asia", "East Europe", "Ethiopia", "Mixed (other)", 
+    "Mixed Miz/Ash", "North Africa", "North America", "Other", "Russia", "South American", "West Europe")
+
+yyt %>% kable() %>% kable_styling(bootstrap_options = c("striped", 
+    "hover", "condensed", full_width = F, position = "left"))
+
+```
+
+Now let's look at the IAT scores per ethnicity group:
+
+```{r}
+
+ethnic1 <- ethnic %>% drop_na(ethnic.c)
+
+pp <- ggviolin(ethnic1, x = "ethnic.c",
+      y = c("IAT"),
+      combine = TRUE,
+      ylab = "IAT", 
+      xlab = "Ethnicity",
+      color = "black",
+      fill = "lightblue",
+      add = c("mean_ci"),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp <- pp + geom_hline(yintercept=0, linetype="dashed", 
+                color = "darkblue", size=1.2)
+
+pp <- pp + 
+font("title", size = 14, color = "black", face = "bold")+
+font("legend.text", size = 13, color = "black", face = "bold")+
+font("xlab", size = 14, color = "black", face = "bold")+
+font("ylab", size = 14, color = "black", face = "bold")+
+font("xy.text", size = 10, color = "black")
+pp <- pp +theme(legend.position="none")
+pp
+
+
+```
+
+We can see that, indeed, the implicit bias varies across the different ethnicities. Still, *all ethnicity groups* in the Israeli society show the same direction of bias.
+
+
+
+## Summary
+
+* Across all tasks, Israelis were biased, explicitly and implicitly, in favor of the dominant social groups.
+* Across all tasks, the bias (preference) was much larger for the implicit than the explicit judgment.
+* The bias stayed the same across the 12 years of data collection.
+* IAT scores: The strongest bias among Israeli participants was regarding Age (Young > Old people) and the smallest bias was regarding Sexuality (Straight > Gay people).
+
+## Show me more!
+
+All the data, as well as the full analysis report, are available on OSF **INSERT LINK HERE**.
+
 
