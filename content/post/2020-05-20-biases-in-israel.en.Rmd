@@ -338,7 +338,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ### IAT
 
-```{r fig.width = 45, fig.height = 25}
+```{r fig.width = 35, fig.height = 15}
 
 pp <- ggviolin(all_iat, x = "Year",
       y = c("IAT"),
@@ -355,7 +355,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 35, color = "black", face = "bold")+
+font("xlab", size = 30, color = "black", face = "bold")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
