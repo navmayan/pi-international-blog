@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  2367 ,
+  "wordCount":  2372 ,
   "datePublished" : "2020-05-20T00:00:00",
   "dateModified" : "2020-05-20T00:00:00",
   "image" : "\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2367&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2372&nbsp;words
   
   
     
@@ -289,8 +289,8 @@
 <p>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!</p>
 <p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39992 participants.
 We found that <em>implicit bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).</p>
-<div id="iat-scores-per-task" class="section level2">
-<h2>IAT Scores per Task</h2>
+<div id="iat-mean-scores-per-task" class="section level2">
+<h2>IAT Mean Scores per Task</h2>
 <p>All tasks point to a dominant &gt; non-dominant bias. The strongest bias among Israeli participants is regarding <strong>Age (Young &gt; Old people)</strong> and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>:</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Age&quot;)
 ethnic1 &lt;- ethnic %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
@@ -334,8 +334,8 @@ pp</code></pre>
 <p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2880" /></p>
 <p>Israelis were often biased <em>explicitly</em>, and not just implicitly… but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias.</p>
 </div>
-<div id="self-report-scores-per-task" class="section level2">
-<h2>Self-Report Scores per Task</h2>
+<div id="self-report-mean-scores-per-task" class="section level2">
+<h2>Self-Report Mean Scores per Task</h2>
 <p>Here too, all tasks point to a dominant &gt; non-dominant bias. However, the strongest <em>explicit</em> bias among Israelis is regarding <strong>Weight (Thin &gt; Fat people)</strong> and <strong>Nationalism (Own country &gt; USA)</strong>, with weaker bias regarding Age:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
@@ -493,7 +493,7 @@ weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, Year) %&g
 
 all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, age_diff_thermo, 
     usa_diff_thermo, weight_diff_thermo)</code></pre>
-<p><em>Note</em>: The dashed line marks the point of no preference between the two groups.</p>
+<p><em>Note</em>: Each plots shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
 <pre class="r"><code>pp &lt;- ggviolin(all_iat, x = &quot;Year&quot;,
@@ -511,7 +511,7 @@ pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;,
 
 pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
 font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
@@ -539,7 +539,7 @@ pp &lt;- pp + geom_hline(yintercept=4, linetype=&quot;dashed&quot;,
 
 pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 35, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
 font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
@@ -567,7 +567,7 @@ pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;,
 
 pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 35, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
 font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
@@ -690,9 +690,9 @@ pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), com
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, size = 1.2)
 
 pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;legend.text&quot;, 
-    size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xlab&quot;, size = 35, color = &quot;black&quot;, 
-    face = &quot;bold&quot;) + font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, 
-    size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
+    size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;) + 
+    font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, size = 40, 
+    color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
 <p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="4320" /></p>

@@ -98,7 +98,7 @@ We analyzed the results of each task, from 12 years of data collection (2009-202
 We found that *implicit bias* is robust and persistent: The IAT scores from all tasks revealed that Israelis **strongly** prefer  the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).
 
 
-## IAT Scores per Task  
+## IAT Mean Scores per Task  
 
 All tasks point to a dominant > non-dominant bias. The strongest bias among Israeli participants is regarding **Age (Young > Old people)** and the smallest bias is regarding **Sexuality (Straight > Gay people)**:
 
@@ -152,7 +152,7 @@ pp
 
 Israelis were often biased *explicitly*, and not just implicitly... but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias. 
 
-## Self-Report Scores per Task
+## Self-Report Mean Scores per Task
 
 Here too, all tasks point to a dominant > non-dominant bias. However, the strongest *explicit* bias among Israelis is regarding **Weight (Thin > Fat people)** and **Nationalism (Own country > USA)**, with weaker bias regarding Age:
 
@@ -334,7 +334,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ```
 
-*Note*: The dashed line marks the point of no preference between the two groups.
+*Note*: Each plots shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
 
 ### IAT
 
@@ -355,7 +355,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 30, color = "black", face = "bold")+
+font("xlab", size = 25, color = "black")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
@@ -386,7 +386,7 @@ pp <- pp + geom_hline(yintercept=4, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 35, color = "black", face = "bold")+
+font("xlab", size = 25, color = "black")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
@@ -417,7 +417,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 35, color = "black", face = "bold")+
+font("xlab", size = 25, color = "black")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
@@ -471,7 +471,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 35, color = "black", face = "bold")+
+font("xlab", size = 25, color = "black")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
