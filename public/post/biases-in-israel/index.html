@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  2266 ,
+  "wordCount":  2367 ,
   "datePublished" : "2020-05-20T00:00:00",
   "dateModified" : "2020-05-20T00:00:00",
   "image" : "\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2266&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2367&nbsp;words
   
   
     
@@ -268,8 +268,8 @@
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + 
-    nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)</code></pre>
+<pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + 
+    nrow(usa) + nrow(gender_science)</code></pre>
 <p>The <a href="https://implicit.harvard.edu/implicit/israel/demo.jsp">Israeli site</a> offers eight IAT topics for the participants to complete:</p>
 <ul>
 <li>Race: ‘Black - White’ IAT (N = 4454)</li>
@@ -281,14 +281,14 @@
 <li>Nationalism: ‘USA - Own Country’ IAT (N = 2167)</li>
 <li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5709)</li>
 </ul>
-<p>Each tasks also included 1-2 self-reported evaluation measures:</p>
+<p>Each task also included 1-2 self-reported evaluation measures:</p>
 <ul>
 <li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1-7)</li>
 <li>Feeling Thermometer: Cold to warm feelings toward category (scale: 0-10)</li>
 </ul>
 <p>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!</p>
 <p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39992 participants.
-We found that <em>implicit bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) and not the non-dominant social groups (Black people, Mizrahi people, Old people).</p>
+We found that <em>implicit bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).</p>
 <div id="iat-scores-per-task" class="section level2">
 <h2>IAT Scores per Task</h2>
 <p>All tasks point to a dominant &gt; non-dominant bias. The strongest bias among Israeli participants is regarding <strong>Age (Young &gt; Old people)</strong> and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>:</p>
@@ -298,12 +298,11 @@ race1 &lt;- race %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Race&
 skin1 &lt;- skin %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Skin&quot;)
 weight1 &lt;- weight %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Weight&quot;)
 sexuality1 &lt;- sexuality %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Sexuality&quot;)
-gender_science1 &lt;- gender_science %&gt;% select(session_id, IAT) %&gt;% 
-    mutate(Task = &quot;Gender-Science&quot;)
+gender_science1 &lt;- gender_science %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 usa1 &lt;- usa %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
-combined_df &lt;- bind_rows(age1, ethnic1, race1, skin1, weight1, 
-    sexuality1, gender_science1, usa1)</code></pre>
+combined_df &lt;- bind_rows(age1, ethnic1, race1, skin1, weight1, sexuality1, gender_science1, 
+    usa1)</code></pre>
 <pre class="r"><code>meanIAT &lt;- combined_df %&gt;% group_by(Task) %&gt;% dplyr::summarise(mean = mean(IAT, na.rm=TRUE))
 
 pp &lt;- ggdotchart(meanIAT, x = &quot;Task&quot;, y = &quot;mean&quot;,
@@ -314,9 +313,9 @@ pp &lt;- ggdotchart(meanIAT, x = &quot;Task&quot;, y = &quot;mean&quot;,
            add = &quot;segments&quot;,                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = &quot;cyl&quot;,                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 34,                                 # Large dot size
            label = round(meanIAT$mean,3),                        # Add mpg values as dot labels
-           font.label = list(color = &quot;white&quot;, size = 15, 
+           font.label = list(color = &quot;white&quot;, size = 28, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -324,19 +323,20 @@ pp &lt;- ggdotchart(meanIAT, x = &quot;Task&quot;, y = &quot;mean&quot;,
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="1920" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2880" /></p>
 <p>Israelis were often biased <em>explicitly</em>, and not just implicitly… but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias.</p>
 </div>
 <div id="self-report-scores-per-task" class="section level2">
 <h2>Self-Report Scores per Task</h2>
+<p>Here too, all tasks point to a dominant &gt; non-dominant bias. However, the strongest <em>explicit</em> bias among Israelis is regarding <strong>Weight (Thin &gt; Fat people)</strong> and <strong>Nationalism (Own country &gt; USA)</strong>, with weaker bias regarding Age:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
 <p><em>Note</em>: Not all tasks included the direct self-reported preference measure.</p>
@@ -346,11 +346,11 @@ race1 &lt;- race %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Race&
 # skin1 &lt;- skin %&gt;% select(session_id,att) %&gt;% mutate(Task = &#39;Skin&#39;)
 weight1 &lt;- weight %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Weight&quot;)
 sexuality1 &lt;- sexuality %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Sexuality&quot;)
-# gender_science1 &lt;- gender_science %&gt;% select(session_id,att) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+# gender_science1 &lt;- gender_science %&gt;% select(session_id,att) %&gt;% mutate(Task =
+# &#39;Gender-Science&#39;)
 usa1 &lt;- usa %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
-combined_df &lt;- bind_rows(age1, ethnic1, race1, weight1, sexuality1, 
-    usa1)</code></pre>
+combined_df &lt;- bind_rows(age1, ethnic1, race1, weight1, sexuality1, usa1)</code></pre>
 <pre class="r"><code>meanAtt &lt;- combined_df %&gt;% group_by(Task) %&gt;% dplyr::summarise(mean = mean(att, na.rm=TRUE))
 
 pp &lt;- ggdotchart(meanAtt, x = &quot;Task&quot;, y = &quot;mean&quot;,
@@ -361,34 +361,37 @@ pp &lt;- ggdotchart(meanAtt, x = &quot;Task&quot;, y = &quot;mean&quot;,
            add = &quot;segments&quot;,                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = &quot;cyl&quot;,                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 34,                                 # Large dot size
            label = round(meanAtt$mean,3),                        # Add mpg values as dot labels
-           font.label = list(color = &quot;white&quot;, size = 15, 
+           font.label = list(color = &quot;white&quot;, size = 28, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
 pp &lt;- pp + geom_hline(yintercept = 4, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-5-1.png" width="1920" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-5-1.png" width="2880" /></p>
 </div>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
 <p><em>Note</em>: Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Age&quot;)
-# ethnic1 &lt;- ethnic %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Ethnicity&#39;)
+# ethnic1 &lt;- ethnic %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task =
+# &#39;Ethnicity&#39;)
 race1 &lt;- race %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Race&quot;)
 skin1 &lt;- skin %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Skin&quot;)
 weight1 &lt;- weight %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Weight&quot;)
-# sexuality1 &lt;- sexuality %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Sexuality&#39;) gender_science1 &lt;- gender_science %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+# sexuality1 &lt;- sexuality %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task =
+# &#39;Sexuality&#39;) gender_science1 &lt;- gender_science %&gt;%
+# select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
 usa1 &lt;- usa %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
 combined_df &lt;- bind_rows(age1, race1, skin1, weight1, usa1)</code></pre>
@@ -402,9 +405,9 @@ pp &lt;- ggdotchart(meanThermo, x = &quot;Task&quot;, y = &quot;mean&quot;,
            add = &quot;segments&quot;,                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = &quot;cyl&quot;,                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 34,                                 # Large dot size
            label = round(meanThermo$mean,3),                        # Add mpg values as dot labels
-           font.label = list(color = &quot;white&quot;, size = 15, 
+           font.label = list(color = &quot;white&quot;, size = 28, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -412,22 +415,22 @@ pp &lt;- ggdotchart(meanThermo, x = &quot;Task&quot;, y = &quot;mean&quot;,
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="1920" /></p>
-<p><strong>Do we get better?</strong>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2880" /></p>
+<p><strong>Do Israelis get better?</strong>
 - We next looked at the scores per year, to see if bias decreases troughout the years.</p>
 </div>
 </div>
 <div id="yearly-patterns" class="section level2">
 <h2>Yearly patterns</h2>
-<p>What we found, is that bias, both implicit and explicit stays the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.</p>
+<p>What we found is that bias, both implicit and explicit stays the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.</p>
 <pre class="r"><code>age &lt;- age %&gt;% drop_na(year)
 age$Year &lt;- as.factor(age$year)
 
@@ -457,12 +460,11 @@ age_iat &lt;- age %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quo
 ethnic_iat &lt;- ethnic %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_iat &lt;- sexuality %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_iat &lt;- usa %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-gender_science_iat &lt;- gender_science %&gt;% select(session_id, IAT, 
-    Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
+gender_science_iat &lt;- gender_science %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 weight_iat &lt;- weight %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_iat &lt;- bind_rows(race_iat, skin_iat, ethnic_iat, age_iat, 
-    sex_iat, usa_iat, gender_science_iat, weight_iat)
+all_iat &lt;- bind_rows(race_iat, skin_iat, ethnic_iat, age_iat, sex_iat, usa_iat, gender_science_iat, 
+    weight_iat)
 
 
 race_att &lt;- race %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -471,98 +473,126 @@ age_att &lt;- age %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quo
 ethnic_att &lt;- ethnic %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_att &lt;- sexuality %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_att &lt;- usa %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-# gender_science_att &lt;- gender_science %&gt;% select(session_id,att,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+# gender_science_att &lt;- gender_science %&gt;% select(session_id,att,Year) %&gt;%
+# mutate(Task = &#39;Gender-Science&#39;)
 weight_att &lt;- weight %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, 
-    usa_att, weight_att)
+all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, usa_att, weight_att)
 
 
-race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, 
-    Year) %&gt;% mutate(Task = &quot;Race&quot;)
-skin_diff_thermo &lt;- skin %&gt;% select(session_id, diff_thermo, 
-    Year) %&gt;% mutate(Task = &quot;Skin&quot;)
-age_diff_thermo &lt;- age %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
-    mutate(Task = &quot;Age&quot;)
-# ethnic_diff_thermo &lt;- ethnic %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Ethnicity&#39;) sex_diff_thermo &lt;- sexuality %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Sexuality&#39;)
-usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
-    mutate(Task = &quot;Nationalism&quot;)
-# gender_science_diff_thermo &lt;- gender_science %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
-weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, 
-    Year) %&gt;% mutate(Task = &quot;Weight&quot;)
+race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Race&quot;)
+skin_diff_thermo &lt;- skin %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Skin&quot;)
+age_diff_thermo &lt;- age %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Age&quot;)
+# ethnic_diff_thermo &lt;- ethnic %&gt;% select(session_id,diff_thermo,Year) %&gt;%
+# mutate(Task = &#39;Ethnicity&#39;) sex_diff_thermo &lt;- sexuality %&gt;%
+# select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Sexuality&#39;)
+usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
+# gender_science_diff_thermo &lt;- gender_science %&gt;%
+# select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, 
-    age_diff_thermo, usa_diff_thermo, weight_diff_thermo)</code></pre>
+all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, age_diff_thermo, 
+    usa_diff_thermo, weight_diff_thermo)</code></pre>
 <p><em>Note</em>: The dashed line marks the point of no preference between the two groups.</p>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
-<pre class="r"><code>pp &lt;- ggviolin(all_iat, x = &quot;Year&quot;, y = c(&quot;IAT&quot;), combine = TRUE, 
-    ylab = &quot;IAT&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, facet = &quot;Task&quot;, 
-    add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2)
+<pre class="r"><code>pp &lt;- ggviolin(all_iat, x = &quot;Year&quot;,
+      y = c(&quot;IAT&quot;),
+      combine = TRUE,
+      ylab = &quot;IAT&quot;, 
+      color = &quot;black&quot;,
+      fill = &quot;lightblue&quot;,
+      #facet = &quot;Task&quot;,
+      add = c(&quot;mean_ci&quot;),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
+                color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 13, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
-pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="1920" /></p>
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp +theme(legend.position=&quot;none&quot;)
+
+facet(pp , facet.by = &quot;Task&quot;,
+  short.panel.labs = FALSE,   # Allow long labels in panels
+  panel.labs.font = list(size = 30)
+)</code></pre>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="3360" /></p>
 </div>
 <div id="self-reported-direct-preference-1" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
-<pre class="r"><code>pp &lt;- ggviolin(all_att, x = &quot;Year&quot;, y = c(&quot;att&quot;), combine = TRUE, 
-    ylab = &quot;Direct Reported Preference&quot;, color = &quot;black&quot;, fill = &quot;yellow&quot;, 
-    facet = &quot;Task&quot;, add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 
-        0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 4, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2)
+<pre class="r"><code>pp &lt;- ggviolin(all_att, x = &quot;Year&quot;,
+      y = c(&quot;att&quot;),
+      combine = TRUE,
+      ylab = &quot;Direct Reported Preference&quot;, 
+      color = &quot;black&quot;,
+      fill = &quot;yellow&quot;,
+      #facet = &quot;Task&quot;,
+      add = c(&quot;mean_ci&quot;),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp &lt;- pp + geom_hline(yintercept=4, linetype=&quot;dashed&quot;, 
+                color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 13, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
-pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="1920" /></p>
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp +theme(legend.position=&quot;none&quot;)
+
+facet(pp , facet.by = &quot;Task&quot;,
+  short.panel.labs = FALSE,   # Allow long labels in panels
+  panel.labs.font = list(size = 30)
+)</code></pre>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="3360" /></p>
 </div>
 <div id="self-report-feeling-thermometer-difference" class="section level3">
 <h3>Self-Report: Feeling Thermometer Difference</h3>
-<pre class="r"><code>pp &lt;- ggviolin(all_diff_thermo, x = &quot;Year&quot;, y = c(&quot;diff_thermo&quot;), 
-    combine = TRUE, ylab = &quot;Thermometer Difference&quot;, color = &quot;black&quot;, 
-    fill = &quot;lightgreen&quot;, facet = &quot;Task&quot;, add = c(&quot;mean_ci&quot;), 
-    draw_quantiles = c(0.25, 0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2)
+<pre class="r"><code>pp &lt;- ggviolin(all_diff_thermo, x = &quot;Year&quot;,
+      y = c(&quot;diff_thermo&quot;),
+      combine = TRUE,
+      ylab = &quot;Thermometer Difference&quot;, 
+      color = &quot;black&quot;,
+      fill = &quot;lightgreen&quot;,
+      #facet = &quot;Task&quot;,
+      add = c(&quot;mean_ci&quot;),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
+                color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 13, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
-pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="1920" /></p>
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp +theme(legend.position=&quot;none&quot;)
+
+facet(pp , facet.by = &quot;Task&quot;,
+  short.panel.labs = FALSE,   # Allow long labels in panels
+  panel.labs.font = list(size = 30)
+)</code></pre>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="3360" /></p>
 </div>
 </div>
 <div id="the-ethnicity-iat" class="section level2">
 <h2>The Ethnicity IAT</h2>
-<p>This IAT uses categories unique to Israel. Let’s inspect it further.
+<p>This IAT uses categories unique to Israel: It compares the judgments toward the two <em>main</em> ethnicities in Isarael: Ashkenazi Israelis (originating from Europe) and Mizrahi Israelis (originating in Africa and Arab countries).
+Let’s inspect it further.
 Do people from different ethnicities have different levels of implicit ethnicity-related bias?</p>
 <p>We’ll start by examining the participation per ethnicity group:</p>
-<pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% 
-    tally()
+<pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% tally()
 yyt &lt;- as.data.frame(t(yy$n))
-colnames(yyt) &lt;- c(&quot;5+ Zabar&quot;, &quot;Arab countries&quot;, &quot;East Asia&quot;, 
-    &quot;East Europe&quot;, &quot;Ethiopia&quot;, &quot;Mixed (other)&quot;, &quot;Mixed Miz/Ash&quot;, 
-    &quot;North Africa&quot;, &quot;North America&quot;, &quot;Other&quot;, &quot;Russia&quot;, &quot;South American&quot;, 
-    &quot;West Europe&quot;)
+colnames(yyt) &lt;- c(&quot;5+ Zabar&quot;, &quot;Arab countries&quot;, &quot;East Asia&quot;, &quot;East Europe&quot;, &quot;Ethiopia&quot;, 
+    &quot;Mixed (other)&quot;, &quot;Mixed Miz/Ash&quot;, &quot;North Africa&quot;, &quot;North America&quot;, &quot;Other&quot;, &quot;Russia&quot;, 
+    &quot;South American&quot;, &quot;West Europe&quot;)
 
-yyt %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, 
-    &quot;hover&quot;, &quot;condensed&quot;, full_width = F, position = &quot;left&quot;))</code></pre>
+yyt %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, 
+    full_width = F, position = &quot;left&quot;))</code></pre>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -654,21 +684,19 @@ West Europe
 <p>Now let’s look at the IAT scores per ethnicity group:</p>
 <pre class="r"><code>ethnic1 &lt;- ethnic %&gt;% drop_na(ethnic.c)
 
-pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, 
-    ylab = &quot;IAT&quot;, xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, 
-    add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2)
+pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, ylab = &quot;IAT&quot;, 
+    xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, add = c(&quot;mean_ci&quot;), 
+    draw_quantiles = c(0.25, 0.5, 0.75))
+pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 13, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;legend.text&quot;, 
+    size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xlab&quot;, size = 30, color = &quot;black&quot;, 
+    face = &quot;bold&quot;) + font(&quot;ylab&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, 
+    size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="1920" /></p>
-<p>We can see that, indeed, the implicit bias varies across the different ethnicities. Still, <em>all ethnicity groups</em> in the Israeli society show the same direction of bias.</p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="3360" /></p>
+<p>We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, <em>all ethnicity groups</em> in the Israeli society show the same direction of bias.</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
@@ -786,10 +814,6 @@ pp</code></pre>
 		
       
         <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="/post/drafts/analysis-of-israel-s-data/" data-toggle="tooltip" data-placement="top" title="Analysis of Israel&#39;s data">&larr; Previous Post</a>
-            </li>
           
           
         </ul>
