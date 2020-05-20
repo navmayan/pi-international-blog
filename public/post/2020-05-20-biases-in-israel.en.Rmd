@@ -338,7 +338,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ### IAT
 
-```{r fig.width = 45, fig.height = 25}
+```{r fig.width = 55, fig.height = 25}
 
 pp <- ggviolin(all_iat, x = "Year",
       y = c("IAT"),
@@ -369,7 +369,7 @@ facet(pp , facet.by = "Task",
 
 ### Self-Reported Direct Preference
 
-```{r fig.width = 45, fig.height = 25}
+```{r fig.width = 55, fig.height = 25}
 
 pp <- ggviolin(all_att, x = "Year",
       y = c("att"),
@@ -400,7 +400,7 @@ facet(pp , facet.by = "Task",
 
 ### Self-Report: Feeling Thermometer Difference
 
-```{r fig.width = 45, fig.height = 25}
+```{r fig.width = 55, fig.height = 25}
 
 pp <- ggviolin(all_diff_thermo, x = "Year",
       y = c("diff_thermo"),
@@ -452,7 +452,7 @@ yyt %>% kable() %>% kable_styling(bootstrap_options = c("striped",
 
 Now let's look at the IAT scores per ethnicity group:
 
-```{r fig.width = 40, fig.height = 15}
+```{r fig.width = 50, fig.height = 15}
 
 ethnic1 <- ethnic %>% drop_na(ethnic.c)
 
