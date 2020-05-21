@@ -469,7 +469,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
 font("legend.text", size = 20, color = "black", face = "bold")+
-font("xlab", size = 12, color = "black")+
+font("xlab", size = 20, color = "black")+
 font("ylab", size = 20, color = "black", face = "bold")+
 font("xy.text", size = 20, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
