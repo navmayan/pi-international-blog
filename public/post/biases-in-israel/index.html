@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  2372 ,
+  "wordCount":  2367 ,
   "datePublished" : "2020-05-20T00:00:00",
   "dateModified" : "2020-05-20T00:00:00",
   "image" : "\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2372&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2367&nbsp;words
   
   
     
@@ -268,8 +268,8 @@
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + 
-    nrow(usa) + nrow(gender_science)</code></pre>
+<pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + 
+    nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)</code></pre>
 <p>The <a href="https://implicit.harvard.edu/implicit/israel/demo.jsp">Israeli site</a> offers eight IAT topics for the participants to complete:</p>
 <ul>
 <li>Race: ‘Black - White’ IAT (N = 4454)</li>
@@ -298,11 +298,12 @@ race1 &lt;- race %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Race&
 skin1 &lt;- skin %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Skin&quot;)
 weight1 &lt;- weight %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Weight&quot;)
 sexuality1 &lt;- sexuality %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Sexuality&quot;)
-gender_science1 &lt;- gender_science %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
+gender_science1 &lt;- gender_science %&gt;% select(session_id, IAT) %&gt;% 
+    mutate(Task = &quot;Gender-Science&quot;)
 usa1 &lt;- usa %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
-combined_df &lt;- bind_rows(age1, ethnic1, race1, skin1, weight1, sexuality1, gender_science1, 
-    usa1)</code></pre>
+combined_df &lt;- bind_rows(age1, ethnic1, race1, skin1, weight1, 
+    sexuality1, gender_science1, usa1)</code></pre>
 <pre class="r"><code>meanIAT &lt;- combined_df %&gt;% group_by(Task) %&gt;% dplyr::summarise(mean = mean(IAT, na.rm=TRUE))
 
 pp &lt;- ggdotchart(meanIAT, x = &quot;Task&quot;, y = &quot;mean&quot;,
@@ -331,7 +332,7 @@ font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2880" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2400" /></p>
 <p>Israelis were often biased <em>explicitly</em>, and not just implicitly… but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias.</p>
 </div>
 <div id="self-report-mean-scores-per-task" class="section level2">
@@ -346,11 +347,11 @@ race1 &lt;- race %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Race&
 # skin1 &lt;- skin %&gt;% select(session_id,att) %&gt;% mutate(Task = &#39;Skin&#39;)
 weight1 &lt;- weight %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Weight&quot;)
 sexuality1 &lt;- sexuality %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Sexuality&quot;)
-# gender_science1 &lt;- gender_science %&gt;% select(session_id,att) %&gt;% mutate(Task =
-# &#39;Gender-Science&#39;)
+# gender_science1 &lt;- gender_science %&gt;% select(session_id,att) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
 usa1 &lt;- usa %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
-combined_df &lt;- bind_rows(age1, ethnic1, race1, weight1, sexuality1, usa1)</code></pre>
+combined_df &lt;- bind_rows(age1, ethnic1, race1, weight1, sexuality1, 
+    usa1)</code></pre>
 <pre class="r"><code>meanAtt &lt;- combined_df %&gt;% group_by(Task) %&gt;% dplyr::summarise(mean = mean(att, na.rm=TRUE))
 
 pp &lt;- ggdotchart(meanAtt, x = &quot;Task&quot;, y = &quot;mean&quot;,
@@ -378,20 +379,17 @@ font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-5-1.png" width="2880" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-5-1.png" width="2400" /></p>
 </div>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
 <p><em>Note</em>: Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Age&quot;)
-# ethnic1 &lt;- ethnic %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task =
-# &#39;Ethnicity&#39;)
+# ethnic1 &lt;- ethnic %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Ethnicity&#39;)
 race1 &lt;- race %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Race&quot;)
 skin1 &lt;- skin %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Skin&quot;)
 weight1 &lt;- weight %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Weight&quot;)
-# sexuality1 &lt;- sexuality %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task =
-# &#39;Sexuality&#39;) gender_science1 &lt;- gender_science %&gt;%
-# select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+# sexuality1 &lt;- sexuality %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Sexuality&#39;) gender_science1 &lt;- gender_science %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
 usa1 &lt;- usa %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Nationalism&quot;)
 
 combined_df &lt;- bind_rows(age1, race1, skin1, weight1, usa1)</code></pre>
@@ -423,8 +421,8 @@ font(&quot;xy.text&quot;, size = 30, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2880" /></p>
-<p><strong>Do Israelis get better?</strong>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2400" /></p>
+<p><strong>Do Israelis get better over the years?</strong>
 - We next looked at the scores per year, to see if bias decreases troughout the years.</p>
 </div>
 </div>
@@ -460,11 +458,12 @@ age_iat &lt;- age %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quo
 ethnic_iat &lt;- ethnic %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_iat &lt;- sexuality %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_iat &lt;- usa %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-gender_science_iat &lt;- gender_science %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
+gender_science_iat &lt;- gender_science %&gt;% select(session_id, IAT, 
+    Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 weight_iat &lt;- weight %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_iat &lt;- bind_rows(race_iat, skin_iat, ethnic_iat, age_iat, sex_iat, usa_iat, gender_science_iat, 
-    weight_iat)
+all_iat &lt;- bind_rows(race_iat, skin_iat, ethnic_iat, age_iat, 
+    sex_iat, usa_iat, gender_science_iat, weight_iat)
 
 
 race_att &lt;- race %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -473,26 +472,28 @@ age_att &lt;- age %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quo
 ethnic_att &lt;- ethnic %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_att &lt;- sexuality %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_att &lt;- usa %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-# gender_science_att &lt;- gender_science %&gt;% select(session_id,att,Year) %&gt;%
-# mutate(Task = &#39;Gender-Science&#39;)
+# gender_science_att &lt;- gender_science %&gt;% select(session_id,att,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
 weight_att &lt;- weight %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, usa_att, weight_att)
+all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, 
+    usa_att, weight_att)
 
 
-race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Race&quot;)
-skin_diff_thermo &lt;- skin %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Skin&quot;)
-age_diff_thermo &lt;- age %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Age&quot;)
-# ethnic_diff_thermo &lt;- ethnic %&gt;% select(session_id,diff_thermo,Year) %&gt;%
-# mutate(Task = &#39;Ethnicity&#39;) sex_diff_thermo &lt;- sexuality %&gt;%
-# select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Sexuality&#39;)
-usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-# gender_science_diff_thermo &lt;- gender_science %&gt;%
-# select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
-weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
+race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, 
+    Year) %&gt;% mutate(Task = &quot;Race&quot;)
+skin_diff_thermo &lt;- skin %&gt;% select(session_id, diff_thermo, 
+    Year) %&gt;% mutate(Task = &quot;Skin&quot;)
+age_diff_thermo &lt;- age %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
+    mutate(Task = &quot;Age&quot;)
+# ethnic_diff_thermo &lt;- ethnic %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Ethnicity&#39;) sex_diff_thermo &lt;- sexuality %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Sexuality&#39;)
+usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
+    mutate(Task = &quot;Nationalism&quot;)
+# gender_science_diff_thermo &lt;- gender_science %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, 
+    Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
-all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, age_diff_thermo, 
-    usa_diff_thermo, weight_diff_thermo)</code></pre>
+all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, 
+    age_diff_thermo, usa_diff_thermo, weight_diff_thermo)</code></pre>
 <p><em>Note</em>: Each plots shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
@@ -511,7 +512,7 @@ pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;,
 
 pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
+font(&quot;xlab&quot;, size = 15, color = &quot;black&quot;)+
 font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
 font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
@@ -520,7 +521,7 @@ facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
   panel.labs.font = list(size = 40)
 )</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="3360" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="2400" /></p>
 </div>
 <div id="self-reported-direct-preference-1" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
@@ -585,14 +586,16 @@ facet(pp , facet.by = &quot;Task&quot;,
 Let’s inspect it further.
 Do people from different ethnicities have different levels of implicit ethnicity-related bias?</p>
 <p>We’ll start by examining the participation per ethnicity group:</p>
-<pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% tally()
+<pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% 
+    tally()
 yyt &lt;- as.data.frame(t(yy$n))
-colnames(yyt) &lt;- c(&quot;5+ Zabar&quot;, &quot;Arab countries&quot;, &quot;East Asia&quot;, &quot;East Europe&quot;, &quot;Ethiopia&quot;, 
-    &quot;Mixed (other)&quot;, &quot;Mixed Miz/Ash&quot;, &quot;North Africa&quot;, &quot;North America&quot;, &quot;Other&quot;, &quot;Russia&quot;, 
-    &quot;South American&quot;, &quot;West Europe&quot;)
+colnames(yyt) &lt;- c(&quot;5+ Zabar&quot;, &quot;Arab countries&quot;, &quot;East Asia&quot;, 
+    &quot;East Europe&quot;, &quot;Ethiopia&quot;, &quot;Mixed (other)&quot;, &quot;Mixed Miz/Ash&quot;, 
+    &quot;North Africa&quot;, &quot;North America&quot;, &quot;Other&quot;, &quot;Russia&quot;, &quot;South American&quot;, 
+    &quot;West Europe&quot;)
 
-yyt %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, 
-    full_width = F, position = &quot;left&quot;))</code></pre>
+yyt %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, 
+    &quot;hover&quot;, &quot;condensed&quot;, full_width = F, position = &quot;left&quot;))</code></pre>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -684,14 +687,16 @@ West Europe
 <p>Now let’s look at the IAT scores per ethnicity group:</p>
 <pre class="r"><code>ethnic1 &lt;- ethnic %&gt;% drop_na(ethnic.c)
 
-pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, ylab = &quot;IAT&quot;, 
-    xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, add = c(&quot;mean_ci&quot;), 
-    draw_quantiles = c(0.25, 0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, size = 1.2)
+pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, 
+    ylab = &quot;IAT&quot;, xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, 
+    add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 0.5, 0.75))
+pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
+    size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;legend.text&quot;, 
-    size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;) + 
-    font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, size = 40, 
+pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;) + font(&quot;ylab&quot;, size = 40, 
+    color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, size = 40, 
     color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>

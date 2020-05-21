@@ -41,10 +41,10 @@ knitr::opts_chunk$set(
 )
 library(knitr)
 
-#options(max.print="275")
-#options(width = 1330)
-#opts_knit$set(width=175) 
-knitr::opts_chunk$set(fig.width=30, fig.height=15) 
+options(max.print="275")
+options(width = 1330)
+opts_knit$set(width=175) 
+knitr::opts_chunk$set(fig.width=25, fig.height=10) 
 
 ```
 
@@ -260,7 +260,7 @@ pp
 ```
 
 
-**Do Israelis get better?**
+**Do Israelis get better over the years?**
 - We next looked at the scores per year, to see if bias decreases troughout the years.
 
 ## Yearly patterns
@@ -338,7 +338,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ### IAT
 
-```{r fig.width = 35, fig.height = 15}
+```{r}
 
 pp <- ggviolin(all_iat, x = "Year",
       y = c("IAT"),
@@ -355,7 +355,7 @@ pp <- pp + geom_hline(yintercept=0, linetype="dashed",
 
 pp <- pp + font("title", size = 40, color = "black", face = "bold")+
 font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 25, color = "black")+
+font("xlab", size = 15, color = "black")+
 font("ylab", size = 40, color = "black", face = "bold")+
 font("xy.text", size = 40, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
