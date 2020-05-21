@@ -334,7 +334,7 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ```
 
-*Note*: Each plots shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
+*Note*: Each plot shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
 
 ### IAT
 

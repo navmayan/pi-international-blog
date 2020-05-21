@@ -494,7 +494,7 @@ weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo,
 
 all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, 
     age_diff_thermo, usa_diff_thermo, weight_diff_thermo)</code></pre>
-<p><em>Note</em>: Each plots shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
+<p><em>Note</em>: Each plot shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
 <pre class="r"><code>pp &lt;- ggviolin(all_iat, x = &quot;Year&quot;,
