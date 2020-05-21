@@ -42,8 +42,8 @@ knitr::opts_chunk$set(
 library(knitr)
 
 options(max.print="275")
-options(width = 1330)
-opts_knit$set(width=175) 
+options(width = 1430)
+opts_knit$set(width=200) 
 knitr::opts_chunk$set(fig.width=25, fig.height=10) 
 
 ```
@@ -353,23 +353,23 @@ pp <- ggviolin(all_iat, x = "Year",
 pp <- pp + geom_hline(yintercept=0, linetype="dashed", 
                 color = "darkblue", size=1.2)
 
-pp <- pp + font("title", size = 40, color = "black", face = "bold")+
-font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 15, color = "black")+
-font("ylab", size = 40, color = "black", face = "bold")+
-font("xy.text", size = 40, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 20, color = "black", face = "bold")+
+font("xlab", size = 12, color = "black")+
+font("ylab", size = 20, color = "black", face = "bold")+
+font("xy.text", size = 20, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 facet(pp , facet.by = "Task",
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
+  panel.labs.font = list(size = 25)
 )
 
 ```
 
 ### Self-Reported Direct Preference
 
-```{r fig.width = 35, fig.height = 15}
+```{r}
 
 pp <- ggviolin(all_att, x = "Year",
       y = c("att"),
@@ -384,23 +384,22 @@ pp <- ggviolin(all_att, x = "Year",
 pp <- pp + geom_hline(yintercept=4, linetype="dashed", 
                 color = "darkblue", size=1.2)
 
-pp <- pp + font("title", size = 40, color = "black", face = "bold")+
-font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 25, color = "black")+
-font("ylab", size = 40, color = "black", face = "bold")+
-font("xy.text", size = 40, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 20, color = "black", face = "bold")+
+font("xlab", size = 12, color = "black")+
+font("ylab", size = 20, color = "black", face = "bold")+
+font("xy.text", size = 20, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 facet(pp , facet.by = "Task",
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
-)
+  panel.labs.font = list(size = 25))
 
 ```
 
 ### Self-Report: Feeling Thermometer Difference
 
-```{r fig.width = 35, fig.height = 15}
+```{r}
 
 pp <- ggviolin(all_diff_thermo, x = "Year",
       y = c("diff_thermo"),
@@ -415,17 +414,16 @@ pp <- ggviolin(all_diff_thermo, x = "Year",
 pp <- pp + geom_hline(yintercept=0, linetype="dashed", 
                 color = "darkblue", size=1.2)
 
-pp <- pp + font("title", size = 40, color = "black", face = "bold")+
-font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 25, color = "black")+
-font("ylab", size = 40, color = "black", face = "bold")+
-font("xy.text", size = 40, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 20, color = "black", face = "bold")+
+font("xlab", size = 12, color = "black")+
+font("ylab", size = 20, color = "black", face = "bold")+
+font("xy.text", size = 20, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 facet(pp , facet.by = "Task",
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
-)
+  panel.labs.font = list(size = 25))
 
 ```
 
@@ -452,7 +450,7 @@ yyt %>% kable() %>% kable_styling(bootstrap_options = c("striped",
 
 Now let's look at the IAT scores per ethnicity group:
 
-```{r fig.width = 35, fig.height = 12}
+```{r}
 
 ethnic1 <- ethnic %>% drop_na(ethnic.c)
 
@@ -469,13 +467,12 @@ pp <- ggviolin(ethnic1, x = "ethnic.c",
 pp <- pp + geom_hline(yintercept=0, linetype="dashed", 
                 color = "darkblue", size=1.2)
 
-pp <- pp + font("title", size = 40, color = "black", face = "bold")+
-font("legend.text", size = 40, color = "black", face = "bold")+
-font("xlab", size = 25, color = "black")+
-font("ylab", size = 40, color = "black", face = "bold")+
-font("xy.text", size = 40, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 20, color = "black", face = "bold")+
+font("xlab", size = 12, color = "black")+
+font("ylab", size = 20, color = "black", face = "bold")+
+font("xy.text", size = 20, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
-pp
 
 
 ```

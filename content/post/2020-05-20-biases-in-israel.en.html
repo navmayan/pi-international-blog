@@ -273,16 +273,16 @@ all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo,
 pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
                 color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 15, color = &quot;black&quot;)+
-font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 12, color = &quot;black&quot;)+
+font(&quot;ylab&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
+  panel.labs.font = list(size = 25)
 )</code></pre>
 <p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="2400" /></p>
 </div>
@@ -301,18 +301,17 @@ facet(pp , facet.by = &quot;Task&quot;,
 pp &lt;- pp + geom_hline(yintercept=4, linetype=&quot;dashed&quot;, 
                 color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
-font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 12, color = &quot;black&quot;)+
+font(&quot;ylab&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
-)</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="3360" /></p>
+  panel.labs.font = list(size = 25))</code></pre>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
 </div>
 <div id="self-report-feeling-thermometer-difference" class="section level3">
 <h3>Self-Report: Feeling Thermometer Difference</h3>
@@ -329,18 +328,17 @@ facet(pp , facet.by = &quot;Task&quot;,
 pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
                 color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;)+
-font(&quot;ylab&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 12, color = &quot;black&quot;)+
+font(&quot;ylab&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
-  panel.labs.font = list(size = 40)
-)</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="3360" /></p>
+  panel.labs.font = list(size = 25))</code></pre>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
 </div>
 </div>
 <div id="the-ethnicity-iat" class="section level2">
@@ -456,14 +454,12 @@ pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), com
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 40, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 25, color = &quot;black&quot;) + font(&quot;ylab&quot;, size = 40, 
-    color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, size = 40, 
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 12, color = &quot;black&quot;) + font(&quot;ylab&quot;, size = 20, 
+    color = &quot;black&quot;, face = &quot;bold&quot;) + font(&quot;xy.text&quot;, size = 20, 
     color = &quot;black&quot;, face = &quot;bold&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
-pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="3360" /></p>
+pp &lt;- pp + theme(legend.position = &quot;none&quot;)</code></pre>
 <p>We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, <em>all ethnicity groups</em> in the Israeli society show the same direction of bias.</p>
 </div>
 <div id="summary" class="section level2">
