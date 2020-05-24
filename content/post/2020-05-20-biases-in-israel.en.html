@@ -23,7 +23,7 @@ output:
 type: ''
 subtitle: ''
 description: 'Read about the implict and explicit biases in Israel'
-image: '' #/public/israel_flag.png
+image: '' #post\2020-05-20-biases-in-israel.en_files\israel_flag_s.png 
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
 classoption: landscape
 ---
@@ -31,6 +31,24 @@ classoption: landscape
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
+<pre class="r"><code>pacman::p_load(data.table, ggplot2, rlang, rmdformats, magrittr, 
+    dplyr, knitr, kableExtra, tidyr, jmv, ggpubr)</code></pre>
+<pre class="r"><code>age &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+ethnic &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+gender_science &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+race &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\race\\race_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+sexuality &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\sexuality\\sexuality_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+weight &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\weight\\weight_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+skin &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\skin\\skin_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)
+usa &lt;- fread(&quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\usa\\usa_iat_wide.csv&quot;) %&gt;% 
+    filter(year &gt;= 2009)</code></pre>
 <pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + 
     nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)</code></pre>
 <p>The <a href="https://implicit.harvard.edu/implicit/israel/demo.jsp">Israeli site</a> offers eight IAT topics for the participants to complete:</p>
@@ -42,19 +60,21 @@ classoption: landscape
 <li>Sexuality: ‘Gay - Straight’ IAT (N = 6506)</li>
 <li>Weight: ‘Fat - Thin’ IAT (N = 5209)</li>
 <li>Nationalism: ‘USA - Own Country’ IAT (N = 2167)</li>
-<li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5709)</li>
+<li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)</li>
 </ul>
 <p>Each task also included 1-2 self-reported evaluation measures:</p>
 <ul>
-<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1-7)</li>
-<li>Feeling Thermometer: Cold to warm feelings toward category (scale: 0-10)</li>
+<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY” to 7 “I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY”. 4 indicates No preference).</li>
+<li>Feeling Thermometer: Cold to warm feelings toward category (scale: 0 “very cold” 1 to 10 “very warm”). We computed a difference score of feeling towrard DOMINANT CATEGORY - feeling toward NON-DOMINANT CATEGORY.</li>
 </ul>
-<p>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!</p>
-<p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39992 participants.
-We found that <em>implicit bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).</p>
+<p>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF! <strong>INSERT LINK HERE</strong></p>
+<p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
+We found that <em>implicit bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).
+The results from our analyses could be used as a first step in the examination of implicit and explicit bias toward groups Israel and of the most prominent bias in this country (that is, the category with the largest difference between the two groups). This would be a first step as Project Implicit’s samples are <em>not</em> representative samples.</p>
 <div id="iat-mean-scores-per-task" class="section level2">
 <h2>IAT Mean Scores per Task</h2>
 <p>All tasks point to a dominant &gt; non-dominant bias. The strongest bias among Israeli participants is regarding <strong>Age (Young &gt; Old people)</strong> and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>:</p>
+<p><em>Note</em>: The plot below shows the mean IAT score for each test topic.</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Age&quot;)
 ethnic1 &lt;- ethnic %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 race1 &lt;- race %&gt;% select(session_id, IAT) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -96,14 +116,16 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
 <p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2400" /></p>
-<p>Israelis were often biased <em>explicitly</em>, and not just implicitly… but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias.</p>
+<p>Future studies could explore whether the extent of implicit bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment.</p>
+<p>Israelis were often biased <em>explicitly</em>, and not just implicitly… but, as might be expected (e.g., due to self-presentation bias), this bias was weaker in its magnitude, compared with the implicit bias.</p>
 </div>
 <div id="self-report-mean-scores-per-task" class="section level2">
 <h2>Self-Report Mean Scores per Task</h2>
 <p>Here too, all tasks point to a dominant &gt; non-dominant bias. However, the strongest <em>explicit</em> bias among Israelis is regarding <strong>Weight (Thin &gt; Fat people)</strong> and <strong>Nationalism (Own country &gt; USA)</strong>, with weaker bias regarding Age:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
-<p><em>Note</em>: Not all tasks included the direct self-reported preference measure.</p>
+<p><em>Note</em>: The plot below shows the mean self reported direct preference score for each test topic.
+Not all tasks included the direct self-reported preference measure.</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Age&quot;)
 ethnic1 &lt;- ethnic %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 race1 &lt;- race %&gt;% select(session_id, att) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -146,7 +168,7 @@ pp</code></pre>
 </div>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
-<p><em>Note</em>: Not all tasks included the feeling thermometer measure.</p>
+<p><em>Note</em>: The plot below shows the mean feeling thermometer difference score for each test topic. Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code>age1 &lt;- age %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Age&quot;)
 # ethnic1 &lt;- ethnic %&gt;% select(session_id,diff_thermo) %&gt;% mutate(Task = &#39;Ethnicity&#39;)
 race1 &lt;- race %&gt;% select(session_id, diff_thermo) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -185,14 +207,17 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
 <p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2400" /></p>
+<p>Does that mean that Israelis are more OK with being biased toward Fat people, and in favor of their own country, than toward elderly people? Does that relate to certain social values in the Israeli society? We think these are interesting questions that could be adressed in future studies.</p>
 <p><strong>Do Israelis get better over the years?</strong>
 - We next looked at the scores per year, to see if bias decreases troughout the years.</p>
 </div>
 </div>
 <div id="yearly-patterns" class="section level2">
 <h2>Yearly patterns</h2>
-<p>What we found is that bias, both implicit and explicit stays the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.</p>
-<pre class="r"><code>age &lt;- age %&gt;% drop_na(year)
+<p>What we found is that bias, both implicit and explicit stays pretty much the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.</p>
+<pre class="r"><code># drop NAs and set as factor
+
+age &lt;- age %&gt;% drop_na(year)
 age$Year &lt;- as.factor(age$year)
 
 race &lt;- race %&gt;% drop_na(year)
@@ -215,7 +240,9 @@ usa$Year &lt;- as.factor(usa$year)
 
 gender_science &lt;- gender_science %&gt;% drop_na(year)
 gender_science$Year &lt;- as.factor(gender_science$year)</code></pre>
-<pre class="r"><code>race_iat &lt;- race %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Race&quot;)
+<pre class="r"><code># bind DFs
+
+race_iat &lt;- race %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Race&quot;)
 skin_iat &lt;- skin %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Skin&quot;)
 age_iat &lt;- age %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Age&quot;)
 ethnic_iat &lt;- ethnic %&gt;% select(session_id, IAT, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
@@ -257,7 +284,397 @@ weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo,
 
 all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, 
     age_diff_thermo, usa_diff_thermo, weight_diff_thermo)</code></pre>
-<p><em>Note</em>: Each plot shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
+<p><strong>Participation per year and task:</strong></p>
+<pre class="r"><code># make N per year &amp; task table
+
+yy &lt;- all_iat %&gt;% group_by(Year, Task) %&gt;% tally() %&gt;% pivot_wider(names_from = Task, 
+    values_from = c(n))
+yy %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, 
+    &quot;hover&quot;, &quot;condensed&quot;, full_width = F, position = &quot;left&quot;))</code></pre>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Year
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+Ethnicity
+</th>
+<th style="text-align:right;">
+Gender-Science
+</th>
+<th style="text-align:right;">
+Nationalism
+</th>
+<th style="text-align:right;">
+Race
+</th>
+<th style="text-align:right;">
+Sexuality
+</th>
+<th style="text-align:right;">
+Skin
+</th>
+<th style="text-align:right;">
+Weight
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:right;">
+395
+</td>
+<td style="text-align:right;">
+1471
+</td>
+<td style="text-align:right;">
+244
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+534
+</td>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+629
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:right;">
+318
+</td>
+<td style="text-align:right;">
+936
+</td>
+<td style="text-align:right;">
+536
+</td>
+<td style="text-align:right;">
+269
+</td>
+<td style="text-align:right;">
+399
+</td>
+<td style="text-align:right;">
+708
+</td>
+<td style="text-align:right;">
+357
+</td>
+<td style="text-align:right;">
+685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:right;">
+317
+</td>
+<td style="text-align:right;">
+637
+</td>
+<td style="text-align:right;">
+346
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+311
+</td>
+<td style="text-align:right;">
+514
+</td>
+<td style="text-align:right;">
+274
+</td>
+<td style="text-align:right;">
+435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+655
+</td>
+<td style="text-align:right;">
+480
+</td>
+<td style="text-align:right;">
+195
+</td>
+<td style="text-align:right;">
+303
+</td>
+<td style="text-align:right;">
+497
+</td>
+<td style="text-align:right;">
+271
+</td>
+<td style="text-align:right;">
+394
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:right;">
+669
+</td>
+<td style="text-align:right;">
+461
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+275
+</td>
+<td style="text-align:right;">
+544
+</td>
+<td style="text-align:right;">
+278
+</td>
+<td style="text-align:right;">
+399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:right;">
+256
+</td>
+<td style="text-align:right;">
+712
+</td>
+<td style="text-align:right;">
+494
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+518
+</td>
+<td style="text-align:right;">
+285
+</td>
+<td style="text-align:right;">
+403
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:right;">
+234
+</td>
+<td style="text-align:right;">
+728
+</td>
+<td style="text-align:right;">
+481
+</td>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+272
+</td>
+<td style="text-align:right;">
+490
+</td>
+<td style="text-align:right;">
+276
+</td>
+<td style="text-align:right;">
+401
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+928
+</td>
+<td style="text-align:right;">
+714
+</td>
+<td style="text-align:right;">
+215
+</td>
+<td style="text-align:right;">
+426
+</td>
+<td style="text-align:right;">
+605
+</td>
+<td style="text-align:right;">
+387
+</td>
+<td style="text-align:right;">
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:right;">
+371
+</td>
+<td style="text-align:right;">
+1094
+</td>
+<td style="text-align:right;">
+826
+</td>
+<td style="text-align:right;">
+285
+</td>
+<td style="text-align:right;">
+653
+</td>
+<td style="text-align:right;">
+924
+</td>
+<td style="text-align:right;">
+581
+</td>
+<td style="text-align:right;">
+665
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:right;">
+226
+</td>
+<td style="text-align:right;">
+583
+</td>
+<td style="text-align:right;">
+555
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+451
+</td>
+<td style="text-align:right;">
+632
+</td>
+<td style="text-align:right;">
+292
+</td>
+<td style="text-align:right;">
+330
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:right;">
+243
+</td>
+<td style="text-align:right;">
+613
+</td>
+<td style="text-align:right;">
+496
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+493
+</td>
+<td style="text-align:right;">
+423
+</td>
+<td style="text-align:right;">
+362
+</td>
+<td style="text-align:right;">
+314
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>: Each plot shows the distribution of scores, with mean + 95% CI, and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
 <pre class="r"><code>pp &lt;- ggviolin(all_iat, x = &quot;Year&quot;,
@@ -284,7 +701,7 @@ facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
   panel.labs.font = list(size = 25)
 )</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="2400" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
 </div>
 <div id="self-reported-direct-preference-1" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
@@ -311,7 +728,7 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
   panel.labs.font = list(size = 25))</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
 </div>
 <div id="self-report-feeling-thermometer-difference" class="section level3">
 <h3>Self-Report: Feeling Thermometer Difference</h3>
@@ -338,7 +755,7 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 facet(pp , facet.by = &quot;Task&quot;,
   short.panel.labs = FALSE,   # Allow long labels in panels
   panel.labs.font = list(size = 25))</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>
 </div>
 </div>
 <div id="the-ethnicity-iat" class="section level2">
@@ -461,8 +878,8 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
     color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="2400" /></p>
-<p>We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, <em>all ethnicity groups</em> in the Israeli society show the same direction of bias.</p>
+<p><img src="/post/2020-05-20-biases-in-israel.en_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
+<p>We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, <em>all ethnicity groups</em> in our Israeli sample (including Mizrahi Israelis) show the same direction of bias.</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>

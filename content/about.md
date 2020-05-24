@@ -8,4 +8,4 @@ We will use this blog to post the results from 10 years of study (2009-2019), fo
 
 All data could be found on the OSF repository of the international sites **INSERT LINK HERE**.
 
-For more information about the organization, please see the [Project Implicit website](https://implicit.harvard.edu/implicit/).
+For more information about the organization, please visit the [Project Implicit website](https://implicit.harvard.edu/implicit/).

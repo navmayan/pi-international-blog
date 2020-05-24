@@ -23,7 +23,7 @@ output:
 type: ''
 subtitle: ''
 description: 'Read about the implict and explicit biases in Israel'
-image: '' #/public/israel_flag.png
+image: '' #post\2020-05-20-biases-in-israel.en_files\israel_flag_s.png 
 geometry: left=1cm, right=1cm, top=1cm, bottom=1cm
 classoption: landscape
 ---
@@ -48,18 +48,17 @@ knitr::opts_chunk$set(fig.width=25, fig.height=10)
 
 ```
 
-```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
+```{r load packages, message=FALSE, warning=FALSE}
 
-pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr, table1, ggstatsplot, effectsize, correlation, see, report, ggalluvial,ggmosaic,plotly,networktree,bootnet)
-#source("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Pilots\\analysis\\RScriptsForAnalysis\\yba.funcs.R")
+pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr)
 
 ```
 
-```{r load data, include=FALSE}
+```{r load data}
 
 age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
 ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
-gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv") #%>% filter(year >= 2009)
+gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv") %>% filter(year >= 2009)
 race <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\race\\race_iat_wide.csv") %>% filter(year >= 2009)
 sexuality <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\sexuality\\sexuality_iat_wide.csv") %>% filter(year >= 2009)
 weight <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\weight\\weight_iat_wide.csv") %>% filter(year >= 2009)
@@ -88,19 +87,23 @@ The [Israeli site](https://implicit.harvard.edu/implicit/israel/demo.jsp) offers
 
 Each task also included 1-2 self-reported evaluation measures:
 
-* Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1-7)
-* Feeling Thermometer: Cold to warm feelings toward category (scale: 0-10) 
+* Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 "I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY" to 7 "I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY". 4 indicates No preference).
+* Feeling Thermometer: Cold to warm feelings toward category (scale: 0 "very cold” 1 to 10 "very warm"). We computed a difference score of feeling towrard DOMINANT CATEGORY - feeling toward NON-DOMINANT CATEGORY.
 
-The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!
+The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF! **INSERT LINK HERE**
 
 
 We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of `r nall` participants. 
-We found that *implicit bias* is robust and persistent: The IAT scores from all tasks revealed that Israelis **strongly** prefer  the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people).
+We found that *implicit bias* is robust and persistent: The IAT scores from all tasks revealed that Israelis **strongly** prefer  the dominant social groups (e.g., White people, Ashkenazi people, Young people) over the non-dominant social groups (Black people, Mizrahi people, Old people). 
+The results from our analyses could be used as a first step in the examination of implicit and explicit bias toward groups Israel and of the most prominent bias in this country (that is, the category with the largest difference between the two groups). This would be a first step as Project Implicit's samples are *not* representative samples. 
 
 
 ## IAT Mean Scores per Task  
 
 All tasks point to a dominant > non-dominant bias. The strongest bias among Israeli participants is regarding **Age (Young > Old people)** and the smallest bias is regarding **Sexuality (Straight > Gay people)**:
+
+
+*Note*: The plot below shows the mean IAT score for each test topic.
 
 ```{r}
 
@@ -150,7 +153,10 @@ pp
 
 ```
 
-Israelis were often biased *explicitly*, and not just implicitly... but, as might be expected, this bias was weaker in its magnitude, compared with the implicit bias. 
+Future studies could explore whether the extent of implicit bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment.
+
+
+Israelis were often biased *explicitly*, and not just implicitly... but, as might be expected (e.g., due to self-presentation bias), this bias was weaker in its magnitude, compared with the implicit bias. 
 
 ## Self-Report Mean Scores per Task
 
@@ -158,7 +164,8 @@ Here too, all tasks point to a dominant > non-dominant bias. However, the strong
 
 ### Self-Reported Direct Preference
 
-*Note*: Not all tasks included the direct self-reported preference measure.
+*Note*: The plot below shows the mean self reported direct preference score for each test topic. 
+Not all tasks included the direct self-reported preference measure.
 
 ```{r}
 
@@ -209,7 +216,7 @@ pp
 
 ### Feeling thermometer (Difference score)
 
-*Note*: Not all tasks included the feeling thermometer measure.
+*Note*: The plot below shows the mean feeling thermometer difference score for each test topic. Not all tasks included the feeling thermometer measure.
 
 ```{r}
 
@@ -259,15 +266,19 @@ pp
 
 ```
 
+Does that mean that Israelis are more OK with being biased toward Fat people, and in favor of their own country, than toward elderly people? Does that relate to certain social values in the Israeli society? We think these are interesting questions that could be adressed in future studies. 
+
 
 **Do Israelis get better over the years?**
 - We next looked at the scores per year, to see if bias decreases troughout the years.
 
 ## Yearly patterns
 
-What we found is that bias, both implicit and explicit stays the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.
+What we found is that bias, both implicit and explicit stays pretty much the same troughout the 12 years. Across all years, we can see that explicit and implicit judgmetns favor the dominant groups, and that implict bias is much larger.
 
 ```{r}
+
+# drop NAs and set as factor
 
 age <- age %>% drop_na(year)
 age$Year <- as.factor(age$year)
@@ -296,6 +307,8 @@ gender_science$Year <- as.factor(gender_science$year)
 ```
 
 ```{r}
+
+# bind DFs
 
 race_iat <- race %>% select(session_id,IAT,Year) %>% mutate(Task = "Race")
 skin_iat <- skin %>% select(session_id,IAT,Year) %>% mutate(Task = "Skin")
@@ -334,7 +347,20 @@ all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,u
 
 ```
 
-*Note*: Each plot shows the distribution of scores, with mean and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
+**Participation per year and task:**
+
+```{r}
+
+# make N per year & task table
+
+yy <- all_iat %>% group_by(Year,Task) %>% tally() %>%
+  pivot_wider(names_from = Task, values_from = c(n)) 
+yy %>% kable() %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed",full_width = F, position = "left"))
+
+```
+
+
+*Note*: Each plot shows the distribution of scores, with mean + 95% CI, and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
 
 ### IAT
 
@@ -477,7 +503,7 @@ pp
 
 ```
 
-We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, *all ethnicity groups* in the Israeli society show the same direction of bias.
+We can see that, indeed, the implicit bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, *all ethnicity groups* in our Israeli sample (including Mizrahi Israelis) show the same direction of bias.
 
 
 
