@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  2776 ,
+  "wordCount":  2656 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2776&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2656&nbsp;words
   
   
     
@@ -618,20 +618,17 @@ thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr
 <pre class="r"><code>iat_df$Year = factor(iat_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
     &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
 
-pp &lt;- ggdotchart(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
-    label = round(iat_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 25, vjust = 0.5), ggtheme = theme_pubr())
+pp &lt;- ggline(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
+    size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
@@ -642,20 +639,17 @@ pp</code></pre>
 <pre class="r"><code>att_df$Year = factor(att_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
     &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
 
-pp &lt;- ggdotchart(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
-    label = round(att_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 25, vjust = 0.5), ggtheme = theme_pubr())
+pp &lt;- ggline(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
+    size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
@@ -667,20 +661,17 @@ pp</code></pre>
     &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, 
     &quot;2020&quot;))
 
-pp &lt;- ggdotchart(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
-    label = round(thermo_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 25, vjust = 0.5), ggtheme = theme_pubr())
+pp &lt;- ggline(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
+    size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>

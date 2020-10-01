@@ -452,30 +452,16 @@ thermo_df <- df %>% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x)))
 
 iat_df$Year = factor(iat_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggdotchart(iat_df, x = "Year", y = "Cohens_d",
-           color = "Task",
-           ylab = "Cohen's d",
-           sorting = "none",
-           order = NULL,
-           combine = F,
-           add = "segments",
-           facet = "Task",
-           rotate = F,
-           dot.size = 30,
-           label = round(iat_df$Cohens_d,3),
-           font.label = list(color = "white", size = 25,
-                             vjust = 0.5),
-           ggtheme = theme_pubr()
-           )
+pp <- ggline(iat_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2) + theme(axis.text.x=element_text(angle = 22))
 
-pp <- pp + font("title", size = 30, color = "black", face = "bold")+
-font("legend.text", size = 26, color = "black", face = "bold")+
-font("xlab", size = 28, color = "black", face = "bold")+
-font("ylab", size = 28, color = "black", face = "bold")+
-font("xy.text", size = 25, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -489,30 +475,16 @@ pp
 
 att_df$Year = factor(att_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggdotchart(att_df, x = "Year", y = "Cohens_d",
-           color = "Task",
-           ylab = "Cohen's d",
-           sorting = "none",
-           order = NULL,
-           combine = F,
-           add = "segments",
-           facet = "Task",
-           rotate = F,
-           dot.size = 30,
-           label = round(att_df$Cohens_d,3),
-           font.label = list(color = "white", size = 25,
-                             vjust = 0.5),
-           ggtheme = theme_pubr()
-           )
+pp <- ggline(att_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2) + theme(axis.text.x=element_text(angle = 22))
 
-pp <- pp + font("title", size = 30, color = "black", face = "bold")+
-font("legend.text", size = 26, color = "black", face = "bold")+
-font("xlab", size = 28, color = "black", face = "bold")+
-font("ylab", size = 28, color = "black", face = "bold")+
-font("xy.text", size = 25, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -526,30 +498,16 @@ pp
 
 thermo_df$Year = factor(thermo_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggdotchart(thermo_df, x = "Year", y = "Cohens_d",
-           color = "Task",
-           ylab = "Cohen's d",
-           sorting = "none",
-           order = NULL,
-           combine = F,
-           add = "segments",
-           facet = "Task",
-           rotate = F,
-           dot.size = 30,
-           label = round(thermo_df$Cohens_d,3),
-           font.label = list(color = "white", size = 25,
-                             vjust = 0.5),
-           ggtheme = theme_pubr()
-           )
+pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2) + theme(axis.text.x=element_text(angle = 22))
 
-pp <- pp + font("title", size = 30, color = "black", face = "bold")+
-font("legend.text", size = 26, color = "black", face = "bold")+
-font("xlab", size = 28, color = "black", face = "bold")+
-font("ylab", size = 28, color = "black", face = "bold")+
-font("xy.text", size = 25, color = "black", face = "bold")
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
