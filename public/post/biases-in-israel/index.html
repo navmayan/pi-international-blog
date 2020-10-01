@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  3395 ,
+  "wordCount":  3401 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3395&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3401&nbsp;words
   
   
     
@@ -564,8 +564,10 @@ gender_science_att &lt;- gender_science %&gt;% select(session_id, att,
 weight_att &lt;- weight %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
 all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, 
-    usa_att, weight_att, gender_science_att)
+    usa_att, weight_att)
 all_att$att_rs &lt;- all_att$att - 4
+gender_science_att$att_rs &lt;- gender_science_att$att
+all_att &lt;- bind_rows(all_att, gender_science_att)
 
 race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, 
     Year) %&gt;% mutate(Task = &quot;Race&quot;)

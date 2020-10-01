@@ -398,8 +398,10 @@ usa_att <- usa %>% select(session_id,att,Year) %>% mutate(Task = "Nationalism")
 gender_science_att <- gender_science %>% select(session_id,att,Year) %>% mutate(Task = "Gender-Science")
 weight_att <- weight %>% select(session_id,att,Year) %>% mutate(Task = "Weight")
 
-all_att <- bind_rows(race_att,ethnic_att,age_att,sex_att,usa_att,weight_att,gender_science_att)
+all_att <- bind_rows(race_att,ethnic_att,age_att,sex_att,usa_att,weight_att)
 all_att$att_rs <- all_att$att - 4
+gender_science_att$att_rs <- gender_science_att$att
+all_att <- bind_rows(all_att,gender_science_att)
 
 race_diff_thermo <- race %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Race")
 skin_diff_thermo <- skin %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Skin")
