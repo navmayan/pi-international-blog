@@ -48,22 +48,23 @@ knitr::opts_chunk$set(fig.width=25, fig.height=10)
 
 ```
 
-```{r load packages, message=FALSE, warning=FALSE}
+```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
 
 pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr)
+#source("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Pilots\\analysis\\RScriptsForAnalysis\\yba.funcs.R")
 
 ```
 
-```{r load data}
+```{r load data, include=FALSE}
 
-age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
-ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
-gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv") %>% filter(year >= 2009)
-race <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\race\\race_iat_wide.csv") %>% filter(year >= 2009)
-sexuality <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\sexuality\\sexuality_iat_wide.csv") %>% filter(year >= 2009)
-weight <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\weight\\weight_iat_wide.csv") %>% filter(year >= 2009)
-skin <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\skin\\skin_iat_wide.csv") %>% filter(year >= 2009)
-usa <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\usa\\usa_iat_wide.csv") %>% filter(year >= 2009)
+age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
+ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
+gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\gender_science\\gender_science_iat_wide.csv") %>% filter(year >= 2009)
+race <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\race\\race_iat_wide.csv") %>% filter(year >= 2009)
+sexuality <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\sexuality\\sexuality_iat_wide.csv") %>% filter(year >= 2009)
+weight <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\weight\\weight_iat_wide.csv") %>% filter(year >= 2009)
+skin <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\skin\\skin_iat_wide.csv") %>% filter(year >= 2009)
+usa <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\usa\\usa_iat_wide.csv") %>% filter(year >= 2009)
 
 ```
 

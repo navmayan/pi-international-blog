@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mayanna@post.bgu.ac.il (Project Implicit)</managingEditor>
     <webMaster>mayanna@post.bgu.ac.il (Project Implicit)</webMaster>
-    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pi-international-blog.netlify.app/categories/gender-science-iat/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,11 @@
     <item>
       <title>Biases in Israel</title>
       <link>https://pi-international-blog.netlify.app/post/biases-in-israel/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       <author>mayanna@post.bgu.ac.il (Project Implicit)</author>
       <guid>https://pi-international-blog.netlify.app/post/biases-in-israel/</guid>
-      <description>pacman::p_load(data.table, ggplot2, rlang, rmdformats, magrittr, dplyr, knitr, kableExtra, tidyr, jmv, ggpubr)age &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\age\\age_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)ethnic &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\ethnicity\\ethnic_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)gender_science &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\gender_science\\gender_science_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)race &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\race\\race_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)sexuality &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\sexuality\\sexuality_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)weight &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\weight\\weight_iat_wide.csv&amp;quot;) %&amp;gt;% filter(year &amp;gt;= 2009)skin &amp;lt;- fread(&amp;quot;C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\israel_data\\skin\\skin_iat_wide.</description>
+      <description>nall &amp;lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)The Israeli site offers eight IAT topics for the participants to complete:
+Race: ‘Black - White’ IAT (N = 4454)Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = 9105)Skin-tone: ‘Light Skin - Dark Skin’ IAT (N = 3639)Age: ‘Young - Old’ IAT (N = 3203)Sexuality: ‘Gay - Straight’ IAT (N = 6506)Weight: ‘Fat - Thin’ IAT (N = 5209)Nationalism: ‘USA - Own Country’ IAT (N = 2167)Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)Each tasks also included 1-2 self-reported evaluation measures:</description>
     </item>
     
   </channel>
