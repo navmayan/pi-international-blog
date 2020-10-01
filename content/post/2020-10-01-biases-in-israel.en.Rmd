@@ -390,7 +390,6 @@ all_iat <- bind_rows(race_iat,skin_iat,ethnic_iat,age_iat,sex_iat,usa_iat,gender
 
 
 race_att <- race %>% select(session_id,att,Year) %>% mutate(Task = "Race")
-#skin_att <- skin %>% select(session_id,att,Year) %>% mutate(Task = "Skin")
 age_att <- age %>% select(session_id,att,Year) %>% mutate(Task = "Age")
 ethnic_att <- ethnic %>% select(session_id,att,Year) %>% mutate(Task = "Ethnicity")
 sex_att <- sexuality %>% select(session_id,att,Year) %>% mutate(Task = "Sexuality")
@@ -406,10 +405,7 @@ all_att <- bind_rows(all_att,gender_science_att)
 race_diff_thermo <- race %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Race")
 skin_diff_thermo <- skin %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Skin")
 age_diff_thermo <- age %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Age")
-#ethnic_diff_thermo <- ethnic %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Ethnicity")
-#sex_diff_thermo <- sexuality %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Sexuality")
 usa_diff_thermo <- usa %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Nationalism")
-#gender_science_diff_thermo <- gender_science %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Gender-Science")
 weight_diff_thermo <- weight %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Weight")
 
 all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,usa_diff_thermo,weight_diff_thermo)

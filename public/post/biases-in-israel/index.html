@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  3401 ,
+  "wordCount":  3362 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3401&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3362&nbsp;words
   
   
     
@@ -554,7 +554,6 @@ all_iat &lt;- bind_rows(race_iat, skin_iat, ethnic_iat, age_iat,
 
 
 race_att &lt;- race %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Race&quot;)
-# skin_att &lt;- skin %&gt;% select(session_id,att,Year) %&gt;% mutate(Task = &#39;Skin&#39;)
 age_att &lt;- age %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Age&quot;)
 ethnic_att &lt;- ethnic %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_att &lt;- sexuality %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
@@ -575,10 +574,8 @@ skin_diff_thermo &lt;- skin %&gt;% select(session_id, diff_thermo,
     Year) %&gt;% mutate(Task = &quot;Skin&quot;)
 age_diff_thermo &lt;- age %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
     mutate(Task = &quot;Age&quot;)
-# ethnic_diff_thermo &lt;- ethnic %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Ethnicity&#39;) sex_diff_thermo &lt;- sexuality %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Sexuality&#39;)
 usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;% 
     mutate(Task = &quot;Nationalism&quot;)
-# gender_science_diff_thermo &lt;- gender_science %&gt;% select(session_id,diff_thermo,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
 weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, 
     Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
