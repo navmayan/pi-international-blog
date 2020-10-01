@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  3405 ,
+  "wordCount":  3393 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3405&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3393&nbsp;words
   
   
     
@@ -283,7 +283,8 @@
 <li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)</li>
 </ul>
 <p>The attributes used on all IATs except <em>Gender - Science</em> are Good vs. Bad.</p>
-<p><strong>Based on the participants’ reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).</strong> Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). Here we take a conservative stand, and thus refer to IAT scores in a certain direction (rather than zero) as <em>bias in IAT scores</em>.</p>
+<p>Based on the participants’ reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).<br />
+Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). <strong>Here we take a conservative stand</strong>, and thus refer to IAT scores in a certain direction (rather than zero) as <em>bias in IAT scores</em>.</p>
 <p>Each task also included 1 or 2 self-reported judgment measures:</p>
 <ul>
 <li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")</li>
@@ -291,8 +292,8 @@
 </ul>
 <p><strong>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on OSF!</strong> (<em>INSERT LINK HERE</em>)</p>
 <p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
-We found a robust and persistent pro-dominant association: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
-The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the category with the largest difference between the two groups). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
+We found a robust and persistent pro-dominant bias: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
+The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
 <div id="iat-scores-per-task" class="section level2">
 <h2>IAT Scores per Task</h2>
 <p>All tasks point to a pro-dominant &gt; association. The strongest bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>, and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
@@ -1022,18 +1023,18 @@ Weight
 <pre class="r"><code>iat_df$Year = factor(iat_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
     &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
 
-pp &lt;- ggline(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    size = 2)
+pp &lt;- ggline(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
+    color = &quot;Task&quot;, size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2) + theme(axis.text.x = element_text(angle = 22))
+    size = 1.2)
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
+# pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
@@ -1043,18 +1044,18 @@ pp</code></pre>
 <pre class="r"><code>att_df$Year = factor(att_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
     &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
 
-pp &lt;- ggline(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    size = 2)
+pp &lt;- ggline(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
+    color = &quot;Task&quot;, size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2) + theme(axis.text.x = element_text(angle = 22))
+    size = 1.2)
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
+# pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
@@ -1065,18 +1066,18 @@ pp</code></pre>
     &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, 
     &quot;2020&quot;))
 
-pp &lt;- ggline(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
-    size = 2)
+pp &lt;- ggline(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
+    color = &quot;Task&quot;, size = 2)
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2) + theme(axis.text.x = element_text(angle = 22))
+    size = 1.2)
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
     font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
+# pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>

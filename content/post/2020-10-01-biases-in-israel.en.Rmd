@@ -90,7 +90,8 @@ The [Israeli site](https://implicit.harvard.edu/implicit/israel/demo.jsp) offers
 
 The attributes used on all IATs except *Gender - Science* are Good vs. Bad.
 
-**Based on the participants' reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).** Some researchers interpret this strength of association as the participants' implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). Here we take a conservative stand, and thus refer to IAT scores in a certain direction (rather than zero) as *bias in IAT scores*.
+Based on the participants' reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).  
+Some researchers interpret this strength of association as the participants' implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). **Here we take a conservative stand**, and thus refer to IAT scores in a certain direction (rather than zero) as *bias in IAT scores*.
 
 
 Each task also included 1 or 2 self-reported judgment measures:
@@ -102,8 +103,8 @@ Each task also included 1 or 2 self-reported judgment measures:
 
 
 We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of `r nall` participants. 
-We found a robust and persistent pro-dominant association: The IAT scores from all tasks revealed that Israelis **strongly** associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
-The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the category with the largest difference between the two groups). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.
+We found a robust and persistent pro-dominant bias: The IAT scores from all tasks revealed that Israelis **strongly** associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
+The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.
 
 
 ## IAT Scores per Task  
@@ -484,17 +485,17 @@ yy %>% kable() %>% kable_styling(bootstrap_options = c("striped",
 
 iat_df$Year = factor(iat_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggline(iat_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
+pp <- ggline(iat_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
-    size = 1.2) + theme(axis.text.x=element_text(angle = 22))
+    size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
 font("legend.text", size = 25, color = "black", face = "bold")+
 font("xlab", size = 28, color = "black", face = "bold")+
 font("ylab", size = 28, color = "black", face = "bold")+
 font("xy.text", size = 25, color = "black", face = "bold")
-pp <- pp +theme(legend.position="none")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -507,17 +508,17 @@ pp
 
 att_df$Year = factor(att_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggline(att_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
+pp <- ggline(att_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
-    size = 1.2) + theme(axis.text.x=element_text(angle = 22))
+    size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
 font("legend.text", size = 25, color = "black", face = "bold")+
 font("xlab", size = 28, color = "black", face = "bold")+
 font("ylab", size = 28, color = "black", face = "bold")+
 font("xy.text", size = 25, color = "black", face = "bold")
-pp <- pp +theme(legend.position="none")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -530,17 +531,17 @@ pp
 
 thermo_df$Year = factor(thermo_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"))
 
-pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", color = "Task", size = 2)
+pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
-    size = 1.2) + theme(axis.text.x=element_text(angle = 22))
+    size = 1.2) 
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
 font("legend.text", size = 25, color = "black", face = "bold")+
 font("xlab", size = 28, color = "black", face = "bold")+
 font("ylab", size = 28, color = "black", face = "bold")+
 font("xy.text", size = 25, color = "black", face = "bold")
-pp <- pp +theme(legend.position="none")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
