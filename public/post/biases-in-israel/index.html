@@ -415,20 +415,21 @@ all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Weight&quot;, &quot
            add = &quot;segments&quot;,                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = &quot;cyl&quot;,                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = &quot;white&quot;, size = 15, 
+           font.label = list(color = &quot;white&quot;, size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
+
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
@@ -476,20 +477,21 @@ all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Skin&quot;, &quot;W
            add = &quot;segments&quot;,                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = &quot;cyl&quot;,                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = &quot;white&quot;, size = 15, 
+           font.label = list(color = &quot;white&quot;, size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
+
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
@@ -618,18 +620,18 @@ thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr
 
 pp &lt;- ggdotchart(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
     ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 15, 
+    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
     label = round(iat_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 14, vjust = 0.5), ggtheme = theme_pubr())
+        size = 25, vjust = 0.5), ggtheme = theme_pubr())
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
@@ -642,18 +644,18 @@ pp</code></pre>
 
 pp &lt;- ggdotchart(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
     ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 15, 
+    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
     label = round(att_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 14, vjust = 0.5), ggtheme = theme_pubr())
+        size = 25, vjust = 0.5), ggtheme = theme_pubr())
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
@@ -667,18 +669,18 @@ pp</code></pre>
 
 pp &lt;- ggdotchart(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, color = &quot;Task&quot;, 
     ylab = &quot;Cohen&#39;s d&quot;, sorting = &quot;none&quot;, order = NULL, combine = F, 
-    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 15, 
+    add = &quot;segments&quot;, facet = &quot;Task&quot;, rotate = F, dot.size = 30, 
     label = round(thermo_df$Cohens_d, 3), font.label = list(color = &quot;white&quot;, 
-        size = 14, vjust = 0.5), ggtheme = theme_pubr())
+        size = 25, vjust = 0.5), ggtheme = theme_pubr())
 
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
-pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 30, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 26, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
@@ -797,11 +799,11 @@ pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), com
 pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
     size = 1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 13, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 14, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 10, color = &quot;black&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 23, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="2400" /></p>
