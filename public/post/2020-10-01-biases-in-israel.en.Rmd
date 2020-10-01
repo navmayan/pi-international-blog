@@ -44,7 +44,7 @@ library(knitr)
 options(max.print="275")
 options(width = 1430)
 opts_knit$set(width=200) 
-knitr::opts_chunk$set(fig.width=40, fig.height=25) 
+knitr::opts_chunk$set(fig.width=25, fig.height=10) 
 
 ```
 
@@ -156,9 +156,9 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
            #group = "cyl",                                # Order by groups
-           dot.size = 20,                                 # Large dot size
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -166,11 +166,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
