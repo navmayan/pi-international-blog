@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  2656 ,
+  "wordCount":  3405 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2656&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3405&nbsp;words
   
   
     
@@ -282,17 +282,21 @@
 <li>Nationalism: ‘USA - Own Country’ IAT (N = 2167)</li>
 <li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)</li>
 </ul>
-<p>Each tasks also included 1-2 self-reported evaluation measures:</p>
+<p>The attributes used on all IATs except <em>Gender - Science</em> are Good vs. Bad.</p>
+<p><strong>Based on the participants’ reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).</strong> Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). Here we take a conservative stand, and thus refer to IAT scores in a certain direction (rather than zero) as <em>bias in IAT scores</em>.</p>
+<p>Each task also included 1 or 2 self-reported judgment measures:</p>
 <ul>
-<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1-7)</li>
-<li>Feeling Thermometer: Cold to warm feelings toward each category (scale: 0-10)</li>
+<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")</li>
+<li>Feeling Thermometer: Cold to warm feelings toward each category (scale: 0 “very cold” to 10 “very warm”). We computed a difference score of dominant category - non-dominant category.</li>
 </ul>
-<p>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data on OSF!</p>
+<p><strong>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on OSF!</strong> (<em>INSERT LINK HERE</em>)</p>
 <p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
-We found that <em>automatic bias</em> is robust and persistent: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> prefer the dominant social groups (e.g., White people, Ashkenazi people, Young people) and not the non-dominant social groups (Black people, Mizrahi people, Old people).</p>
+We found a robust and persistent pro-dominant association: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
+The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the category with the largest difference between the two groups). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
 <div id="iat-scores-per-task" class="section level2">
 <h2>IAT Scores per Task</h2>
-<p>All tasks point to a dominant &gt; non-dominant bias. The strongest automatic bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts)</strong>, and the smallest automatic bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
+<p>All tasks point to a pro-dominant &gt; association. The strongest bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>, and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
+<p><em>Note</em>. The plot below shows the effect-size (Cohen’s d) as a function of the IAT task. Larger effect-sizes indicate stronger pro-dominant bias.</p>
 <pre class="r"><code># compute es - iat
 
 aget &lt;- ttestOneS(age, vars = vars(IAT), testValue = 0, effectSize = T)
@@ -364,14 +368,15 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2400" /></p>
+<p>Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment.</p>
 </div>
 <div id="self-report-scores-per-task" class="section level2">
 <h2>Self-Report Scores per Task</h2>
-<p>Israelis were often biased <em>explicitly</em>, and not just automatically… but, as might be expected, this bias was weaker in its magnitude, compared with the automatic bias.</p>
-<p>All tasks point to a dominant &gt; non-dominant bias. The strongest self-reported bias among Israeli participants is regarding <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts)</strong> and <strong>Weight (Thin &gt; Fat)</strong> and the smallest automatic bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>:</p>
+<p>Israelis were often biased <em>in their self-reports</em>, and not just in their IAT scores… but, as might be expected, this bias was a bit weaker in its magnitude. Interestingly, there were some differences between the strongest bias in the IAT scores and in the self-report scores. Here, the strongest self-reported bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong> and <strong>Weight (Thin &gt; Fat)</strong>, and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>, <strong>Ethnicity (Ashkenazi &gt; Mizrahi)</strong>, and <strong>Age (Young &gt; Old)</strong>:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
-<p><em>Note</em>: Not all tasks included the direct self-reported preference measure.</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the direct self-reported preference task. Larger effect-sizes indicate stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.
+Gender-Science: a difference score. Higher scores indicate a consideration of science as masculine and liberal arts as feminine.</p>
 <pre class="r"><code># compute es - self reported direct preference
 
 aget &lt;- ttestOneS(age, vars = vars(att), testValue = 4, effectSize = T)
@@ -401,12 +406,17 @@ usat &lt;- ttestOneS(usa, vars = vars(att), testValue = 4, effectSize = T)
 usat &lt;- as.data.frame(usat$ttest)
 usad &lt;- round(usat[[6]], 2)
 
-all_ds &lt;- c(aged, raced, weightd, ethnicd, sexualityd, usad) %&gt;% 
-    as.data.frame()
+gender_sciencet &lt;- ttestOneS(gender_science, vars = vars(att), 
+    testValue = 0, effectSize = T)
+gender_sciencet &lt;- as.data.frame(gender_sciencet$ttest)
+gender_scienced &lt;- round(gender_sciencet[[6]], 2)
+
+all_ds &lt;- c(aged, raced, weightd, ethnicd, sexualityd, usad, 
+    gender_scienced) %&gt;% as.data.frame()
 colnames(all_ds) &lt;- &quot;es&quot;
 
 all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Weight&quot;, &quot;Ethnicity&quot;, &quot;Sexuality&quot;, 
-    &quot;Nationalism&quot;)</code></pre>
+    &quot;Nationalism&quot;, &quot;Gender-Science&quot;)</code></pre>
 <pre class="r"><code>pp &lt;- ggdotchart(all_ds, x = &quot;Task&quot;, y = &quot;es&quot;,
            color = &quot;Task&quot;,                                # Color by groups
            ylab = &quot;Cohen&#39;s d&quot;,
@@ -437,7 +447,8 @@ pp</code></pre>
 </div>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
-<p><em>Note</em>: Not all tasks included the feeling thermometer measure.</p>
+<p>The effect-sizes are smaller on this measure, compared with the previous ones. This difference might result from the nature of each measure: while the Self-reported preference measure <em>directly</em> compares the two categories (as does the IAT), the thermometer <em>does not</em> compare the two categories directly. A comparative context might facilitate bias.</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the feeling thermometer task. Larger effect-sizes indicate stronger pro-dominant bias. Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code># compute es - thermometer
 
 aget &lt;- ttestOneS(age, vars = vars(diff_thermo), testValue = 0, 
@@ -496,13 +507,14 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2400" /></p>
+<p>Does that mean that Israelis are more OK with being biased toward Fat people, and in favor of their own country, than toward elderly people, for example? Does that relate to certain social values in the Israeli society? We think these are interesting questions that could be addressed in future research.</p>
 <p><strong>Do people get better?</strong>
 - We next looked at the scores per year, to see if bias decreases throughout the years.</p>
 </div>
 </div>
 <div id="yearly-patterns" class="section level2">
 <h2>Yearly patterns</h2>
-<p>What we found, is that bias, both automatic and self-reported stays the same throughout the 12 years. Across all years, we can see that self-reported and automatic judgments favor the dominant groups, and that automatic bias is much larger.</p>
+<p>What we found, is that bias, both in IAT scores and in self-report stays the same throughout the 12 years. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.</p>
 <pre class="r"><code>age &lt;- age %&gt;% drop_na(year)
 age$Year &lt;- as.factor(age$year)
 
@@ -612,7 +624,399 @@ df &lt;- all_diff_thermo %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;%
 
 thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x))) %&gt;% 
     unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)</code></pre>
+<div id="participation-per-year-and-task" class="section level3">
+<h3>Participation per year and task:</h3>
+<pre class="r"><code># make N per year &amp; task table
+
+yy &lt;- all_iat %&gt;% group_by(Year, Task) %&gt;% tally() %&gt;% pivot_wider(names_from = Task, 
+    values_from = c(n))
+yy %&gt;% kable() %&gt;% kable_styling(bootstrap_options = c(&quot;striped&quot;, 
+    &quot;hover&quot;, &quot;condensed&quot;, full_width = F, position = &quot;left&quot;))</code></pre>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Year
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+Ethnicity
+</th>
+<th style="text-align:right;">
+Gender-Science
+</th>
+<th style="text-align:right;">
+Nationalism
+</th>
+<th style="text-align:right;">
+Race
+</th>
+<th style="text-align:right;">
+Sexuality
+</th>
+<th style="text-align:right;">
+Skin
+</th>
+<th style="text-align:right;">
+Weight
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:right;">
+395
+</td>
+<td style="text-align:right;">
+1471
+</td>
+<td style="text-align:right;">
+244
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+437
+</td>
+<td style="text-align:right;">
+534
+</td>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+629
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:right;">
+318
+</td>
+<td style="text-align:right;">
+936
+</td>
+<td style="text-align:right;">
+536
+</td>
+<td style="text-align:right;">
+269
+</td>
+<td style="text-align:right;">
+399
+</td>
+<td style="text-align:right;">
+708
+</td>
+<td style="text-align:right;">
+357
+</td>
+<td style="text-align:right;">
+685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:right;">
+317
+</td>
+<td style="text-align:right;">
+637
+</td>
+<td style="text-align:right;">
+346
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+311
+</td>
+<td style="text-align:right;">
+514
+</td>
+<td style="text-align:right;">
+274
+</td>
+<td style="text-align:right;">
+435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+655
+</td>
+<td style="text-align:right;">
+480
+</td>
+<td style="text-align:right;">
+195
+</td>
+<td style="text-align:right;">
+303
+</td>
+<td style="text-align:right;">
+497
+</td>
+<td style="text-align:right;">
+271
+</td>
+<td style="text-align:right;">
+394
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2013
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:right;">
+669
+</td>
+<td style="text-align:right;">
+461
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+275
+</td>
+<td style="text-align:right;">
+544
+</td>
+<td style="text-align:right;">
+278
+</td>
+<td style="text-align:right;">
+399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:right;">
+256
+</td>
+<td style="text-align:right;">
+712
+</td>
+<td style="text-align:right;">
+494
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+518
+</td>
+<td style="text-align:right;">
+285
+</td>
+<td style="text-align:right;">
+403
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015
+</td>
+<td style="text-align:right;">
+234
+</td>
+<td style="text-align:right;">
+728
+</td>
+<td style="text-align:right;">
+481
+</td>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+272
+</td>
+<td style="text-align:right;">
+490
+</td>
+<td style="text-align:right;">
+276
+</td>
+<td style="text-align:right;">
+401
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:right;">
+324
+</td>
+<td style="text-align:right;">
+928
+</td>
+<td style="text-align:right;">
+714
+</td>
+<td style="text-align:right;">
+215
+</td>
+<td style="text-align:right;">
+426
+</td>
+<td style="text-align:right;">
+605
+</td>
+<td style="text-align:right;">
+387
+</td>
+<td style="text-align:right;">
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:right;">
+371
+</td>
+<td style="text-align:right;">
+1094
+</td>
+<td style="text-align:right;">
+826
+</td>
+<td style="text-align:right;">
+285
+</td>
+<td style="text-align:right;">
+653
+</td>
+<td style="text-align:right;">
+924
+</td>
+<td style="text-align:right;">
+581
+</td>
+<td style="text-align:right;">
+665
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:right;">
+226
+</td>
+<td style="text-align:right;">
+583
+</td>
+<td style="text-align:right;">
+555
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+451
+</td>
+<td style="text-align:right;">
+632
+</td>
+<td style="text-align:right;">
+292
+</td>
+<td style="text-align:right;">
+330
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:right;">
+243
+</td>
+<td style="text-align:right;">
+613
+</td>
+<td style="text-align:right;">
+496
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+493
+</td>
+<td style="text-align:right;">
+423
+</td>
+<td style="text-align:right;">
+362
+</td>
+<td style="text-align:right;">
+314
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+</tbody>
+</table>
 <p><em>Note</em>: The dashed line marks the point of no preference between the two groups.</p>
+</div>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
 <pre class="r"><code>iat_df$Year = factor(iat_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
@@ -625,14 +1029,14 @@ pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+    font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
 </div>
 <div id="self-reported-direct-preference-1" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
@@ -646,14 +1050,14 @@ pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+    font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
 </div>
 <div id="self-report-feeling-thermometer-difference" class="section level3">
 <h3>Self-Report: Feeling Thermometer Difference</h3>
@@ -668,20 +1072,19 @@ pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = 
     size = 1.2) + theme(axis.text.x = element_text(angle = 22))
 
 pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 16, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 18, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 15, color = &quot;black&quot;, face = &quot;bold&quot;)
+    font(&quot;legend.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 28, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bold&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>
 </div>
 </div>
 <div id="the-ethnicity-iat" class="section level2">
 <h2>The Ethnicity IAT</h2>
-<p>This IAT uses categories unique to Israel. Let’s inspect it further.
-Do people from different ethnicity have different levels of automatic ethnicity-related bias?</p>
+<p>This IAT uses categories unique to Israel: It compares the judgments toward the two main ethnicities in Isarael: Ashkenazi Israelis (originating from Europe) and Mizrahi Israelis (originating in Africa and Arab countries). Let’s inspect it further. Do people from different ethnicities have different levels of ethnicity-related bias?</p>
 <p>We’ll start by examining the participation per ethnicity group:</p>
 <pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% 
     tally()
@@ -797,17 +1200,21 @@ pp &lt;- pp + font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-14-1.png" width="2400" /></p>
-<p>We can see that, indeed, the automatic bias varies across the different ethnicity. Still, <em>all ethnicity groups</em> in the Israeli society show the same direction of bias.</p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
+<p>We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, all ethnicity groups in our Israeli sample (including Mizrahi Israelis) show the same direction of bias (pro-dominant).</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <ul>
-<li>Across all tasks, Israelis were biased, explicitly and automatically, in favor of the dominant social groups.</li>
-<li>Across all tasks, the bias (preference) was much larger for the automatic than the self-reported (explicit) judgment.</li>
-<li>The bias stayed the same across the 12 years of data collection.</li>
-<li>IAT scores: The strongest bias among Israeli participants was regarding Age (Young &gt; Old people) and the smallest bias was regarding Sexuality (Straight &gt; Gay people).</li>
+<li>Across all tasks, Israelis were biased, in their self-report and IAT scores, in favor of the dominant social groups.</li>
+<li>Across all tasks, the bias was much larger for the IAT than the self-report measures.</li>
+<li>The bias stayed pretty much the same across the 12 years of data collection.</li>
+<li>IAT scores: The strongest bias among Israeli participants was regarding Nationalism (Own country &gt; USA) and the smallest bias was regarding Sexuality (Straight &gt; Gay people).</li>
 </ul>
+</div>
+<div id="disclaimer" class="section level2">
+<h2>Disclaimer</h2>
+<p>It is important to note that, currently, there is no consensus on the meaning of the IAT score. Some researchers would argue that it reflects an implicit or automatic bias, whereas others are more skeptical about this score and would say that automatic bias in judgment is only one factor that might influence the IAT score.</p>
 </div>
 <div id="show-me-more" class="section level2">
 <h2>Show me more!</h2>
