@@ -44,7 +44,7 @@ library(knitr)
 options(max.print="275")
 options(width = 1430)
 opts_knit$set(width=200) 
-knitr::opts_chunk$set(fig.width=25, fig.height=10) 
+knitr::opts_chunk$set(fig.width=40, fig.height=25) 
 
 ```
 
