@@ -322,11 +322,12 @@ age_att &lt;- age %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quo
 ethnic_att &lt;- ethnic %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_att &lt;- sexuality %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_att &lt;- usa %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-# gender_science_att &lt;- gender_science %&gt;% select(session_id,att,Year) %&gt;% mutate(Task = &#39;Gender-Science&#39;)
+gender_science_att &lt;- gender_science %&gt;% select(session_id, att, 
+    Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 weight_att &lt;- weight %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
 all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, 
-    usa_att, weight_att)
+    usa_att, weight_att, gender_science_att)
 all_att$att_rs &lt;- all_att$att - 4
 
 race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, 
