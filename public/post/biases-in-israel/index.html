@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  3437 ,
+  "wordCount":  3450 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3437&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3450&nbsp;words
   
   
     
@@ -1189,26 +1189,18 @@ West Europe
 <p><em>Note</em>. The plot shows the distribution of scores, with mean + 95% CI, and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <pre class="r"><code>ethnic1 &lt;- ethnic %&gt;% drop_na(ethnic.c)
 
-pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;,
-      y = c(&quot;IAT&quot;),
-      combine = TRUE,
-      ylab = &quot;IAT&quot;, 
-      xlab = &quot;Ethnicity&quot;,
-      color = &quot;black&quot;,
-      fill = &quot;ethnic.c&quot;, #lightblue
-      add = c(&quot;mean_ci&quot;),
-      draw_quantiles = c(0.25,0.5,0.75)
-      )
-pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
-                color = &quot;darkblue&quot;, size=1.2)
+pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, 
+    ylab = &quot;IAT&quot;, xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;ethnic.c&quot;, 
+    add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 0.5, 0.75))
+pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
+    size = 1.2)
 
-pp &lt;- pp + 
-font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;legend.text&quot;, size = 23, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xlab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;ylab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
-font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
-pp &lt;- pp +theme(legend.position=&quot;none&quot;)
+pp &lt;- pp + font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;legend.text&quot;, size = 23, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xlab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;ylab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
+    font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
+pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
 <p>We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, all ethnicity groups in our Israeli sample (including Mizrahi Israelis) show the same direction of bias (pro-dominant).</p>
