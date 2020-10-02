@@ -577,8 +577,8 @@ pp <- ggviolin(ethnic1, x = "ethnic.c",
       combine = TRUE,
       ylab = "IAT", 
       xlab = "Ethnicity",
-      color = "ethnic.c",
-      fill = "lightblue", #lightblue
+      color = "black",
+      fill = "ethnic.c", #lightblue
       add = c("mean_ci"),
       draw_quantiles = c(0.25,0.5,0.75)
       )
@@ -621,3 +621,5 @@ All the data, as well as the full analysis report, are available on OSF **INSERT
 ## About the author
 
 The author is a graduate student in Social Psychology at Ben-Gurion University and Tel-Aviv University, under the supervision of Yoav Bar-Anan. Her main research focuses on intergroup bias, intergroup relations, and attitude formation. 
+
+  
