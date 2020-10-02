@@ -50,17 +50,17 @@ classoption: landscape
 Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). <strong>Here we take a conservative stand</strong>, and thus refer to IAT scores in a certain direction (rather than zero) as <em>bias in IAT scores</em>.</p>
 <p>Each task also included 1 or 2 self-reported judgment measures:</p>
 <ul>
-<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")</li>
+<li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7 =”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")</li>
 <li>Feeling Thermometer: Cold to warm feelings toward each category (scale: 0 “very cold” to 10 “very warm”). We computed a difference score of dominant category - non-dominant category.</li>
 </ul>
 <p><strong>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on OSF!</strong> (<em>INSERT LINK HERE</em>)</p>
 <p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
 We found a robust and persistent pro-dominant bias: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
-The results from our analyses could be used as a first step in the examination of (supposedly) automatic bias toward groups Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
+The results from our analyses could be used as a first step in the examination of (supposedly) automatic biases against groups in Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
 <div id="iat-scores-per-task" class="section level2">
 <h2>IAT Scores per Task</h2>
-<p>All tasks point to a pro-dominant &gt; association. The strongest bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>, and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
-<p><em>Note</em>. The plot below shows the effect-size (Cohen’s d) as a function of the IAT task. Larger effect-sizes indicate stronger pro-dominant bias.</p>
+<p>All tasks point to a pro-dominant association. The strongest bias among Israeli participants is in regard to <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and the <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>, and the smallest bias is in regard to <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
+<p><em>Note</em>. The plot below shows the effect-size (Cohen’s d) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias.</p>
 <pre class="r"><code># compute es - iat
 
 aget &lt;- ttestOneS(age, vars = vars(IAT), testValue = 0, effectSize = T)
@@ -132,15 +132,15 @@ pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2400" /></p>
-<p>Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment.</p>
+<p>Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment of disadvantaged groups.</p>
 </div>
 <div id="self-report-scores-per-task" class="section level2">
 <h2>Self-Report Scores per Task</h2>
-<p>Israelis were often biased <em>in their self-reports</em>, and not just in their IAT scores… but, as might be expected, this bias was a bit weaker in its magnitude. Interestingly, there were some differences between the strongest bias in the IAT scores and in the self-report scores. Here, the strongest self-reported bias among Israeli participants is regarding <strong>Nationalism (Own Country &gt; USA)</strong> and <strong>Weight (Thin &gt; Fat)</strong>, and the smallest bias is regarding <strong>Sexuality (Straight &gt; Gay people)</strong>, <strong>Ethnicity (Ashkenazi &gt; Mizrahi)</strong>, and <strong>Age (Young &gt; Old)</strong>:</p>
+<p>Israelis were often biased <em>in their self-reports</em>, and not just in their IAT scores… but, as might be expected, this bias was a bit weaker in its magnitude. Interestingly, there were some differences between the strongest bias in the IAT scores and in the self-report scores. Here, the strongest self-reported bias among Israeli participants is in regard to <strong>Nationalism (Own Country &gt; USA)</strong> and <strong>Weight (Thin &gt; Fat)</strong>, and the smallest bias is in regard to <strong>Sexuality (Straight &gt; Gay people)</strong>, <strong>Ethnicity (Ashkenazi &gt; Mizrahi)</strong>, and <strong>Age (Young &gt; Old)</strong>:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
-<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the direct self-reported preference task. Larger effect-sizes indicate stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.
-Gender-Science: a difference score. Higher scores indicate a consideration of science as masculine and liberal arts as feminine.</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the direct self-reported preference task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.
+Gender-Science: a difference score, rather than direct preference. Higher scores indicate a consideration of science as masculine and liberal arts as feminine.</p>
 <pre class="r"><code># compute es - self reported direct preference
 
 aget &lt;- ttestOneS(age, vars = vars(att), testValue = 4, effectSize = T)
@@ -212,7 +212,7 @@ pp</code></pre>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
 <p>The effect-sizes are smaller on this measure, compared with the previous ones. This difference might result from the nature of each measure: while the Self-reported preference measure <em>directly</em> compares the two categories (as does the IAT), the thermometer <em>does not</em> compare the two categories directly. A comparative context might facilitate bias.</p>
-<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the feeling thermometer task. Larger effect-sizes indicate stronger pro-dominant bias. Not all tasks included the feeling thermometer measure.</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the feeling thermometer task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code># compute es - thermometer
 
 aget &lt;- ttestOneS(age, vars = vars(diff_thermo), testValue = 0, 
@@ -948,21 +948,30 @@ West Europe
 </tr>
 </tbody>
 </table>
-<p>Now let’s look at the IAT scores per ethnicity group:</p>
+<p>Now let’s look at the IAT scores per ethnicity group.</p>
+<p><em>Note</em>. The plot shows the distribution of scores, with mean + 95% CI, and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.</p>
 <pre class="r"><code>ethnic1 &lt;- ethnic %&gt;% drop_na(ethnic.c)
 
-pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;, y = c(&quot;IAT&quot;), combine = TRUE, 
-    ylab = &quot;IAT&quot;, xlab = &quot;Ethnicity&quot;, color = &quot;black&quot;, fill = &quot;lightblue&quot;, 
-    add = c(&quot;mean_ci&quot;), draw_quantiles = c(0.25, 0.5, 0.75))
-pp &lt;- pp + geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;darkblue&quot;, 
-    size = 1.2)
+pp &lt;- ggviolin(ethnic1, x = &quot;ethnic.c&quot;,
+      y = c(&quot;IAT&quot;),
+      combine = TRUE,
+      ylab = &quot;IAT&quot;, 
+      xlab = &quot;Ethnicity&quot;,
+      color = &quot;ethnic.c&quot;,
+      fill = &quot;lightblue&quot;, #lightblue
+      add = c(&quot;mean_ci&quot;),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp &lt;- pp + geom_hline(yintercept=0, linetype=&quot;dashed&quot;, 
+                color = &quot;darkblue&quot;, size=1.2)
 
-pp &lt;- pp + font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;legend.text&quot;, size = 23, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xlab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;ylab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;) + 
-    font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
-pp &lt;- pp + theme(legend.position = &quot;none&quot;)
+pp &lt;- pp + 
+font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;legend.text&quot;, size = 23, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xlab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;ylab&quot;, size = 24, color = &quot;black&quot;, face = &quot;bold&quot;)+
+font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
+pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 pp</code></pre>
 <p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
 <p>We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, all ethnicity groups in our Israeli sample (including Mizrahi Israelis) show the same direction of bias (pro-dominant).</p>
@@ -983,4 +992,8 @@ pp</code></pre>
 <div id="show-me-more" class="section level2">
 <h2>Show me more!</h2>
 <p>All the data, as well as the full analysis report, are available on OSF <strong>INSERT LINK HERE</strong>.</p>
+</div>
+<div id="about-the-author" class="section level2">
+<h2>About the author</h2>
+<p>The author is a graduate student in Social Psychology at Ben-Gurion University and Tel-Aviv University, under the supervision of Yoav Bar-Anan. Her main research focuses on intergroup bias, intergroup relations, and attitude formation.</p>
 </div>
