@@ -1,9 +1,9 @@
 {
-    "path" : "C:/Users/Lenovo/Google Drive/School/PhD/Lab projects/iat israel/pi-international-blog",
-    "sortOrder" : [
+    "path": "C:/Users/Lenovo/Google Drive/School/PhD/Lab projects/iat israel/pi-international-blog",
+    "sortOrder": [
         {
-            "ascending" : true,
-            "columnIndex" : 2
+            "columnIndex": 2,
+            "ascending": true
         }
     ]
 }

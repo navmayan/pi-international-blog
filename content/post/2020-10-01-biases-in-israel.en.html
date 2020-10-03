@@ -34,7 +34,7 @@ classoption: landscape
 
 <pre class="r"><code>nall &lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + 
     nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)</code></pre>
-<p>The <a href="https://implicit.harvard.edu/implicit/israel/demo.jsp">Israeli site</a> offers eight IAT topics for the participants to complete:</p>
+<p>The <a href="https://implicit.harvard.edu/implicit/israel/demo.jsp">Israeli site</a> on Project Implicit has included eight IATs about the following topics (the N refers to the number of sessions I analyzed):</p>
 <ul>
 <li>Race: ‘Black - White’ IAT (N = 4454)</li>
 <li>Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = 9105)</li>
@@ -46,21 +46,21 @@ classoption: landscape
 <li>Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)</li>
 </ul>
 <p>The attributes used on all IATs except <em>Gender - Science</em> are Good vs. Bad.</p>
-<p>Based on the participants’ reaction-times and errors, the IAT score on each of these tasks reflects the average strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).<br />
-Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). <strong>Here we take a conservative stand</strong>, and thus refer to IAT scores in a certain direction (rather than zero) as <em>bias in IAT scores</em>.</p>
+<p>A common interpretation od the IAT score for each of these tasks is that it reflects the strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).<br />
+Some researchers interpret this strength of association as the participants’ implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). <strong>In this post, I will be conservative in my interpretation</strong>, and thus refer to IAT scores in a certain direction (rather than zero) as reflecting <em>bias in IAT scores</em>.</p>
 <p>Each task also included 1 or 2 self-reported judgment measures:</p>
 <ul>
 <li>Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7 =”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")</li>
 <li>Feeling Thermometer: Cold to warm feelings toward each category (scale: 0 “very cold” to 10 “very warm”). We computed a difference score of dominant category - non-dominant category.</li>
 </ul>
 <p><strong>The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on OSF!</strong> (<em>INSERT LINK HERE</em>)</p>
-<p>We analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
-We found a robust and persistent pro-dominant bias: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
-The results from our analyses could be used as a first step in the examination of (supposedly) automatic biases against groups in Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
+<p>I analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of 39991 participants.
+I found a robust and persistent pro-dominant bias: The IAT scores from all tasks revealed that Israelis <strong>strongly</strong> associate the dominant social groups (e.g., White people, Ashkenazi people, Young people) with positive attributes and the non-dominant social groups (Black people, Mizrahi people, Old people) with negative attributes.
+The results from my analyses could be used as a first step in the examination of (supposedly) automatic biases against groups in Israel and of the most prominent bias in this country (that is, the task with the largest difference between the two groups/categories). This would be a first step as Project Implicit’s samples are not representative samples, and because it would be preferable to test the generalizability of automatic bias beyond the IAT scores.</p>
 <div id="iat-scores-per-task" class="section level2">
 <h2>IAT Scores per Task</h2>
-<p>All tasks point to a pro-dominant association. The strongest bias among Israeli participants is in regard to <strong>Nationalism (Own Country &gt; USA)</strong>, <strong>Age (Young &gt; Old)</strong>, and the <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>, and the smallest bias is in regard to <strong>Sexuality (Straight &gt; Gay people)</strong> and <strong>Weight (Thin &gt; Fat)</strong>:</p>
-<p><em>Note</em>. The plot below shows the effect-size (Cohen’s d) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias.</p>
+<p>All tasks point to a pro-dominant association. Israelis showed the strongest bias in the <strong>Nationalism IAT (Own Country &gt; USA)</strong>, followed by <strong>Age (Young &gt; Old)</strong>, and the <strong>Gender-Science stereotypes (Male+Science - Female+Liberal arts &gt; Male+Liberal arts - Female+Science)</strong>. The smallest bias was in the <strong>Sexuality IAT (Straight &gt; Gay people)</strong> and <strong>Weight IAT (Thin &gt; Fat)</strong>:</p>
+<p><em>Note</em>. The plot below shows the effect-size (Cohen’s d; not the <a href="https://psycnet.apa.org/doi/10.1037/0022-3514.85.2.197">IAT D score</a>) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias.</p>
 <pre class="r"><code># compute es - iat
 
 aget &lt;- ttestOneS(age, vars = vars(IAT), testValue = 0, effectSize = T)
@@ -131,16 +131,16 @@ font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-3-1.png" width="2400" /></p>
-<p>Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination and other negative treatment of disadvantaged groups.</p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-2-1.png" width="2400" /></p>
+<p>Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination in Israel and to other negative treatment of disadvantaged groups.</p>
 </div>
 <div id="self-report-scores-per-task" class="section level2">
 <h2>Self-Report Scores per Task</h2>
-<p>Israelis were often biased <em>in their self-reports</em>, and not just in their IAT scores… but, as might be expected, this bias was a bit weaker in its magnitude. Interestingly, there were some differences between the strongest bias in the IAT scores and in the self-report scores. Here, the strongest self-reported bias among Israeli participants is in regard to <strong>Nationalism (Own Country &gt; USA)</strong> and <strong>Weight (Thin &gt; Fat)</strong>, and the smallest bias is in regard to <strong>Sexuality (Straight &gt; Gay people)</strong>, <strong>Ethnicity (Ashkenazi &gt; Mizrahi)</strong>, and <strong>Age (Young &gt; Old)</strong>:</p>
+<p>Israelis were often biased <em>in their self-reports</em>, and not just in their IAT scores… but, as might be expected, this bias was a bit weaker in its magnitude. Interestingly, there were some differences between the strongest bias in the IAT scores and in the self-report scores. The strongest self-reported bias among Israeli participants is in the <strong>Nationalism (Own Country &gt; USA) study</strong> and <strong>Weight (Thin &gt; Fat) study</strong>, and the smallest bias is in the <strong>Sexuality (Straight &gt; Gay people) study</strong>, <strong>Ethnicity (Ashkenazi &gt; Mizrahi) study</strong>, and <strong>Age (Young &gt; Old) study</strong>:</p>
 <div id="self-reported-direct-preference" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
-<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the direct self-reported preference task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.
-Gender-Science: a difference score, rather than direct preference. Higher scores indicate a consideration of science as masculine and liberal arts as feminine.</p>
+<p>Participants reported their preference between the dominant and non-dominant category (scale: 1 = “I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7 =”I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY").</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the direct self-reported preference task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.</p>
 <pre class="r"><code># compute es - self reported direct preference
 
 aget &lt;- ttestOneS(age, vars = vars(att), testValue = 4, effectSize = T)
@@ -170,17 +170,13 @@ usat &lt;- ttestOneS(usa, vars = vars(att), testValue = 4, effectSize = T)
 usat &lt;- as.data.frame(usat$ttest)
 usad &lt;- round(usat[[6]], 2)
 
-gender_sciencet &lt;- ttestOneS(gender_science, vars = vars(att), 
-    testValue = 0, effectSize = T)
-gender_sciencet &lt;- as.data.frame(gender_sciencet$ttest)
-gender_scienced &lt;- round(gender_sciencet[[6]], 2)
 
-all_ds &lt;- c(aged, raced, weightd, ethnicd, sexualityd, usad, 
-    gender_scienced) %&gt;% as.data.frame()
+all_ds &lt;- c(aged, raced, weightd, ethnicd, sexualityd, usad) %&gt;% 
+    as.data.frame()
 colnames(all_ds) &lt;- &quot;es&quot;
 
 all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Weight&quot;, &quot;Ethnicity&quot;, &quot;Sexuality&quot;, 
-    &quot;Nationalism&quot;, &quot;Gender-Science&quot;)</code></pre>
+    &quot;Nationalism&quot;)</code></pre>
 <pre class="r"><code>pp &lt;- ggdotchart(all_ds, x = &quot;Task&quot;, y = &quot;es&quot;,
            color = &quot;Task&quot;,                                # Color by groups
            ylab = &quot;Cohen&#39;s d&quot;,
@@ -207,11 +203,13 @@ font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-5-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-4-1.png" width="2400" /></p>
 </div>
 <div id="feeling-thermometer-difference-score" class="section level3">
 <h3>Feeling thermometer (Difference score)</h3>
-<p>The effect-sizes are smaller on this measure, compared with the previous ones. This difference might result from the nature of each measure: while the Self-reported preference measure <em>directly</em> compares the two categories (as does the IAT), the thermometer <em>does not</em> compare the two categories directly. A comparative context might facilitate bias.</p>
+<p>Participants reported their feelings toward each category (scale: 0 “very cold” to 10 “very warm”). We computed a difference score of [dominant category - non-dominant category] as another measure of self-reported preference.<br />
+Gender-Science: In this study the scale was 1 = “Strongly female” to 7 = “Strongly male”. The score was computed as the rating for science minus the rating for liberal arts. Higher scores indicate a consideration of science as masculine and liberal arts as feminine.</p>
+<p>The effect-sizes on this measure were smaller, compared with the previous measure. This difference might result from the nature of each measure: while the Self-reported preference measure <em>directly</em> compares the two categories (as does the IAT), the thermometer <em>does not</em> compare the two categories directly. A comparative context might facilitate bias.</p>
 <p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of the feeling thermometer task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the feeling thermometer measure.</p>
 <pre class="r"><code># compute es - thermometer
 
@@ -240,10 +238,17 @@ usat &lt;- ttestOneS(usa, vars = vars(diff_thermo), testValue = 0,
 usat &lt;- as.data.frame(usat$ttest)
 usad &lt;- round(usat[[6]], 2)
 
-all_ds &lt;- c(aged, raced, skind, weightd, usad) %&gt;% as.data.frame()
+gender_sciencet &lt;- ttestOneS(gender_science, vars = vars(diff_thermo), 
+    testValue = 0, effectSize = T)
+gender_sciencet &lt;- as.data.frame(gender_sciencet$ttest)
+gender_scienced &lt;- round(gender_sciencet[[6]], 2)
+
+all_ds &lt;- c(aged, raced, skind, weightd, usad, gender_scienced) %&gt;% 
+    as.data.frame()
 colnames(all_ds) &lt;- &quot;es&quot;
 
-all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Skin&quot;, &quot;Weight&quot;, &quot;Nationalism&quot;)</code></pre>
+all_ds$Task &lt;- c(&quot;Age&quot;, &quot;Race&quot;, &quot;Skin&quot;, &quot;Weight&quot;, &quot;Nationalism&quot;, 
+    &quot;Gender-Science&quot;)</code></pre>
 <pre class="r"><code>pp &lt;- ggdotchart(all_ds, x = &quot;Task&quot;, y = &quot;es&quot;,
            color = &quot;Task&quot;,                                # Color by groups
            ylab = &quot;Cohen&#39;s d&quot;,
@@ -270,15 +275,15 @@ font(&quot;xy.text&quot;, size = 25, color = &quot;black&quot;, face = &quot;bol
 pp &lt;- pp +theme(legend.position=&quot;none&quot;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-7-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-6-1.png" width="2400" /></p>
 <p>Does that mean that Israelis are more OK with being biased toward Fat people, and in favor of their own country, than toward elderly people, for example? Does that relate to certain social values in the Israeli society? We think these are interesting questions that could be addressed in future research.</p>
-<p><strong>Do people get better?</strong>
-- We next looked at the scores per year, to see if bias decreases throughout the years.</p>
 </div>
 </div>
 <div id="yearly-patterns" class="section level2">
 <h2>Yearly patterns</h2>
-<p>What we found, is that bias, both in IAT scores and in self-report stays the same throughout the 12 years. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.</p>
+<p><strong>Do people get better?</strong>
+- Next, I looked at the scores per year, to see if bias decreases throughout the years. I should note that there is no guarantee that the participants came from the same population each year. We do not have much information about the population. We assume that these are mostly students sent by lecturers of intro to social psychology and other courses.
+remained the same throughout the years. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.</p>
 <pre class="r"><code>age &lt;- age %&gt;% drop_na(year)
 age$Year &lt;- as.factor(age$year)
 
@@ -321,15 +326,11 @@ age_att &lt;- age %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quo
 ethnic_att &lt;- ethnic %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Ethnicity&quot;)
 sex_att &lt;- sexuality %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Sexuality&quot;)
 usa_att &lt;- usa %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Nationalism&quot;)
-gender_science_att &lt;- gender_science %&gt;% select(session_id, att, 
-    Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 weight_att &lt;- weight %&gt;% select(session_id, att, Year) %&gt;% mutate(Task = &quot;Weight&quot;)
 
 all_att &lt;- bind_rows(race_att, ethnic_att, age_att, sex_att, 
     usa_att, weight_att)
 all_att$att_rs &lt;- all_att$att - 4
-gender_science_att$att_rs &lt;- gender_science_att$att
-all_att &lt;- bind_rows(all_att, gender_science_att)
 
 race_diff_thermo &lt;- race %&gt;% select(session_id, diff_thermo, 
     Year) %&gt;% mutate(Task = &quot;Race&quot;)
@@ -341,55 +342,14 @@ usa_diff_thermo &lt;- usa %&gt;% select(session_id, diff_thermo, Year) %&gt;%
     mutate(Task = &quot;Nationalism&quot;)
 weight_diff_thermo &lt;- weight %&gt;% select(session_id, diff_thermo, 
     Year) %&gt;% mutate(Task = &quot;Weight&quot;)
+gender_science_thermo &lt;- gender_science %&gt;% select(session_id, 
+    diff_thermo, Year) %&gt;% mutate(Task = &quot;Gender-Science&quot;)
 
 all_diff_thermo &lt;- bind_rows(race_diff_thermo, skin_diff_thermo, 
-    age_diff_thermo, usa_diff_thermo, weight_diff_thermo)</code></pre>
-<pre class="r"><code>library(magrittr)
-library(effectsize)
-
-# iat
-
-get_es_iat &lt;- function(x) {
-    es &lt;- x$IAT %&gt;% cohens_d()
-    es &lt;- round((es), 2)
-    es_list &lt;- list(es = es)
-}
-
-df &lt;- all_iat %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% nest() %&gt;% 
-    drop_na()
-
-iat_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_iat(.x))) %&gt;% 
-    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)
-
-# self-reported preference
-
-get_es_sr &lt;- function(x) {
-    es &lt;- x$att_rs %&gt;% cohens_d()
-    es &lt;- round((es), 2)
-    es_list &lt;- list(es = es)
-}
-
-df &lt;- all_att %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% nest() %&gt;% 
-    drop_na()
-
-att_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_sr(.x))) %&gt;% 
-    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)
-
-# self-reported thermometer
-
-get_es_thr &lt;- function(x) {
-    es &lt;- x$diff_thermo %&gt;% cohens_d()
-    es &lt;- round((es), 2)
-    es_list &lt;- list(es = es)
-}
-
-df &lt;- all_diff_thermo %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% 
-    nest() %&gt;% drop_na()
-
-thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x))) %&gt;% 
-    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)</code></pre>
+    age_diff_thermo, usa_diff_thermo, weight_diff_thermo, gender_science_thermo)</code></pre>
 <div id="participation-per-year-and-task" class="section level3">
 <h3>Participation per year and task:</h3>
+<p>The N for 2020 is rather small, so I removed this year’s sessions from the following analyses.</p>
 <pre class="r"><code># make N per year &amp; task table
 
 yy &lt;- all_iat %&gt;% group_by(Year, Task) %&gt;% tally() %&gt;% pivot_wider(names_from = Task, 
@@ -779,12 +739,61 @@ Weight
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>all_iat &lt;- all_iat %&gt;% filter(Year != &quot;2020&quot;)
+
+all_att &lt;- all_att %&gt;% filter(Year != &quot;2020&quot;)
+
+all_diff_thermo &lt;- all_diff_thermo %&gt;% filter(Year != &quot;2020&quot;)</code></pre>
+<pre class="r"><code>library(magrittr)
+library(effectsize)
+
+# iat
+
+get_es_iat &lt;- function(x) {
+    es &lt;- x$IAT %&gt;% cohens_d()
+    es &lt;- round((es), 2)
+    es_list &lt;- list(es = es)
+}
+
+df &lt;- all_iat %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% nest() %&gt;% 
+    drop_na()
+
+iat_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_iat(.x))) %&gt;% 
+    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)
+
+# self-reported preference
+
+get_es_sr &lt;- function(x) {
+    es &lt;- x$att_rs %&gt;% cohens_d()
+    es &lt;- round((es), 2)
+    es_list &lt;- list(es = es)
+}
+
+df &lt;- all_att %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% nest() %&gt;% 
+    drop_na()
+
+att_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_sr(.x))) %&gt;% 
+    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)
+
+# self-reported thermometer
+
+get_es_thr &lt;- function(x) {
+    es &lt;- x$diff_thermo %&gt;% cohens_d()
+    es &lt;- round((es), 2)
+    es_list &lt;- list(es = es)
+}
+
+df &lt;- all_diff_thermo %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;% 
+    nest() %&gt;% drop_na()
+
+thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x))) %&gt;% 
+    unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)</code></pre>
 <p><em>Note</em>: The dashed line marks the point of no preference between the two groups.</p>
 </div>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
 <pre class="r"><code>iat_df$Year = factor(iat_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
-    &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
+    &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;))  #, &#39;2020&#39;
 
 pp &lt;- ggline(iat_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
     color = &quot;Task&quot;, size = 2)
@@ -800,12 +809,12 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
 # pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-9-1.png" width="2400" /></p>
 </div>
 <div id="self-reported-direct-preference-1" class="section level3">
 <h3>Self-Reported Direct Preference</h3>
 <pre class="r"><code>att_df$Year = factor(att_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, &quot;2012&quot;, 
-    &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;))
+    &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;))  #, &#39;2020&#39;
 
 pp &lt;- ggline(att_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
     color = &quot;Task&quot;, size = 2)
@@ -821,13 +830,12 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
 # pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-12-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-10-1.png" width="2400" /></p>
 </div>
 <div id="self-report-feeling-thermometer-difference" class="section level3">
 <h3>Self-Report: Feeling Thermometer Difference</h3>
 <pre class="r"><code>thermo_df$Year = factor(thermo_df$Year, c(&quot;2009&quot;, &quot;2010&quot;, &quot;2011&quot;, 
-    &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, 
-    &quot;2020&quot;))
+    &quot;2012&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;))  #, &#39;2020&#39;
 
 pp &lt;- ggline(thermo_df, x = &quot;Year&quot;, y = &quot;Cohens_d&quot;, ylab = &quot;Cohen&#39;s d&quot;, 
     color = &quot;Task&quot;, size = 2)
@@ -843,13 +851,15 @@ pp &lt;- pp + font(&quot;title&quot;, size = 20, color = &quot;black&quot;, face
 # pp &lt;- pp +theme(legend.position=&#39;none&#39;)
 
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-11-1.png" width="2400" /></p>
 </div>
 </div>
 <div id="the-ethnicity-iat" class="section level2">
 <h2>The Ethnicity IAT</h2>
-<p>This IAT uses categories unique to Israel: It compares the judgments toward the two main ethnicities in Isarael: Ashkenazi Israelis (originating from Europe) and Mizrahi Israelis (originating in Africa and Arab countries). Let’s inspect it further. Do people from different ethnicities have different levels of ethnicity-related bias?</p>
-<p>We’ll start by examining the participation per ethnicity group:</p>
+<pre class="r"><code>ethnic &lt;- ethnic %&gt;% filter(ethnicityomb == &quot;JEW&quot;)</code></pre>
+<p>The categories in the ethnicity IAT are unique to Israel: these are the two main Jewish ethnicities in Israel: Ashkenazi Jews (originating from Europe) and Mizrahi Jews (originating in Africa and Arab countries). Let’s inspect it further. Do participants of different ethnicity show different levels of ethnicity-related bias?</p>
+<p>The participation per ethnicity group:</p>
+<p><em>Note</em>. 5+ Zabar = Fifth generation or more to be born in Israel.</p>
 <pre class="r"><code>yy &lt;- ethnic %&gt;% drop_na(ethnic.c) %&gt;% group_by(ethnic.c) %&gt;% 
     tally()
 yyt &lt;- as.data.frame(t(yy$n))
@@ -907,43 +917,43 @@ West Europe
 <tbody>
 <tr>
 <td style="text-align:right;">
-113
+94
 </td>
 <td style="text-align:right;">
-670
+627
 </td>
 <td style="text-align:right;">
-45
+43
 </td>
 <td style="text-align:right;">
-1515
+1421
 </td>
 <td style="text-align:right;">
-33
+25
 </td>
 <td style="text-align:right;">
-487
+460
 </td>
 <td style="text-align:right;">
-900
+854
 </td>
 <td style="text-align:right;">
-705
+661
 </td>
 <td style="text-align:right;">
-126
+118
 </td>
 <td style="text-align:right;">
-227
+191
 </td>
 <td style="text-align:right;">
-407
+357
 </td>
 <td style="text-align:right;">
-89
+81
 </td>
 <td style="text-align:right;">
-589
+543
 </td>
 </tr>
 </tbody>
@@ -965,16 +975,16 @@ pp &lt;- pp + font(&quot;title&quot;, size = 24, color = &quot;black&quot;, face
     font(&quot;xy.text&quot;, size = 20, color = &quot;black&quot;)
 pp &lt;- pp + theme(legend.position = &quot;none&quot;)
 pp</code></pre>
-<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
-<p>We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker for Mizrahi Israelis. Still, all ethnicity groups in our Israeli sample (including Mizrahi Israelis) show the same direction of bias (pro-dominant).</p>
+<p><img src="/post/2020-10-01-biases-in-israel.en_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>
+<p>We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker among Mizrahi Jews. Still, almost all ethnicity groups in our sample (including Mizrahi Jews) show the same direction of bias (pro-dominant). The only exception are Jews from Ethiopia. However, this group has a rather small sample (N = 25). Note that this data excludes non-Jewish participants.</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <ul>
-<li>Across all tasks, Israelis were biased, in their self-report and IAT scores, in favor of the dominant social groups.</li>
-<li>Across all tasks, the bias was much larger for the IAT than the self-report measures.</li>
-<li>The bias stayed pretty much the same across the 12 years of data collection.</li>
-<li>IAT scores: The strongest bias among Israeli participants was regarding Nationalism (Own country &gt; USA) and the smallest bias was regarding Sexuality (Straight &gt; Gay people).</li>
+<li>Across all studies, Israelis were biased, in their self-report and IAT scores, in favor of the dominant social groups.</li>
+<li>Across all tasks, the bias was much larger in the IAT than in self-report measures.</li>
+<li>The bias remained pretty much the same across the 12 years of data collection.</li>
+<li>IAT scores: The strongest bias among Israeli participants in favor of Israel over the USA, and the smallest bias was for Straight people over Gay people.</li>
 </ul>
 </div>
 <div id="disclaimer" class="section level2">
@@ -987,5 +997,5 @@ pp</code></pre>
 </div>
 <div id="about-the-author" class="section level2">
 <h2>About the author</h2>
-<p>The author is a graduate student in Social Psychology at Ben-Gurion University and Tel-Aviv University, under the supervision of Yoav Bar-Anan. Her main research focuses on intergroup bias, intergroup relations, and attitude formation.</p>
+<p>I am a graduate student in Social Psychology at Ben-Gurion University and Tel-Aviv University, under the supervision of Yoav Bar-Anan. My main research focuses on intergroup bias, intergroup relations, and attitude formation.</p>
 </div>
