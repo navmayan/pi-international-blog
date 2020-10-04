@@ -5,10 +5,10 @@ date: '2020-10-01'
 slug: biases-in-israel
 categories:
   - Israel
+  - IAT  
   - Age-IAT
   - Ethnicity-IAT
   - Gender-Science IAT
-  - IAT
   - Nationalism-IAT
   - Race-IAT
   - Sexuality-IAT
@@ -51,7 +51,6 @@ knitr::opts_chunk$set(fig.width=25, fig.height=10)
 ```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
 
 pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr)
-#source("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Pilots\\analysis\\RScriptsForAnalysis\\yba.funcs.R")
 
 ```
 
@@ -187,7 +186,8 @@ pp
 
 ```
 
-Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination in Israel and to other negative treatment of disadvantaged groups.
+Future studies could explore whether the extent of bias as measured with the IAT relates to the extent of real-world discrimination and to other negative treatment of disadvantaged groups in Israel.
+A surprising result from this analysis is that the bias regarding Gay people (Sexuality IAT) was relatively small (d = 0.54). This is surprising because Israel is a relatively orthodox country, so a *weak* endorsement of anti-Gay attitudes is less expected. However, remember that Project Implicit's sample is not representative of the Israeli population. The data I uploaded to the OSF contains demographic variables such as gender-identity, religiosity and ethnicity, that could provide a first clue to the level of anti-Gay bias among different sectors in Israel. 
 
 
 ## Self-Report Scores per Task
