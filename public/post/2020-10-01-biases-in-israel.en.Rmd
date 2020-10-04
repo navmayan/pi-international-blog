@@ -490,7 +490,7 @@ thermo_df <- df %>% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x)))
 ```
 
 
-*Note*: The dashed line marks the point of no preference between the two groups.
+*Note*: The plot below shows the effect-size (Cohen’s d) as a function of year and task. Larger effect-sizes indicate a stronger pro-dominant bias. 
 
 ### IAT
 

@@ -59,7 +59,7 @@
   "headline": "Biases in Israel",
   "description" : "Read about the implict and explicit biases in Israel",
   "inLanguage" : "en",
-  "wordCount":  3735 ,
+  "wordCount":  3744 ,
   "datePublished" : "2020-10-01T00:00:00",
   "dateModified" : "2020-10-01T00:00:00",
   "image" : "https:\/\/pi-international-blog.netlify.app\/img\/logo.png",
@@ -239,7 +239,7 @@
   
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3735&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3744&nbsp;words
   
   
     
@@ -1026,7 +1026,7 @@ df &lt;- all_diff_thermo %&gt;% drop_na() %&gt;% group_by(Task, Year) %&gt;%
 
 thermo_df &lt;- df %&gt;% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x))) %&gt;% 
     unnest_wider(params) %&gt;% select(-data) %&gt;% unnest_wider(es)</code></pre>
-<p><em>Note</em>: The dashed line marks the point of no preference between the two groups.</p>
+<p><em>Note</em>: The plot below shows the effect-size (Cohen’s d) as a function of year and task. Larger effect-sizes indicate a stronger pro-dominant bias.</p>
 </div>
 <div id="iat" class="section level3">
 <h3>IAT</h3>
