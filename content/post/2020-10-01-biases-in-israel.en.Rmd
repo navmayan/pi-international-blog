@@ -89,7 +89,7 @@ The [Israeli site](https://implicit.harvard.edu/implicit/israel/demo.jsp) on Pro
 
 The attributes used on all IATs except *Gender - Science* are Good vs. Bad.
 
-A common interpretation od the IAT score for each of these tasks is that it reflects the strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).  
+A common interpretation of the IAT score for each of these tasks is that it reflects the strength of association between the categories and the attributes used in the task (for example, an association between Young people + Good and Old people + Bad).  
 Some researchers interpret this strength of association as the participants' implicit or automatic preference between the two categories/ an automatic bias in judgment (but see disclaimer below). **In this post, I will be  conservative in my interpretation**, and thus refer to IAT scores in a certain direction (rather than zero) as reflecting *bias in IAT scores*.
 
 
