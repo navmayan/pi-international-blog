@@ -98,7 +98,7 @@ Each task also included 1 or 2 self-reported judgment measures:
 * Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = "I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7 = "I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")
 * Feeling Thermometer: Cold to warm feelings toward each category (scale: 0 "very cold" to 10 "very warm"). We computed a difference score of dominant category - non-dominant category.
 
-**The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on OSF!** (*INSERT LINK HERE*)
+**The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on [OSF](https://osf.io/fyhvz/)!**
 
 
 I analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of `r nall` participants. 
@@ -108,7 +108,7 @@ The results from my analyses could be used as a first step in the examination of
 
 ## IAT Scores per Task  
 
-All tasks point to a pro-dominant association. Israelis showed the strongest bias in the **Nationalism IAT (Own Country > USA)**, followed by **Age (Young > Old)**, and the **Gender-Science stereotypes (Male+Science - Female+Liberal arts > Male+Liberal arts - Female+Science)**. The smallest bias was in the  **Sexuality IAT (Straight > Gay people)** and **Weight IAT (Thin > Fat)**:
+All tasks point to a pro-dominant association. Israelis showed the strongest bias in their IAT scores in the **Nationalism IAT (Own Country > USA)**, followed by **Age (Young > Old)**, and the **Gender-Science stereotypes (Male+Science - Female+Liberal arts > Male+Liberal arts - Female+Science)**. The smallest bias was in the  **Sexuality IAT (Straight > Gay people)** and **Weight IAT (Thin > Fat)**:
 
 *Note*. The plot below shows the effect-size (Cohen's d; not the [IAT D score](https://psycnet.apa.org/doi/10.1037/0022-3514.85.2.197)) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias.
 
@@ -348,8 +348,7 @@ Does that mean that Israelis are more OK with being biased toward Fat people, an
 ## Yearly patterns
 
 **Do people get better?**
-- Next, I looked at the scores per year, to see if bias decreases throughout the years. I should note that there is no guarantee that the participants came from the same population each year. We do not have much information about the population. We assume that these are mostly students sent by lecturers of intro to social psychology and other courses.
-remained the same throughout the years. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.
+- Next, I looked at the scores per year, to see if bias decreases throughout the years. I should note that there is no guarantee that the participants came from the same population each year. We do not have much information about the population. We assume that these are mostly students sent by lecturers of intro to social psychology and other courses. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.
 
 
 ```{r}
@@ -626,20 +625,20 @@ We can see that, indeed, the IAT bias varies across the different ethnicities, a
 
 ## Summary
 
-* Across all studies, Israelis were biased, in their self-report and IAT scores, in favor of the dominant social groups.
+* Across all studies, Israelis were biased in their associations on both self-report and IAT, in favor of the dominant social groups.
 * Across all tasks, the bias was much larger in the IAT than in self-report measures.
 * The bias remained pretty much the same across the 12 years of data collection.
-* IAT scores: The strongest bias among Israeli participants in favor of Israel over the USA, and the smallest bias was for Straight people over Gay people.
+* IAT scores: The strongest bias among Israeli participants was in favor of Israel over the USA, and the smallest bias was for Straight people over Gay people.
 
 
 ## Disclaimer
 
-It is important to note that, currently, there is no consensus on the meaning of the IAT score. Some researchers would argue that it reflects an implicit or automatic bias, whereas others are more skeptical about this score and would say that automatic bias in judgment is only one factor that might influence the IAT score. 
+It is important to note that, currently, there is no consensus on the meaning of the IAT score. Some researchers would argue that it reflects an implicit or automatic bias in judgment, whereas others are more skeptical about this score and would say that automatic bias in judgment is only one factor that might influence the IAT score. 
 
 
 ## Show me more!
 
-All the data, as well as the full analysis report, are available on OSF **INSERT LINK HERE**.
+All the data, as well as the full analysis report, are available on [OSF](https://osf.io/fyhvz/).
 
 
 ## About the author
