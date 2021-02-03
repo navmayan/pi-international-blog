@@ -14,8 +14,8 @@
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       <author>mayanna@post.bgu.ac.il (Project Implicit)</author>
       <guid>https://pi-international-blog.netlify.app/post/biases-in-israel/</guid>
-      <description>nall &amp;lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)The Israeli site on Project Implicit has included eight IATs about the following topics (the N refers to the number of sessions I analyzed):
-Race: ‘Black - White’ IAT (N = 4454)Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = 9105)Skin-tone: ‘Light Skin - Dark Skin’ IAT (N = 3639)Age: ‘Young - Old’ IAT (N = 3203)Sexuality: ‘Gay - Straight’ IAT (N = 6506)Weight: ‘Fat - Thin’ IAT (N = 5209)Nationalism: ‘USA - Own Country’ IAT (N = 2167)Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)The attributes used on all IATs except Gender - Science are Good vs.</description>
+      <description>nall &amp;lt;- nrow(race) + nrow(skin) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science) + nrow(ethnic)The Israeli site on Project Implicit has included eight IATs about the following topics (the N refers to the number of sessions I analyzed):
+Race: ‘Black - White’ IAT (N = 3902)Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = 8037)Skin-tone: ‘Light Skin - Dark Skin’ IAT (N = 3175)Age: ‘Young - Old’ IAT (N = 2903)Sexuality: ‘Gay - Straight’ IAT (N = 5792)Weight: ‘Fat - Thin’ IAT (N = 5155)Nationalism: ‘USA - Own Country’ IAT (N = 2143)Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5022)The attributes used on all IATs except Gender - Science are Good vs.</description>
     </item>
     
   </channel>
