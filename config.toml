@@ -1,5 +1,5 @@
 baseurl = "https://pi-international-blog.netlify.app/" # "https://username.github.io"
-# MN: to upload content: blogdown::build_site()
+# MN: to upload content: blogdown::build_site(), to preview: blogdown::serve_site()
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Project Implicit's International Sites"
