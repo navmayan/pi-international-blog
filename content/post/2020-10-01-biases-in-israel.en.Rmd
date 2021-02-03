@@ -1,7 +1,7 @@
 ---
 title: 'Biases in Israel'
 author: 'Mayan Navon'
-date: '2021-02-03'
+date: '2020-10-01'
 slug: biases-in-israel
 categories:
   - Israel
@@ -50,43 +50,31 @@ knitr::opts_chunk$set(fig.width=25, fig.height=10)
 
 ```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
 
-pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr, effectsize)
+pacman::p_load(data.table,ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr)
 
 ```
-
 
 ```{r load data, include=FALSE}
 
-# change to your directory
-
-age <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\age\\age_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-gender_science <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\gender_science\\gender_science_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-race <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\race\\race_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-sexuality <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\sexuality\\sexuality_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-weight <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\weight\\weight_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-skin <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\skin\\skin_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-usa <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\usa\\usa_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-# specific to israel
-ethnic <- fread("C:\\Users\\Mayan Navon\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\pi-international-demo-websites-data-processing\\Israel\\ethnicity\\ethnic_iat_wide_2009-2019.csv") %>% filter(year >= 2009 & year < 2020)
-
-# I renamed this variable in order to merge this df with the other tasks. This variable is the closest to the thermometer
-gender_science$diff_thermo <- gender_science$diff_lsciarts 
-
+age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
+ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
+gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\gender_science\\gender_science_iat_wide.csv") %>% filter(year >= 2009)
+gender_science$diff_thermo <- gender_science$diff_lsciarts
+race <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\race\\race_iat_wide.csv") %>% filter(year >= 2009)
+sexuality <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\sexuality\\sexuality_iat_wide.csv") %>% filter(year >= 2009)
+weight <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\weight\\weight_iat_wide.csv") %>% filter(year >= 2009)
+skin <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\skin\\skin_iat_wide.csv") %>% filter(year >= 2009)
+usa <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\pi international data\\Israel\\usa\\usa_iat_wide.csv") %>% filter(year >= 2009)
 
 ```
 
-```{r calc total n}
+```{r calc n per task}
 
-nall <- nrow(race) + nrow(skin) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science) + nrow(ethnic) 
+nall <- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science) 
 
 ```
+
+
 
 The [Israeli site](https://implicit.harvard.edu/implicit/israel/demo.jsp) on Project Implicit has included eight IATs about the following topics (the N refers to the number of sessions I analyzed): 
 
@@ -110,7 +98,7 @@ Each task also included 1 or 2 self-reported judgment measures:
 * Self-Reported Direct Preference: Preference between the dominant and non-dominant category (scale: 1 = "I strongly prefer NON-DOMINANT CATEGORY to DOMINANT CATEGORY to 7 = "I strongly prefer DOMINANT CATEGORY to NON-DOMINANT CATEGORY")
 * Feeling Thermometer: Cold to warm feelings toward each category (scale: 0 "very cold" to 10 "very warm"). We computed a difference score of dominant category - non-dominant category.
 
-**The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and codebooks on [OSF](https://osf.io/kaqi5/)!**
+**The tasks also included secondary measures such as perception measures and demographic items. You can check out the data and the full analysis report on [OSF](https://osf.io/fyhvz/)!**
 
 
 I analyzed the results of each task, from 12 years of data collection (2009-2020) and a total of `r nall` participants. 
@@ -122,22 +110,11 @@ The results from my analyses could be used as a first step in the examination of
 
 All tasks point to a pro-dominant association. Israelis showed the strongest bias in their IAT scores in the **Nationalism IAT (Own Country > USA)**, followed by **Age (Young > Old)**, and the **Gender-Science stereotypes (Male+Science - Female+Liberal arts > Male+Liberal arts - Female+Science)**. The smallest bias was in the  **Sexuality IAT (Straight > Gay people)** and **Weight IAT (Thin > Fat)**:
 
-*Note*. The plot below shows the effect-size (Cohen's d; not the [IAT D score](https://psycnet.apa.org/doi/10.1037/0022-3514.85.2.197)) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias. The effect-size is based on IAT scores computed with the D2 scoring algorithm. The data also contains the D6 score (the scores are strongly correlated, r = 0.96-0.98).
+*Note*. The plot below shows the effect-size (Cohen's d; not the [IAT D score](https://psycnet.apa.org/doi/10.1037/0022-3514.85.2.197)) as a function of the IAT task. Larger effect-sizes indicate a stronger pro-dominant bias.
 
-```{r, rename D scores}
+```{r}
 
-race$IAT <- race$D2.D.White_Good_all
-skin$IAT <- skin$D2.D.LightSkin_Good_all
-age$IAT <- age$D2.D.Young_Good_all
-sexuality$IAT <- sexuality$D2.D.Straight_Good_all
-weight$IAT <- weight$D2.D.Thin_Good_all
-usa$IAT <- usa$D2.D.Own_Good_all
-gender_science$IAT <- gender_science$D2.D.Male_Science_all
-ethnic$IAT <- ethnic$D2.D.Ash_Good_all
-
-```
-
-```{r, compute es (d) - iat}
+# compute es - iat
 
 aget <- ttestOneS(age, vars = vars(IAT), testValue = 0, effectSize = T)
 aget <- as.data.frame(aget$ttest)
@@ -178,17 +155,19 @@ all_ds$Task <- c("Age","Race","Skin","Weight","Ethnicity","Sexuality","Nationali
 
 ```
 
-```{r plot es - iat}
+```{r}
 
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -196,11 +175,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -221,7 +200,9 @@ Participants reported their preference between the dominant and non-dominant cat
 
 *Note*: The plot below shows the effect-size (Cohen's d) as a function of the direct self-reported preference task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the direct self-reported preference measure.
 
-```{r, compute es (d) - self reported direct preference}
+```{r}
+
+# compute es - self reported direct preference
 
 aget <- ttestOneS(age, vars = vars(att), testValue = 4, effectSize = T)
 aget <- as.data.frame(aget$ttest)
@@ -255,17 +236,19 @@ all_ds$Task <- c("Age","Race","Weight","Ethnicity","Sexuality","Nationalism")
 
 ```
 
-```{r, plot es - self reported direct preference}
+```{r}
 
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -273,11 +256,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -293,7 +276,9 @@ The effect-sizes on this measure were smaller, compared with the previous measur
 
 *Note*: The plot below shows the effect-size (Cohen's d) as a function of the feeling thermometer task. Larger effect-sizes indicate a stronger pro-dominant bias. Not all tasks included the feeling thermometer measure.
 
-```{r, compute es (d) - thermometer}
+```{r}
+
+# compute es - thermometer
 
 aget <- ttestOneS(age, vars = vars(diff_thermo), testValue = 0, effectSize = T)
 aget <- as.data.frame(aget$ttest)
@@ -326,17 +311,19 @@ all_ds$Task <- c("Age","Race","Skin","Weight","Nationalism","Gender-Science")
 
 ```
 
-```{r, plot es - thermometer}
+```{r}
 
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -344,11 +331,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -364,7 +351,7 @@ Does that mean that Israelis are more OK with being biased toward Fat people, an
 - Next, I looked at the scores per year, to see if bias decreases throughout the years. I should note that there is no guarantee that the participants came from the same population each year. We do not have much information about the population. We assume that these are mostly students sent by lecturers of intro to social psychology and other courses. Across all years, we can see that self-report and IAT scores favor the dominant groups, and that the bias reflected in the IAT scores is much larger.
 
 
-```{r, drop NAs from year}
+```{r}
 
 age <- age %>% drop_na(year)
 age$Year <- as.factor(age$year)
@@ -392,55 +379,44 @@ gender_science$Year <- as.factor(gender_science$year)
 
 ```
 
-```{r, keep just the relevant variables, and merge tasks dfs}
+```{r}
 
-# verify that sessionId is of the same type across DFs
-race$sessionId <- as.character(race$sessionId)
-skin$sessionId <- as.character(skin$sessionId)
-age$sessionId <- as.character(age$sessionId)
-ethnic$sessionId <- as.character(ethnic$sessionId)
-sexuality$sessionId <- as.character(sexuality$sessionId)
-usa$sessionId <- as.character(usa$sessionId)
-gender_science$sessionId <- as.character(gender_science$sessionId)
-weight$sessionId <- as.character(weight$sessionId)
+race_iat <- race %>% select(session_id,IAT,Year) %>% mutate(Task = "Race")
+skin_iat <- skin %>% select(session_id,IAT,Year) %>% mutate(Task = "Skin")
+age_iat <- age %>% select(session_id,IAT,Year) %>% mutate(Task = "Age")
+ethnic_iat <- ethnic %>% select(session_id,IAT,Year) %>% mutate(Task = "Ethnicity")
+sex_iat <- sexuality %>% select(session_id,IAT,Year) %>% mutate(Task = "Sexuality")
+usa_iat <- usa %>% select(session_id,IAT,Year) %>% mutate(Task = "Nationalism")
+gender_science_iat <- gender_science %>% select(session_id,IAT,Year) %>% mutate(Task = "Gender-Science")
+weight_iat <- weight %>% select(session_id,IAT,Year) %>% mutate(Task = "Weight")
 
-race_iat <- race %>% select(sessionId,IAT,Year) %>% mutate(Task = "Race")
-skin_iat <- skin %>% select(sessionId,IAT,Year) %>% mutate(Task = "Skin")
-age_iat <- age %>% select(sessionId,IAT,Year) %>% mutate(Task = "Age")
-ethnic_iat <- ethnic %>% select(sessionId,IAT,Year) %>% mutate(Task = "Ethnicity")
-sex_iat <- sexuality %>% select(sessionId,IAT,Year) %>% mutate(Task = "Sexuality")
-usa_iat <- usa %>% select(sessionId,IAT,Year) %>% mutate(Task = "Nationalism")
-gender_science_iat <- gender_science %>% select(sessionId,IAT,Year) %>% mutate(Task = "Gender-Science")
-weight_iat <- weight %>% select(sessionId,IAT,Year) %>% mutate(Task = "Weight")
-
-# merge DFs
-all_iat <- dplyr::bind_rows(race_iat,skin_iat,ethnic_iat,age_iat,sex_iat,usa_iat,gender_science_iat,weight_iat)
+all_iat <- bind_rows(race_iat,skin_iat,ethnic_iat,age_iat,sex_iat,usa_iat,gender_science_iat,weight_iat)
 
 
-race_att <- race %>% select(sessionId,att,Year) %>% mutate(Task = "Race")
-age_att <- age %>% select(sessionId,att,Year) %>% mutate(Task = "Age")
-ethnic_att <- ethnic %>% select(sessionId,att,Year) %>% mutate(Task = "Ethnicity")
-sex_att <- sexuality %>% select(sessionId,att,Year) %>% mutate(Task = "Sexuality")
-usa_att <- usa %>% select(sessionId,att,Year) %>% mutate(Task = "Nationalism")
-weight_att <- weight %>% select(sessionId,att,Year) %>% mutate(Task = "Weight")
+race_att <- race %>% select(session_id,att,Year) %>% mutate(Task = "Race")
+age_att <- age %>% select(session_id,att,Year) %>% mutate(Task = "Age")
+ethnic_att <- ethnic %>% select(session_id,att,Year) %>% mutate(Task = "Ethnicity")
+sex_att <- sexuality %>% select(session_id,att,Year) %>% mutate(Task = "Sexuality")
+usa_att <- usa %>% select(session_id,att,Year) %>% mutate(Task = "Nationalism")
+weight_att <- weight %>% select(session_id,att,Year) %>% mutate(Task = "Weight")
 
-# merge DFs
-all_att <- dplyr::bind_rows(race_att,ethnic_att,age_att,sex_att,usa_att,weight_att)
-all_att$att_rs <- all_att$att - 4 # midscale = 0 instead of 4 (needed for the cohens_d function)
+all_att <- bind_rows(race_att,ethnic_att,age_att,sex_att,usa_att,weight_att)
+all_att$att_rs <- all_att$att - 4
 
-race_diff_thermo <- race %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Race")
-skin_diff_thermo <- skin %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Skin")
-age_diff_thermo <- age %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Age")
-usa_diff_thermo <- usa %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Nationalism")
-weight_diff_thermo <- weight %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Weight")
-gender_science_thermo <- gender_science %>% select(sessionId,diff_thermo,Year) %>% mutate(Task = "Gender-Science")
+race_diff_thermo <- race %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Race")
+skin_diff_thermo <- skin %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Skin")
+age_diff_thermo <- age %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Age")
+usa_diff_thermo <- usa %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Nationalism")
+weight_diff_thermo <- weight %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Weight")
+gender_science_thermo <- gender_science %>% select(session_id,diff_thermo,Year) %>% mutate(Task = "Gender-Science")
 
-# merge DFs
-all_diff_thermo <- dplyr::bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,usa_diff_thermo,weight_diff_thermo,gender_science_thermo)
+all_diff_thermo <- bind_rows(race_diff_thermo,skin_diff_thermo,age_diff_thermo,usa_diff_thermo,weight_diff_thermo,gender_science_thermo)
 
 ```
 
 ### Participation per year and task:
+
+The N for 2020 is rather small, so I removed this year's sessions from the following analyses.
 
 ```{r make table}
 
@@ -453,7 +429,20 @@ yy %>% kable() %>% kable_styling(bootstrap_options = c("striped",
 
 ```
 
+```{r remove 2020}
+
+all_iat <- all_iat %>% filter(Year != "2020")
+
+all_att <- all_att %>% filter(Year != "2020")
+
+all_diff_thermo <- all_diff_thermo %>% filter(Year != "2020")
+
+```
+
 ```{r get es per task & year}
+
+library(magrittr)
+library(effectsize)
 
 # iat
 
@@ -506,18 +495,19 @@ thermo_df <- df %>% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x)))
 
 ```{r}
 
-iat_df$Year = factor(iat_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"))
+iat_df$Year = factor(iat_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"))#, "2020"
 
-pp <- ggline(iat_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(iat_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -528,18 +518,19 @@ pp
 
 ```{r}
 
-att_df$Year = factor(att_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) 
+att_df$Year = factor(att_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) #, "2020"
 
-pp <- ggline(att_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(att_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -550,23 +541,86 @@ pp
 
 ```{r}
 
-thermo_df$Year = factor(thermo_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) 
+thermo_df$Year = factor(thermo_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) #, "2020"
 
-pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2) 
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
 ```
 
+
+## The Ethnicity IAT
+
+```{r filter out non-jews}
+
+ethnic <- ethnic %>% filter(ethnicityomb == "JEW")
+
+```
+
+
+The categories in the ethnicity IAT are unique to Israel: these are the two main Jewish ethnicities in Israel: Ashkenazi Jews (originating from Europe) and Mizrahi Jews (originating in Africa and Arab countries). Let’s inspect it further. Do participants of different ethnicity show different levels of ethnicity-related bias?
+
+The participation per ethnicity group:
+
+*Note*. 5+ Zabar = Fifth generation or more to be born in Israel. 
+
+```{r}
+
+yy <- ethnic %>% drop_na (ethnic.c) %>% group_by(ethnic.c) %>% tally()
+yyt <- as.data.frame(t(yy$n))
+colnames(yyt) <- c("5+ Zabar", "Arab countries", "East Asia", "East Europe", "Ethiopia", "Mixed (other)", 
+    "Mixed Miz/Ash", "North Africa", "North America", "Other", "Russia", "South American", "West Europe")
+
+yyt %>% kable() %>% kable_styling(bootstrap_options = c("striped", 
+    "hover", "condensed", full_width = F, position = "left"))
+
+```
+
+Now let's look at the IAT scores per ethnicity group.
+
+*Note*. The plot shows the distribution of scores, with mean + 95% CI, and 0.25, 0.50, and 0.75 quantiles. The dashed line marks the point of no preference between the two groups.
+
+```{r}
+
+ethnic1 <- ethnic %>% drop_na(ethnic.c)
+
+pp <- ggviolin(ethnic1, x = "ethnic.c",
+      y = c("IAT"),
+      combine = TRUE,
+      ylab = "IAT", 
+      xlab = "Ethnicity",
+      color = "black",
+      fill = "ethnic.c", 
+      add = c("mean_ci"),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+pp <- pp + geom_hline(yintercept=0, linetype="dashed", 
+                color = "darkblue", size=1.2)
+
+pp <- pp + 
+font("title", size = 24, color = "black", face = "bold")+
+font("legend.text", size = 23, color = "black", face = "bold")+
+font("xlab", size = 24, color = "black", face = "bold")+
+font("ylab", size = 24, color = "black", face = "bold")+
+font("xy.text", size = 20, color = "black")
+pp <- pp +theme(legend.position="none")
+pp
+
+
+```
+
+We can see that, indeed, the IAT bias varies across the different ethnicities, and is weaker among Mizrahi Jews. Still, all ethnicity groups in our sample (including Mizrahi Jews) show the same direction of bias (pro-dominant). Note that this data excludes non-Jewish participants.
 
 
 ## Summary
@@ -584,7 +638,7 @@ It is important to note that, currently, there is no consensus on the meaning of
 
 ## Show me more!
 
-All the data, as well as the codebooks, are available on [OSF](https://osf.io/kaqi5/).
+All the data, as well as the full analysis report, are available on [OSF](https://osf.io/fyhvz/).
 
 
 ## About the author
@@ -592,4 +646,3 @@ All the data, as well as the codebooks, are available on [OSF](https://osf.io/ka
 I am a graduate student in Social Psychology at Ben-Gurion University and Tel-Aviv University, under the supervision of Yoav Bar-Anan. My main research focuses on intergroup bias, intergroup relations, and attitude formation. 
 
   
-
