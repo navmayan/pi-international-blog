@@ -7,17 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mayanna@post.bgu.ac.il (Project Implicit)</managingEditor>
     <webMaster>mayanna@post.bgu.ac.il (Project Implicit)</webMaster>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://pi-international-blog.netlify.app/categories/skin-iat/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pi-international-blog.netlify.app/categories/skin-iat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Biases in Israel</title>
-      <link>https://pi-international-blog.netlify.app/post/biases-in-israel/</link>
+      <link>https://pi-international-blog.netlify.app/post/drafts/drafts/biases-in-israel/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       <author>mayanna@post.bgu.ac.il (Project Implicit)</author>
-      <guid>https://pi-international-blog.netlify.app/post/biases-in-israel/</guid>
+      <guid>https://pi-international-blog.netlify.app/post/drafts/drafts/biases-in-israel/</guid>
       <description>nall &amp;lt;- nrow(race) + nrow(skin) + nrow(ethnic) + nrow(age) + nrow(weight) + nrow(sexuality) + nrow(usa) + nrow(gender_science)The Israeli site on Project Implicit has included eight IATs about the following topics (the N refers to the number of sessions I analyzed):
 Race: ‘Black - White’ IAT (N = 4454)Ethnicity: ‘Ashkenazi - Mizrahi’ IAT (N = 9105)Skin-tone: ‘Light Skin - Dark Skin’ IAT (N = 3639)Age: ‘Young - Old’ IAT (N = 3203)Sexuality: ‘Gay - Straight’ IAT (N = 6506)Weight: ‘Fat - Thin’ IAT (N = 5209)Nationalism: ‘USA - Own Country’ IAT (N = 2167)Gender - Science: ‘Male+Science - Female+Liberal arts’ IAT (N = 5708)The attributes used on all IATs except Gender - Science are Good vs.</description>
     </item>
