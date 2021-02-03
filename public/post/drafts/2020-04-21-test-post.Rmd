@@ -1,0 +1,246 @@
+---
+title: new test post
+author: Mayan Navon
+date: '2020-04-21'
+slug: test-post
+categories:
+  - IAT
+  - Israel
+  - Age-IAT
+tags: []
+always_allow_html: true
+self.contained: true
+blogdown::html_page:
+  toc: true
+---
+
+
+```{r load-packages, message=FALSE, warning=FALSE, include=FALSE}
+options(blogdown.ext = ".Rmd")
+# basedir <- 'C:/Users/Lenovo/Google Drive/School/PhD/Lab projects/iat israel/pi-blog-international/images/' 
+# outdir <- '/pi-blog-international/images/'
+# knitr::opts_knit$set(base.dir = basedir, base.url = outdir, child.path = outdir, url.dir = 'images')
+
+pacman::p_load(ggplot2,rlang,rmdformats,magrittr,dplyr,knitr,kableExtra,tidyr,jmv, ggpubr, table1, ggstatsplot, data.table, effectsize, correlation, see, report) 
+#source("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Pilots\\analysis\\RScriptsForAnalysis\\yba.funcs.R")
+
+```
+
+```{r load-data, message=FALSE, warning=FALSE, include=FALSE}
+
+age <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\age\\age_iat_wide.csv") %>% filter(year >= 2009)
+ethnic <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\ethnicity\\ethnic_iat_wide.csv") %>% filter(year >= 2009)
+# gender_science <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\gender_science\\gender_science_iat_wide.csv") #%>% filter(year >= 2009)
+# race <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\race\\race_iat_wide.csv")# %>% filter(year >= 2009)
+# sexuality <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\sexuality\\sexuality_iat_wide.csv") #%>% filter(year >= 2009)
+# weight <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\weight\\weight_iat_wide.csv") #%>% filter(year >= 2009)
+# skin <- fread("C:\\Users\\Lenovo\\Google Drive\\School\\PhD\\Lab projects\\iat israel\\skin\\skin_iat_wide.csv") #%>% filter(year >= 2009)
+
+```
+
+## Individual Task Results: Age 
+
+<mark>Total N = `r nrow(age)`
+
+Participation per year (N):
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+age %>% group_by(year) %>% tally() %>% kable() %>%
+  kable_styling(bootstrap_options = c("striped", "condensed", position = "left", full_width = F))
+# 
+# 
+# ggbarplot(cc, x = "year", y = "n",
+#   fill = "lightblue", color = "black", 
+#   label = TRUE, lab.col = "white", lab.pos = "in")
+
+```
+
+#### **Evaluation measures**
+
+*Note*: Higher values indicate stronger bias in favor of the dominant category (young people).
+
+* *IAT*: There is a strong bias in favor of Young people
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+pp <- ggdensity(age,
+       x = "IAT",
+       y = "..density..",
+       fill = "lightblue",
+       xlab = "IAT", 
+       add = "mean",
+       size = 1, 
+       rug = TRUE
+)
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+pp
+
+```
+
+* *Self-reported preference between the categories*: There is a strong bias in favor of Young people
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+pp <- ggdensity(age,
+       x = "att",
+       y = "..density..",
+       fill = "lightblue",
+       xlab = "Preference", 
+       add = "mean",
+       size = 1, 
+       rug = TRUE
+)
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+pp
+
+```
+
+* *Self-reported feeling thermometer (difference score)*: There is a small bias in favor of Young people. The difference between the current and previous measure might result from the nature of each measure: while the Self-reported preference measure directly compares Young and Old people (as does the IAT), the thermometer does not compare the two categories directly. A comparative context might facilitate bias.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+pp <- ggdensity(age,
+       x = "diff_thermo",
+       y = "..density..",
+       fill = "lightblue",
+       xlab = "Thermometer difference", 
+       add = "mean",
+       size = 1, 
+       rug = TRUE
+)
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+pp
+
+```
+
+* *Correlation between the measures*: There is a small automatic-deliberate correlation, and a strong relation between the two self-report measures.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+age %>% corrMatrix(vars = vars(IAT,att,diff_thermo))
+
+```
+
+* *IAT block-order*
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+age1 <- age %>% drop_na(blockOrder)
+
+pp <- ggstatsplot::ggbetweenstats(
+  data = age1,
+  x = blockOrder,
+  y = IAT,
+  xlab = "Block-order", # label for the x-axis variable
+  ylab = "IAT", # label for the y-axis variable  
+  messages = FALSE,
+  notch = TRUE, # show notched box plot
+  mean.plotting = TRUE, # whether mean for each group is to be displayed
+  mean.ci = TRUE, # whether to display confidence interval for means
+  type = "parametric", # which type of test is to be run
+  effsize.type = "biased",
+  k = 3, # number of decimal places for statistical results  
+) + # further modification outside of ggstatsplot
+  ggplot2::coord_cartesian(ylim = c(-2, 2))
+pp <- pp + font("title", size = 20, color = "black", face = "bold")+
+font("legend.text", size = 16, color = "black", face = "bold")+
+font("xlab", size = 18, color = "black", face = "bold")+
+font("ylab", size = 18, color = "black", face = "bold")+
+font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp +theme(legend.position="none")
+pp
+
+```
+
+#### **Evaluation measures by year**
+
+The deliberate and automatic preference between the groups stays the same (and strong) throughout the years.
+*Note*: The dashed line marks the point of no preference between the two categories (Old people and Young people).
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+age1 <- age %>% drop_na(year)
+age1$Year <- as.factor(age$year)
+
+p1 <- ggviolin(age1, x = "Year",
+      y = c("IAT"),
+      combine = TRUE,
+      ylab = "IAT", 
+      color = "black",
+      fill = "lightblue",
+      add = c("mean_ci"),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+p1 <- p1 + geom_hline(yintercept=0, linetype="dashed", 
+                color = "darkblue", size=1.2)
+
+p1 <- p1 + 
+font("title", size = 14, color = "black", face = "bold")+
+font("legend.text", size = 13, color = "black", face = "bold")+
+font("xlab", size = 14, color = "black", face = "bold")+
+font("ylab", size = 14, color = "black", face = "bold")+
+font("xy.text", size = 10, color = "black")
+p1 <- p1 +theme(legend.position="none")
+
+p2 <- ggviolin(age1, x = "Year",
+      y = c("diff_thermo"),
+      combine = TRUE,
+      ylab = "Thermometer", 
+      color = "black",
+      fill = "lightgreen",
+      add = c("mean_ci"),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+p2 <- p2 + geom_hline(yintercept=0, linetype="dashed", 
+                color = "darkgreen", size=1.2)
+
+p2 <- p2 + 
+font("title", size = 14, color = "black", face = "bold")+
+font("legend.text", size = 13, color = "black", face = "bold")+
+font("xlab", size = 14, color = "black", face = "bold")+
+font("ylab", size = 14, color = "black", face = "bold")+
+font("xy.text", size = 10, color = "black")
+p2 <- p2 +theme(legend.position="none")
+
+p3 <- ggviolin(age1, x = "Year",
+      y = c("att"),
+      combine = TRUE,
+      ylab = "Preference", 
+      color = "black",
+      fill = "yellow",
+      add = c("mean_ci"),
+      draw_quantiles = c(0.25,0.5,0.75)
+      )
+p3 <- p3 + geom_hline(yintercept=4, linetype="dashed", 
+                color = "orange", size=1.2)
+
+p3 <- p3 + 
+font("title", size = 14, color = "black", face = "bold")+
+font("legend.text", size = 13, color = "black", face = "bold")+
+font("xlab", size = 14, color = "black", face = "bold")+
+font("ylab", size = 14, color = "black", face = "bold")+
+font("xy.text", size = 10, color = "black")
+p3 <- p3 +theme(legend.position="none")
+
+ggarrange(p1,                                                 
+          ggarrange(p2, p3, ncol = 2), 
+          nrow = 2)                                       
+
+```
+
