@@ -182,12 +182,14 @@ all_ds$Task <- c("Age","Race","Skin","Weight","Ethnicity","Sexuality","Nationali
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -195,11 +197,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -259,12 +261,14 @@ all_ds$Task <- c("Age","Race","Weight","Ethnicity","Sexuality","Nationalism")
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -272,11 +276,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -330,12 +334,14 @@ all_ds$Task <- c("Age","Race","Skin","Weight","Nationalism","Gender-Science")
 pp <- ggdotchart(all_ds, x = "Task", y = "es",
            color = "Task",                                # Color by groups
            ylab = "Cohen's d",
+           #palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
            sorting = "descending",                       # Sort value in descending order
            add = "segments",                             # Add segments from y = 0 to dots
            rotate = TRUE,                                # Rotate vertically
-           dot.size = 20,                                 # Large dot size
+           #group = "cyl",                                # Order by groups
+           dot.size = 30,                                 # Large dot size
            label = round(all_ds$es,3),                        # Add mpg values as dot labels
-           font.label = list(color = "white", size = 15, 
+           font.label = list(color = "white", size = 25, 
                              vjust = 0.5),               # Adjust label parameters
            ggtheme = theme_pubr()                        # ggplot2 theme
            )
@@ -343,11 +349,11 @@ pp <- ggdotchart(all_ds, x = "Task", y = "es",
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
-pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+pp <- pp + font("title", size = 30, color = "black", face = "bold")+
+font("legend.text", size = 26, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
 pp <- pp +theme(legend.position="none")
 
 pp
@@ -507,16 +513,17 @@ thermo_df <- df %>% mutate(params = purrr::map(.x = data, .f = ~get_es_thr(.x)))
 
 iat_df$Year = factor(iat_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"))
 
-pp <- ggline(iat_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(iat_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -529,16 +536,17 @@ pp
 
 att_df$Year = factor(att_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) 
 
-pp <- ggline(att_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(att_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2)
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
@@ -551,16 +559,17 @@ pp
 
 thermo_df$Year = factor(thermo_df$Year, c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019")) 
 
-pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 1.5)
+pp <- ggline(thermo_df, x = "Year", y = "Cohens_d", ylab = "Cohen's d", color = "Task", size = 2)
 
 pp <- pp + geom_hline(yintercept = 0, linetype = "dashed", color = "darkblue", 
     size = 1.2) 
 
 pp <- pp + font("title", size = 20, color = "black", face = "bold")+
-font("legend.text", size = 16, color = "black", face = "bold")+
-font("xlab", size = 18, color = "black", face = "bold")+
-font("ylab", size = 18, color = "black", face = "bold")+
-font("xy.text", size = 15, color = "black", face = "bold")
+font("legend.text", size = 25, color = "black", face = "bold")+
+font("xlab", size = 28, color = "black", face = "bold")+
+font("ylab", size = 28, color = "black", face = "bold")+
+font("xy.text", size = 25, color = "black", face = "bold")
+#pp <- pp +theme(legend.position="none")
 
 pp
 
