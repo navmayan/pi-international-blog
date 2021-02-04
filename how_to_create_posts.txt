@@ -1,0 +1,3 @@
+posts need to be saved under the content folder. They are copied to other folders upon build.
+run blogdown::serve_site at the first run in the session, and blogdown::build_site later (documented in config.toml)
+important to save the post name as name + date, and also update the date inside the file
